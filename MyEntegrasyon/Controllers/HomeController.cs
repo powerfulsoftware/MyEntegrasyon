@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyEntegrasyon.Models;
+using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
 using System.Net;
@@ -9,38 +10,34 @@ namespace MyEntegrasyon.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        private string Connect_Url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
+        
 
-        public IActionResult Index()
+      
+
+
+        public async Task<IActionResult> Index()
         {
-            string? url = "";
-            url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
-            var webRequest = (HttpWebRequest)WebRequest.Create(url);
-            webRequest.Method = "GET";
-            webRequest.ContentType = "application/json";
-            webRequest.UserAgent = "Mozilla/5.0 (Windows NT 5.1; rv:28.0) Gecko/20100101 Firefox/28.0";
-            webRequest.ContentLength = 0;
-
-            var webResponse = (HttpWebResponse)webRequest.GetResponse();
-
-            if (webResponse.StatusCode != HttpStatusCode.OK) // olumsuzsa
-            {
-
-                var gelen = webResponse.Headers.ToString();
-            }
-            using (StreamReader reader = new StreamReader(webResponse.GetResponseStream()))
-            {
-                Console.WriteLine(reader.ReadToEnd());
-                reader.Close();
-                webRequest.Abort();
-            }
+            
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Accept", "application/json");
+            var result = await client.GetStringAsync(Connect_Url);
+            var gelen = JsonConvert.DeserializeObject<jsonVeri>(result)!;
 
 
-            return View();
+
+            HttpClient client2 = new HttpClient();
+            client2.DefaultRequestHeaders.Add("Accept", "application/json");
+            var result2 = await client2.GetStringAsync("http://95.70.226.23:1515/(S(" + gelen.SessionID + "))/IntegratorService/Connect?");
+
+
+
+
+            return View(gelen);
         }
 
         public IActionResult Privacy()
