@@ -1,12 +1,12 @@
 ﻿@using MyEntegrasyon.Models
-@model jsonVeri;
+@model List<Parameter>;
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 
-<from>
+@* <from>
     <div class="">
         <input value="@Model.ModelType" class="form-control" />
     </div>
@@ -19,4 +19,35 @@
     <div class="">
         <input value="@Model.SessionID" class="form-control" />
     </div>
-</from>
+</from> *@
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+           
+            <th scope="col">ItemName</th>
+            <th scope="col">Cat01Desc</th>
+            <th scope="col">BrandDesc</th>
+            <th scope="col">HEPSIBURADA_LST</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+             <tr>
+              
+                <td>@item.ItemName</td>
+                <td>@item.Cat01Desc</td>
+                <td>@item.BrandDesc</td>
+                <td>@item.HEPSIBURADA_LST</td>
+             </tr>
+        }
+
+       
+      
+    </tbody>
+</table>

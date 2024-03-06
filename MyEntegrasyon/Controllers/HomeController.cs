@@ -3,6 +3,7 @@ using MyEntegrasyon.Models;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net;
 
 namespace MyEntegrasyon.Controllers
@@ -32,12 +33,15 @@ namespace MyEntegrasyon.Controllers
 
             HttpClient client2 = new HttpClient();
             client2.DefaultRequestHeaders.Add("Accept", "application/json");
-            var result2 = await client2.GetStringAsync("http://95.70.226.23:1515/(S(" + gelen.SessionID + "))/IntegratorService/Connect?");
+            var result2 = await client2.GetStringAsync("http://95.70.226.23:1515/(S("+ gelen.SessionID  + "))/IntegratorService/RunProc?{'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]}");
+            
+            // result2 = result2.Substring(1, result2.Length - 1).Substring(0, result2.Length - 2);
+
+            var gelen2 = JsonConvert.DeserializeObject<List<Parameter>>(result2, new JsonSerializerSettings() { Culture = CultureInfo.InvariantCulture, FloatParseHandling = FloatParseHandling.Double })!;
 
 
 
-
-            return View(gelen);
+            return View(gelen2);
         }
 
         public IActionResult Privacy()
