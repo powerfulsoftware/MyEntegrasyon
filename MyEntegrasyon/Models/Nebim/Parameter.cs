@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MyEntegrasyon.Models
+namespace MyEntegrasyon.Models.Nebim
 {
     public class Parameter
     {
@@ -40,7 +40,7 @@ namespace MyEntegrasyon.Models
         public double Price1 { get; set; }
         public double Price2 { get; set; }
         public string? Price3 { get; set; }
-       // public int Price3 { get; set; }
+        // public int Price3 { get; set; }
         public double Price4 { get; set; }
         public double Price5 { get; set; }
         //public int AlisFiyati { get; set;

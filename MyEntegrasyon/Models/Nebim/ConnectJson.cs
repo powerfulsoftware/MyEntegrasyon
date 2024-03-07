@@ -1,6 +1,6 @@
-﻿namespace MyEntegrasyon.Models
+﻿namespace MyEntegrasyon.Models.Nebim
 {
-    public class jsonVeri
+    public class ConnectJson
     {
         public int ModelType { get; set; }
         public string? Status { get; set; }

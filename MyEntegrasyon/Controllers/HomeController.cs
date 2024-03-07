@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MyEntegrasyon.Models;
+using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -27,7 +28,7 @@ namespace MyEntegrasyon.Controllers
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             var result = await client.GetStringAsync(Connect_Url);
-            var gelen = JsonConvert.DeserializeObject<jsonVeri>(result)!;
+            var gelen = JsonConvert.DeserializeObject<ConnectJson>(result)!;
 
 
 

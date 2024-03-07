@@ -1,0 +1,63 @@
+﻿@using MyEntegrasyon.Models.Nebim
+@model List<Parameter>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .table-condensed {
+        font-size: 10px;
+    }
+</style>
+
+
+
+
+
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            
+            <th scope="col">ItemCode</th>
+            <th scope="col">ItemName</th>
+            <th scope="col">ItemDim1Code</th>
+            
+
+            <th scope="col">ColorDesc</th>
+
+            
+            <th scope="col">Qty (Adet)</th>
+            <th scope="col">Vat (KDV)</th>
+            <th scope="col">Cat01Desc</th>
+            <th scope="col">BrandDesc</th>
+            <th scope="col">AlisFiyati</th>
+            
+            <th scope="col">HEPSIBURADA_LST</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ItemCode</td>
+                <td>@item.ItemName</td>
+                <td>@item.ItemDim1Code</td>
+                <td>@item.ColorDesc</td>
+               
+                <td>@item.Qty</td>
+                <td>@item.Vat</td>
+                <td>@item.Cat01Desc</td>
+                <td>@item.BrandDesc</td>
+                <td> @string.Format("{0:#.00}", Convert.ToDecimal(@item.AlisFiyati)/10000) </td>
+                
+                <td>@item.HEPSIBURADA_LST</td>
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>
