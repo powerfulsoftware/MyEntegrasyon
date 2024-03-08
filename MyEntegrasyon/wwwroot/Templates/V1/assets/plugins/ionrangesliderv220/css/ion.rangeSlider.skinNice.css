@@ -1,0 +1,102 @@
+/* Ion.RangeSlider, Nice Skin
+// css version 2.0.3
+// © Denis Ineshin, 2014    https://github.com/IonDen
+// ===================================================================================================================*/
+
+/* =====================================================================================================================
+// Skin details */
+
+.range-slider-nice .irs-line-mid,
+.range-slider-nice .irs-line-left,
+.range-slider-nice .irs-line-right,
+.range-slider-nice .irs-bar,
+.range-slider-nice .irs-bar-edge,
+.range-slider-nice .irs-slider {
+    background: url(../img/sprite-skin-nice.png) repeat-x;
+}
+
+.range-slider-nice .irs {
+    height: 40px;
+}
+.range-slider-nice .irs-with-grid {
+    height: 60px;
+}
+.range-slider-nice .irs-line {
+    height: 8px; top: 25px;
+}
+    .range-slider-nice .irs-line-left {
+        height: 8px;
+        background-position: 0 -30px;
+    }
+    .range-slider-nice .irs-line-mid {
+        height: 8px;
+        background-position: 0 0;
+    }
+    .range-slider-nice .irs-line-right {
+        height: 8px;
+        background-position: 100% -30px;
+    }
+
+.range-slider-nice .irs-bar {
+    height: 8px; top: 25px;
+    background-position: 0 -60px;
+}
+    .range-slider-nice .irs-bar-edge {
+        top: 25px;
+        height: 8px; width: 11px;
+        background-position: 0 -90px;
+    }
+
+.range-slider-nice .irs-shadow {
+    height: 1px; top: 34px;
+    background: #000;
+    opacity: 0.15;
+}
+.range-slider-nice .lt-ie9 .irs-shadow {
+    filter: alpha(opacity=15);
+}
+
+.range-slider-nice .irs-slider {
+    width: 22px; height: 22px;
+    top: 17px;
+    background-position: 0 -120px;
+}
+.range-slider-nice .irs-slider.state_hover, .range-slider-nice .irs-slider:hover {
+    background-position: 0 -150px;
+}
+
+.range-slider-nice .irs-min, .range-slider-nice .irs-max {
+    color: #999;
+    font-size: 10px; line-height: 1.333;
+    text-shadow: none;
+    top: 0; padding: 1px 3px;
+    background: rgba(0,0,0,0.1);
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.range-slider-nice .lt-ie9 .irs-min, .range-slider-nice .lt-ie9 .irs-max {
+    background: #ccc;
+}
+
+.range-slider-nice .irs-from, .range-slider-nice .irs-to, .range-slider-nice .irs-single {
+    color: #fff;
+    font-size: 10px; line-height: 1.333;
+    text-shadow: none;
+    padding: 1px 5px;
+    background: rgba(0,0,0,0.3);
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.range-slider-nice .lt-ie9 .irs-from, .range-slider-nice .lt-ie9 .irs-to, .range-slider-nice .lt-ie9 .irs-single {
+    background: #999;
+}
+
+.range-slider-nice .irs-grid-pol {
+    background: #99a4ac;
+}
+.range-slider-nice .irs-grid-text {
+    color: #99a4ac;
+}
+
+.range-slider-nice .irs-disabled {
+}
