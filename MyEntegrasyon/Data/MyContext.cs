@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore;
 using MyEntegrasyon.Data.Entities;
+using System.Reflection.Emit;
 
 namespace MyEntegrasyon.Data
 {
@@ -35,6 +36,9 @@ namespace MyEntegrasyon.Data
             base.OnModelCreating(builder);
             builder.Entity<AppUser>().ToTable("AspNetUsers").HasKey(uc => uc.Id);
             builder.Entity<AppRole>().ToTable("AspNetRoles").HasKey(uc => uc.Id);
+
+
+
         }
 
     }

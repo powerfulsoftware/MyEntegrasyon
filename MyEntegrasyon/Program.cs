@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyEntegrasyon.Data;
 using MyEntegrasyon.Data.Entities;
+using MyEntegrasyon.Seed;
 using MyEntegrasyon.Service;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -62,6 +63,8 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+DataSeeding.Seed(app);
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

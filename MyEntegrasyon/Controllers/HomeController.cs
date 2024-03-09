@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MyEntegrasyon.Data;
 using MyEntegrasyon.Models;
 using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
@@ -11,10 +12,12 @@ namespace MyEntegrasyon.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MyContext _context;
         private readonly ILogger<HomeController> _logger;
         private string Connect_Url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(MyContext myContext, ILogger<HomeController> logger)
         {
+            _context = myContext;
             _logger = logger;
         }
         
