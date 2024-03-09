@@ -1,0 +1,60 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+
+	<title> @ViewBag.Title</title>
+
+	<link href="~/Templates/V1/login/css/styles.css" rel="stylesheet" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+
+
+	<style>
+		.brand_logo_container {
+			position: absolute;
+			height: 170px;
+			width: 170px;
+			top: -75px;
+			border-radius: 50%;
+			background: #00407A;
+			padding: 10px;
+			text-align: center;
+		}
+
+		.brand_logo {
+			height: 150px;
+			width: 150px;
+			border-radius: 50%;
+			border: 2px solid white;
+		}
+
+		.bg-primary {
+			background-color: #00407A !important;
+		}
+
+		.btn-primary {
+			background-color: #00407A !important;
+			border-color: #00407A !important;
+		}
+
+		.giris-footer-p-a-text {
+			background-color: #00407A !important;
+			border-color: #00407A !important;
+		}
+
+	</style>
+
+
+
+
+</head>
+<body class="bg-primary">
+
+
+	@RenderBody()
+
+
+	@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

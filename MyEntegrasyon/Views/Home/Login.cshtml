@@ -1,0 +1,107 @@
+﻿@using MyEntegrasyon.Models.ViewModel
+@model ViewModelLogin
+
+@{
+    Layout = "../../Views/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "";
+
+}
+
+
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-lg" style="margin-top:6rem;">
+
+                            @* <a class="nav-link" asp-controller="SistemBirimi" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-mail-bulk"></i></div>
+                            Mailler
+                            </a>*@
+                            <div class="d-flex justify-content-center">
+                                <div class="brand_logo_container">
+                                    <img src="https://adiyaman.edu.tr/files/adiyaman.edu.tr/logo/adyu-logo.png" class="brand_logo" alt="Logo">
+                                </div>
+                            </div>
+
+
+                            <div class="card-header">
+
+                                <h3 class="text-center font-weight-light my-4">LOGO</h3>
+
+                            </div>
+
+
+
+
+
+
+                            <div class="card-body">
+                                <form id="home" method="post">
+
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @Placeholder = "User name" } })
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        @*  @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Kurumsal Email Şifresi" } }) *@
+                                        <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+                                    </div>
+
+
+
+                                    @* <div class="d-flex justify-content-center mt-3 login_container">
+                                    <button type="button" name="button" class="btn login_btn btn btn-primary">Giriş Yap</button>
+                                    </div>*@
+
+                                    <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                                        <div class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
+                                            <label class="custom-control-label" for="rememberPasswordCheck">Şifreyi hatırla</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="large" style="font-size:20px;">
+
+                                    <p><a href="#" target="_blank" style="text-decoration:none; color:#00407A !important; ">Entegrasyon Sistemi</a></p>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts {
+
+}

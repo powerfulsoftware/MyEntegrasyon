@@ -8,161 +8,160 @@
 @inject UserManager<AppUser> _userManager;
 
 
-
-
-@{
-    string name = "mustafacelenk@adiyaman.edu.tr";
-   
-
-
-    IList<string> userRoles;
+@* @{
     var AdiSoyadi = "";
-    if (!string.IsNullOrEmpty(name))
+    AppUser user = await UserManager.FindByNameAsync(User.Identity.Name);
+    if (user != null)
     {
-        AppUser user = await UserManager.FindByNameAsync(name);
+        AdiSoyadi = user.Adi + " " + user.Soyadi;
+    }
+} *@
+
+
+
+@* @{
+    IList<string> userRoles;
+    var AdiSoyadi2 = "";
+  
+        AppUser user2 = await UserManager.FindByNameAsync(User.Identity.Name);
         if (user != null)
         {
             AdiSoyadi = user.Adi + " " + user.Soyadi;
             userRoles = await _userManager.GetRolesAsync(user);
+        }
+}
+ *@
+
+
+<div class="sidebar">
+    <div class="sidebar-header text-center">
+        <a href="index.html"><strong>e-</strong>Hizmetler</a>
+    </div> <!-- sidebar-header div end -->
+    <div class="sidebar-profile text-center">
+        <img src="~/Templates/V1/assets/spanel/img/yonetici.png" class="img-fluid  mx-auto d-block rounded-circle" alt="">
+        <div class="user-name">Mustafa xyz</div>
+        @*  <div class="user-role">Yönetici</div> *@
+        <div class="btn-group btn-group-sm mt-1" role="group" aria-label="Basic example">
+            <a href="/Profil/Parola" class="btn" data-toggle="tooltip" data-placement="top" title="Parola İşlemleri"><i class="fa fa-key"></i></a>
+            <a href="/Profil/index" class="btn" data-toggle="tooltip" data-placement="top" title="Profil İşlemleri"><i class="fa fa-user"></i></a>
+        </div>
+    </div> <!-- sidebar-profil div end -->
+    <div class="sidebar-nav">
+        <ul class="nav flex-column" id="sidebarnav">
+            <li class="nav-item @Html.ActiveClass("Dashboard", "Index")">
+                <a class="nav-link" href="/Dashboard/index">
+                    <span class="title">Anasayfa</span>
+
+                </a>
+                <i class="fa fa-tachometer-alt"></i>
+            </li>
 
 
 
-            <div class="sidebar">
-                <div class="sidebar-header text-center">
-                    <a href="index.html"><strong>e-</strong>Hizmetler</a>
-                </div> <!-- sidebar-header div end -->
-                <div class="sidebar-profile text-center">
-                    <img src="~/Templates/V1/assets/spanel/img/yonetici.png" class="img-fluid  mx-auto d-block rounded-circle" alt="">
-                    <div class="user-name">@AdiSoyadi</div>
-                    @*  <div class="user-role">Yönetici</div> *@
-                    <div class="btn-group btn-group-sm mt-1" role="group" aria-label="Basic example">
-                        <a href="/Profil/Parola" class="btn" data-toggle="tooltip" data-placement="top" title="Parola İşlemleri"><i class="fa fa-key"></i></a>
-                        <a href="/Profil/index" class="btn" data-toggle="tooltip" data-placement="top" title="Profil İşlemleri"><i class="fa fa-user"></i></a>
-                    </div>
-                </div> <!-- sidebar-profil div end -->
-                <div class="sidebar-nav">
-                    <ul class="nav flex-column" id="sidebarnav">
-                        <li class="nav-item @Html.ActiveClass("Dashboard", "Index")">
-                            <a class="nav-link" href="/Dashboard/index">
-                                <span class="title">Anasayfa</span>
 
-                            </a>
-                            <i class="fa fa-tachometer-alt"></i>
-                        </li>
-
-
-
-
-                        @foreach (var rol in userRoles)
-                        {
-                            if (rol == "Admin")
-                            {
-                                <li class="nav-item submenu
+          
+                if (rol == "Admin")
+                {
+                    <li class="nav-item submenu
                                 @Html.ActiveClass("Tanimlama", "BirimTuru")
                                 @Html.ActiveClass("Tanimlama", "Birimler")
                                 @Html.ActiveClass("Tanimlama", "Bolumler")">
-                                    <a class="nav-link">
-                                        <span class="title">Genel İşlemler</span>
-                                    </a>
-                                    <i class="fa fa-bars"></i>
-                                    <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                                        <li class="@Html.ActiveClass("Tanimlama", "BirimTuru")">
-                                            <a href="~/Tanimlama/BirimTuru">Birim Türü</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Tanimlama", "Birimler")">
-                                            <a href="~/Tanimlama/Birimler">Birim</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Tanimlama", "Bolumler")">
-                                            <a href="~/Tanimlama/Bolumler">Bölüm</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                        <a class="nav-link">
+                            <span class="title">Genel İşlemler</span>
+                        </a>
+                        <i class="fa fa-bars"></i>
+                        <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                            <li class="@Html.ActiveClass("Tanimlama", "BirimTuru")">
+                                <a href="~/Tanimlama/BirimTuru">Birim Türü</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Tanimlama", "Birimler")">
+                                <a href="~/Tanimlama/Birimler">Birim</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Tanimlama", "Bolumler")">
+                                <a href="~/Tanimlama/Bolumler">Bölüm</a>
+                            </li>
+                        </ul>
+                    </li>
 
-                                <li class="nav-item submenu
+                    <li class="nav-item submenu
                             @Html.ActiveClass("Yonetici", "Users")
                             @Html.ActiveClass("Uygulama", "Clients")
                             @Html.ActiveClass("Uygulama", "Scopes")
                             @Html.ActiveClass("Uygulama", "Resources")
                             @Html.ActiveClass("Uygulama", "IdentityResources")
-                                                                                    ">
-                                    <a class="nav-link">
-                                        <span class="title">Yonetici</span>
-                                    </a>
-                                    <i class="fa fa-sitemap"></i>
-                                    <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                                        <li class="@Html.ActiveClass("Yonetici", "Users")">
-                                            <a href="~/yonetici/Users">Kullanıcılar</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Uygulama", "Clients")">
-                                            <a href="~/Uygulama/Clients">Uygulamalar (Clients)</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Uygulama", "Scopes")">
-                                            <a href="~/Uygulama/Scopes">Kapsamlar (Scopes)</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Uygulama", "Resources")">
-                                            <a href="~/Uygulama/Resources">Kaynaklar (Resources)</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Uygulama", "IdentityResources")">
-                                            <a href="~/Uygulama/IdentityResources">Identity Kaynaklar (IdentityResources)</a>
-                                        </li>
+                                                                                            ">
+                        <a class="nav-link">
+                            <span class="title">Yonetici</span>
+                        </a>
+                        <i class="fa fa-sitemap"></i>
+                        <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                            <li class="@Html.ActiveClass("Yonetici", "Users")">
+                                <a href="~/yonetici/Users">Kullanıcılar</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Uygulama", "Clients")">
+                                <a href="~/Uygulama/Clients">Uygulamalar (Clients)</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Uygulama", "Scopes")">
+                                <a href="~/Uygulama/Scopes">Kapsamlar (Scopes)</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Uygulama", "Resources")">
+                                <a href="~/Uygulama/Resources">Kaynaklar (Resources)</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Uygulama", "IdentityResources")">
+                                <a href="~/Uygulama/IdentityResources">Identity Kaynaklar (IdentityResources)</a>
+                            </li>
 
 
 
-                                    </ul>
+                        </ul>
 
-                                </li>
-                                <li class="nav-item submenu @Html.ActiveClass("Rol", "Roller") @Html.ActiveClass("Rol", "RolEkle")">
-                                    <a class="nav-link">
-                                        <span class="title">Ayarlar</span>
-                                        <span class="detail">Yazılımcı</span>
-                                    </a>
-                                    <i class="fa fa-sitemap"></i>
-                                    <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                                        <li class="@Html.ActiveClass("Rol", "Roller")">
-                                            <a href="~/Rol/Roller">Roller</a>
-                                        </li>
-                                        <li class="@Html.ActiveClass("Rol", "RolEkle")">
-                                            <a href="~/Rol/RolEkle">Rol Ekle</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            }
+                    </li>
+                    <li class="nav-item submenu @Html.ActiveClass("Rol", "Roller") @Html.ActiveClass("Rol", "RolEkle")">
+                        <a class="nav-link">
+                            <span class="title">Ayarlar</span>
+                            <span class="detail">Yazılımcı</span>
+                        </a>
+                        <i class="fa fa-sitemap"></i>
+                        <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                            <li class="@Html.ActiveClass("Rol", "Roller")">
+                                <a href="~/Rol/Roller">Roller</a>
+                            </li>
+                            <li class="@Html.ActiveClass("Rol", "RolEkle")">
+                                <a href="~/Rol/RolEkle">Rol Ekle</a>
+                            </li>
+                        </ul>
+                    </li>
+                }
 
-                        }
-
-
-
-
-
-
-
-
-                    </ul>
-                </div> <!-- sidebar-nav div end -->
-                <div class="sidebar-footer">
-                    @* <img src="assets/spanel/img/shift-logo.png" />*@
-                    <span>Yoklama Sistemi  &copy; @DateTime.Now.Year</span>
-
-
-
-                    @if (!string.IsNullOrWhiteSpace(name))
-                    {
-
-                        @*  <a class="logout" href="~/Account/Logout" data-toggle="tooltip" data-placement="left" ><i class="fa fa-power-off fa-2x"></i></a> *@
-                        <a class="logout" asp-action="Logout" asp-controller="Account" title="Çıkış Yap"><i class="fa fa-power-off fa-2x"></i></a>
-                    }
+         
 
 
 
 
 
 
-                    <div class="clearfix"></div>
-                </div> <!-- sidebar footer div end -->
-            </div> <!-- sidebar div end -->
+
+
+        </ul>
+    </div> <!-- sidebar-nav div end -->
+    <div class="sidebar-footer">
+        @* <img src="assets/spanel/img/shift-logo.png" />*@
+        <span>Yoklama Sistemi  &copy; @DateTime.Now.Year</span>
+
+
+
+        @if (!string.IsNullOrWhiteSpace("Adi Soyadı"))
+        {
+
+            @*  <a class="logout" href="~/Account/Logout" data-toggle="tooltip" data-placement="left" ><i class="fa fa-power-off fa-2x"></i></a> *@
+            <a class="logout" asp-action="Logout" asp-controller="Account" title="Çıkış Yap"><i class="fa fa-power-off fa-2x"></i></a>
         }
 
 
-    }
 
-}
+
+
+
+        <div class="clearfix"></div>
+    </div> <!-- sidebar footer div end -->
+</div> <!-- sidebar div end -->
