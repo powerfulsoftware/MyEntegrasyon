@@ -8,6 +8,7 @@ using MyEntegrasyon.Models;
 using MyEntegrasyon.Models.Messages;
 using MyEntegrasyon.Models.Nebim;
 using MyEntegrasyon.Models.ViewModel;
+using MyEntegrasyon.Services;
 using Newtonsoft.Json;
 using System;
 using System.Diagnostics;
@@ -21,21 +22,34 @@ namespace MyEntegrasyon.Controllers
     {
         private readonly MyContext _context;
         private readonly ILogger<HomeController> _logger;
+		private readonly IMathService _mathService;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
 
 
         private string Connect_Url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
-        public HomeController(MyContext myContext, ILogger<HomeController> logger, UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public HomeController(MyContext myContext, ILogger<HomeController> logger, IMathService mathService,  UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _context = myContext;
             _logger = logger;
+			_mathService = mathService;
 			_userManager = userManager;
 			_signInManager = signInManager;
         }
 
         public IActionResult Index()
         {
+
+			try
+			{
+				decimal result = _mathService.Divide(5 , 0);
+			}
+			catch (Exception ex)
+			{
+				_logger.LogWarning(ex + " An exception occured while dividing two numbers");
+				
+			}
+
             return View();
         }
 

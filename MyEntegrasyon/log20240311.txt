@@ -1,0 +1,88 @@
+2024-03-11 00:56:53.011 +03:00 [INF] Starting web application MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+2024-03-11 00:56:55.387 +03:00 [INF] User profile is available. Using 'C:\Users\CELENK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-11 00:56:57.750 +03:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-11 00:56:57.809 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-11 00:56:57.818 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-11 00:56:57.823 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-11 00:56:57.860 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-11 00:56:57.934 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-11 00:56:58.430 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-11 00:56:59.005 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-11 00:56:59.008 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-11 00:56:59.069 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-11 00:56:59.073 +03:00 [INF] Hosting environment: Development
+2024-03-11 00:56:59.076 +03:00 [INF] Content root path: D:\Bünyamin\MyEntegrasyon\MyEntegrasyon\MyEntegrasyon
+2024-03-11 00:57:00.235 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-11 00:57:00.495 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-11 00:57:00.521 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-11 00:57:00.545 +03:00 [INF]  parameter 1: 5
+2024-03-11 00:57:00.548 +03:00 [INF]  parameter 2: 0
+2024-03-11 00:57:00.744 +03:00 [INF] System.DivideByZeroException: Attempted to divide by zero.
+   at System.Decimal.DecCalc.VarDecDiv(DecCalc& d1, DecCalc& d2)
+   at System.Decimal.op_Division(Decimal d1, Decimal d2)
+   at MyEntegrasyon.Services.MatchService.Divide(Decimal parameterOne, Decimal parameterTwo) in D:\Bünyamin\MyEntegrasyon\MyEntegrasyon\MyEntegrasyon\Services\MatchService.cs:line 18You cannot divide by zero.
+2024-03-11 00:57:00.771 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-11 00:57:00.986 +03:00 [INF] Executed ViewResult - view Index executed in 221.7045ms.
+2024-03-11 00:57:01.015 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-11 00:57:01.023 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-03-11 00:57:01.031 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 495.6832ms
+2024-03-11 00:57:01.041 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-11 00:57:01.061 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 45.1225ms
+2024-03-11 00:57:01.082 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 860.9103ms
+2024-03-11 00:57:01.158 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 135.4191ms
+2024-03-11 01:10:49.108 +03:00 [INF] Starting web application MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+2024-03-11 01:10:50.954 +03:00 [INF] User profile is available. Using 'C:\Users\CELENK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-11 01:10:53.624 +03:00 [INF] Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-11 01:10:53.682 +03:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-11 01:10:53.692 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-11 01:10:53.699 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-11 01:10:53.737 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-11 01:10:53.805 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-11 01:10:54.593 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-11 01:10:56.898 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-11 01:10:56.902 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-11 01:10:56.988 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-11 01:10:56.993 +03:00 [INF] Hosting environment: Development
+2024-03-11 01:10:56.995 +03:00 [INF] Content root path: D:\Bünyamin\MyEntegrasyon\MyEntegrasyon\MyEntegrasyon
+2024-03-11 01:11:00.455 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-11 01:11:01.360 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-11 01:11:01.396 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-11 01:11:01.443 +03:00 [INF]  parameter 1: 5
+2024-03-11 01:11:01.447 +03:00 [INF]  parameter 2: 0
+2024-03-11 01:11:01.715 +03:00 [INF] System.DivideByZeroException: Attempted to divide by zero.
+   at System.Decimal.DecCalc.VarDecDiv(DecCalc& d1, DecCalc& d2)
+   at System.Decimal.op_Division(Decimal d1, Decimal d2)
+   at MyEntegrasyon.Services.MatchService.Divide(Decimal parameterOne, Decimal parameterTwo) in D:\Bünyamin\MyEntegrasyon\MyEntegrasyon\MyEntegrasyon\Services\MatchService.cs:line 18You cannot divide by zero.
+2024-03-11 01:11:01.738 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-11 01:11:01.970 +03:00 [INF] Executed ViewResult - view Index executed in 235.4655ms.
+2024-03-11 01:11:02.000 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 591.5714ms
+2024-03-11 01:11:02.010 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-03-11 01:11:02.028 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-11 01:11:02.032 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-11 01:11:02.054 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 33.3447ms
+2024-03-11 01:11:02.063 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 1663.7539ms
+2024-03-11 01:11:02.179 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 178.9412ms
+2024-03-11 01:11:02.357 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-11 01:11:02.371 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 14.6833ms
+2024-03-11 01:11:02.376 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-11 01:11:02.379 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-11 01:11:02.392 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 12.9954ms
+2024-03-11 01:11:02.398 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
