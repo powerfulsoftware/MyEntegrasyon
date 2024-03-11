@@ -2,24 +2,32 @@
 @using MyEntegrasyon.Data.Entities
 @using MyEntegrasyon.Models.Extensions;
 
-@inject SignInManager<AppUser> SignInManager
-@inject UserManager<AppUser> UserManager
-@inject RoleManager<AppRole> roleManager
-@inject UserManager<AppUser> _userManager;
+@inject SignInManager<AppUser> _signInManager
+@inject UserManager<AppUser> _userManager
+@inject RoleManager<AppRole> _roleManager
 
 
-@* @{
+
+@{
     var AdiSoyadi = "";
-    AppUser user = await UserManager.FindByNameAsync(User.Identity.Name);
-    if (user != null)
+    IList<string> userRoles = null;
+    if (User.Identity!.Name != null)
     {
-        AdiSoyadi = user.Adi + " " + user.Soyadi;
+        AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+        if (user != null)
+        {
+            AdiSoyadi = user.Adi + " " + user.Soyadi;
+            userRoles = await _userManager.GetRolesAsync(user);
+        }
     }
-} *@
+
+  
+    
+}
 
 
-
-@* @{
+@* 
+@{
     IList<string> userRoles;
     var AdiSoyadi2 = "";
   
@@ -60,8 +68,8 @@
 
 
           
-                if (rol == "Admin")
-                {
+               @*  @if (rol == "Admin") *@
+                
                     <li class="nav-item submenu
                                 @Html.ActiveClass("Tanimlama", "BirimTuru")
                                 @Html.ActiveClass("Tanimlama", "Birimler")
@@ -84,7 +92,7 @@
                     </li>
 
                     <li class="nav-item submenu
-                            @Html.ActiveClass("Yonetici", "Users")
+                           
                             @Html.ActiveClass("Uygulama", "Clients")
                             @Html.ActiveClass("Uygulama", "Scopes")
                             @Html.ActiveClass("Uygulama", "Resources")
@@ -95,9 +103,7 @@
                         </a>
                         <i class="fa fa-sitemap"></i>
                         <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                            <li class="@Html.ActiveClass("Yonetici", "Users")">
-                                <a href="~/yonetici/Users">Kullanıcılar</a>
-                            </li>
+                        
                             <li class="@Html.ActiveClass("Uygulama", "Clients")">
                                 <a href="~/Uygulama/Clients">Uygulamalar (Clients)</a>
                             </li>
@@ -114,24 +120,57 @@
 
 
                         </ul>
+                    </li>
 
-                    </li>
-                    <li class="nav-item submenu @Html.ActiveClass("Rol", "Roller") @Html.ActiveClass("Rol", "RolEkle")">
-                        <a class="nav-link">
-                            <span class="title">Ayarlar</span>
-                            <span class="detail">Yazılımcı</span>
-                        </a>
-                        <i class="fa fa-sitemap"></i>
-                        <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                            <li class="@Html.ActiveClass("Rol", "Roller")">
-                                <a href="~/Rol/Roller">Roller</a>
-                            </li>
-                            <li class="@Html.ActiveClass("Rol", "RolEkle")">
-                                <a href="~/Rol/RolEkle">Rol Ekle</a>
-                            </li>
-                        </ul>
-                    </li>
+
+            @if (@userRoles != null)
+            {
+                foreach (var item in @userRoles!)
+                {
+                    if (item == "Admin")
+                    {
+
+                        <li class="nav-item submenu
+                    @Html.ActiveClass("Tanimlama", "Users")
+                    @Html.ActiveClass("Rol", "Roller")
+                    @Html.ActiveClass("Rol", "RolEkle")">
+                            <a class="nav-link">
+                                <span class="title">Tanımlama</span>
+                                <span class="detail">Yazılımcı</span>
+                            </a>
+                            <i class="fa fa-sitemap"></i>
+                            <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                                <li class="@Html.ActiveClass("Tanimlama", "Users")">
+                                    <a href="~/Tanimlama/Users">Users</a>
+                                </li>
+                                <li class="@Html.ActiveClass("Rol", "Roller")">
+                                    <a href="~/Rol/Roller">Roller</a>
+                                </li>
+                                <li class="@Html.ActiveClass("Rol", "RolEkle")">
+                                    <a href="~/Rol/RolEkle">Rol Ekle</a>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+
+
                 }
+            }
+            else
+            {
+                <li class="nav-item @Html.ActiveClass("Home", "Login")">
+                    <a class="nav-link" href="/Home/Login">
+                        <span class="title">Giriş Yap</span>
+
+                    </a>
+                    <i class="fa fa-sign-in"></i>  
+                </li>
+            }
+
+
+            
+
+                
 
          
 
@@ -154,7 +193,7 @@
         {
 
             @*  <a class="logout" href="~/Account/Logout" data-toggle="tooltip" data-placement="left" ><i class="fa fa-power-off fa-2x"></i></a> *@
-            <a class="logout" asp-action="Logout" asp-controller="Account" title="Çıkış Yap"><i class="fa fa-power-off fa-2x"></i></a>
+            <a class="logout" asp-action="Logout" asp-controller="Home" title="Çıkış Yap"><i class="fa fa-power-off fa-2x"></i></a>
         }
 
 

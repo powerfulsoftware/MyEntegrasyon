@@ -40,14 +40,14 @@ namespace MyEntegrasyon.Controllers
         public IActionResult Index()
         {
 
-			try
-			{
-				decimal result = _mathService.Divide(5 , 0);
-			}
-			catch (Exception ex)
-			{
-				_logger.LogWarning(ex + " An exception occured while dividing two numbers");
-			}
+			//try
+			//{
+			//	decimal result = _mathService.Divide(5 , 0);
+			//}
+			//catch (Exception ex)
+			//{
+			//	_logger.LogWarning(ex + " An exception occured while dividing two numbers");
+			//}
 
             return View();
         }
@@ -141,6 +141,19 @@ namespace MyEntegrasyon.Controllers
 			return View();
 
 		}
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+
+            Response.Cookies.Delete("Adi");
+            Response.Cookies.Delete("AdiSoyadi");
+
+            _logger.LogInformation(" Çýkýþ iþlemi gerçekleþti (" + Response.Cookies.ToString() + ")");
+
+            return RedirectToAction("Index");
+        }
+
 
 
         [Authorize(Roles = "Admin")]

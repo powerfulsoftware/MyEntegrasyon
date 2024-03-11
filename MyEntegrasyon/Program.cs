@@ -13,12 +13,12 @@ using Serilog.Formatting.Compact;
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
     .WriteTo.Debug(new RenderedCompactJsonFormatter() )
-    .WriteTo.File("log.txt", rollingInterval:RollingInterval.Day)
+    .WriteTo.File("SeriLog\\log.txt", rollingInterval:RollingInterval.Day)
     .CreateLogger();
 
 try
 {
-    Log.Information("Starting web application MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
+    Log.Information("MyEntegrasyon Uygulamasý Baþlatýldý.");
 
     var builder = WebApplication.CreateBuilder(args);
 
@@ -102,7 +102,7 @@ try
 catch (Exception ex)
 {
 
-    Log.Fatal(ex, "Application terminated unexpectedly");
+    Log.Fatal(ex, "Uygulama beklenmedik þekilde sonlandýrýldý."); //  Application terminated unexpectedly
 }
 finally
 {
