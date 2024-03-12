@@ -1,0 +1,174 @@
+﻿@model MyEntegrasyon.Models.ViewModel.UserRolAtamaViewModel
+
+@{
+    ViewBag.Title = "Yeni rol atama";
+}
+
+
+
+<link rel="stylesheet" href="../assets/plugins/bootstrapv4/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/fontawesome512/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="../assets/plugins/fontawesome512/css/font-awesome-animation.min.css">
+<link rel="stylesheet" href="../assets/plugins/perfectscrollbar/css/perfect-scrollbar.css">
+<link rel="stylesheet" href="../assets/plugins/select2v353/css/select2.min.css">
+<link rel="stylesheet" href="../assets/plugins/select2v353/css/select2-bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/jqueryuiv112/jquery-ui.css">
+<link rel="stylesheet" href="../assets/plugins/datatable/css/datatables.min.css">
+<link rel="stylesheet" href="../assets/spanel/css/spanel.css">
+<link rel="stylesheet" href="../assets/plugins/datatable/buttons/css/buttons.bootstrap4.min.css">
+
+
+
+
+
+
+
+<style>
+
+    .regular-checkbox {
+        display: none;
+    }
+
+        .regular-checkbox + label {
+            background-color: #fafafa;
+            border: 1px solid #cacece;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+            padding: 9px;
+            border-radius: 3px;
+            /*display: inline-block;*/
+            position: relative;
+            width: 150px;
+        }
+
+            .regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+                box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+            }
+
+        .regular-checkbox:checked + label {
+            background-color: #e9ecee;
+            border: 1px solid #adb8c0;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+            color: #99a1a7;
+        }
+
+            .regular-checkbox:checked + label:after {
+                content: '\2714';
+                font-size: 14px;
+                position: absolute;
+                top: 0px;
+                left: 3px;
+                color: #99a1a7;
+            }
+
+
+    .big-checkbox + label {
+        padding: 10px;
+    }
+
+    .big-checkbox:checked + label:after {
+        font-size: 28px;
+        left: 6px;
+    }
+
+    .tag {
+        font-family: Arial, sans-serif;
+        width: 200px;
+        position: relative;
+        top: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: block;
+        float: left;
+    }
+
+</style>
+
+
+<div class="container-fluid p-4">
+
+
+
+    <div class="card rounded-0">
+        <div class="card-header"> <h3>@ViewBag.Title</h3></div>
+        <div class="card-body">
+            <form asp-action="RolAta">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" class="form-control" />
+                <div class="form-group col-md-6">
+                    <label asp-for="UserName" class="control-label col-md-3"></label>
+
+                    <div class="col-md-9">
+                        <input asp-for="UserName" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Email" class="control-label col-md-3"></label>
+
+                    <div class="col-md-9">
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+                <div class="form-group col-md-12">
+                    @if (Model.Roles != null) // Eğer Roles tablosu boş değilse listeyi getir.
+                    {
+                        @for (var i = 0; i < Model.Roles.Length; i++)
+                        {
+                            <input type="checkbox" class="regular-checkbox big-checkbox" asp-for="@Model.Roles[i].Selected" />
+                            <label style="padding-left:40px;" asp-for="@Model.Roles[i].Selected">@Model.Roles[i].Name</label>
+                            <input type="hidden" asp-for="@Model.Roles[i].Id" />
+                            <input type="hidden" asp-for="@Model.Roles[i].Name" />
+                        }
+                    }
+                </div>
+
+
+
+                @*   <h5>Bu alanda Ders eklemek için birim yetkileri</h5> *@
+
+                @*  <h5>Bu alanda Derslik eklemek için bina yetkileri</h5> *@
+
+
+                <div class="form-group col-md-12">
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
+                    @Html.ActionLink("Kullanıcı Listesi", "Users", "Tanimlama", null, new { @class = "btn btn-default" })
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+<script src="../assets/plugins/jqueryv321/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="../assets/plugins/bootstrapv4/js/bootstrap.min.js"></script>
+<script src="../assets/plugins/perfectscrollbar/js/perfect-scrollbar.min.js"></script>
+<script src="../assets/plugins/jqueryfullscreen/jquery.fullscreen.min.js"></script>
+<script src="../assets/plugins/jqueryuiv112/jquery-ui.js"></script>
+<script src="../assets/plugins/pace/js/pace.min.js"></script>
+<script src="../assets/spanel/js/portlet.js"></script>
+
+<script src="../assets/plugins/select2v353/js/select2.full.min.js"></script>
+<script src="../assets/spanel/js/spanel.js"></script>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

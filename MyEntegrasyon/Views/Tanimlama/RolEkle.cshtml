@@ -1,0 +1,40 @@
+﻿@model MyEntegrasyon.Models.ViewModel.RolEkleViewModel
+
+@{
+    ViewBag.Title = "Yeni rol oluştur";
+}
+
+
+<div class="container-fluid p-4">
+
+    <h1>Rol Oluşturma</h1>
+
+    <hr />
+    <div class="card rounded-0">
+        <div class="card-header"> <h3>@ViewBag.Title</h3></div>
+        <div class="card-body">
+            <form asp-action="RolEkle">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="RolName" class="control-label"></label>
+                    <input asp-for="RolName" class="form-control" />
+                    <span asp-validation-for="RolName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Oluştur" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+
+</div>

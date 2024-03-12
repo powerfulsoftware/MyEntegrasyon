@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
 using System.Globalization;
 
 namespace MyEntegrasyon.Controllers
 {
+    [Authorize(Roles = "User")]
     public class ProductController : Controller
     {
         private string Connect_Url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
