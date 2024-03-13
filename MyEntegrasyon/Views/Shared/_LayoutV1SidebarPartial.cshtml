@@ -93,31 +93,25 @@
 
                     <li class="nav-item submenu
                            
-                            @Html.ActiveClass("Uygulama", "Clients")
-                            @Html.ActiveClass("Uygulama", "Scopes")
-                            @Html.ActiveClass("Uygulama", "Resources")
-                            @Html.ActiveClass("Uygulama", "IdentityResources")
+                            @Html.ActiveClass("JsonDesen", "ikas")
+                            @Html.ActiveClass("JsonDesen", "Nebim")
+                           
                                                                                             ">
                         <a class="nav-link">
-                            <span class="title">Yonetici</span>
+                            <span class="title">Json Desenler</span>
                         </a>
                         <i class="fa fa-sitemap"></i>
                         <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                        
-                            <li class="@Html.ActiveClass("Uygulama", "Clients")">
-                                <a href="~/Uygulama/Clients">Uygulamalar (Clients)</a>
+                    <li class="@Html.ActiveClass("JsonDesen", "newDesen")">
+                                <a href="~/JsonDesen/newDesen">Yeni Json Desen</a>
                             </li>
-                            <li class="@Html.ActiveClass("Uygulama", "Scopes")">
-                                <a href="~/Uygulama/Scopes">Kapsamlar (Scopes)</a>
+                            <li class="@Html.ActiveClass("JsonDesen", "ikas")">
+                                <a href="~/JsonDesen/ikas">İkas Json</a>
                             </li>
-                            <li class="@Html.ActiveClass("Uygulama", "Resources")">
-                                <a href="~/Uygulama/Resources">Kaynaklar (Resources)</a>
+                             <li class="@Html.ActiveClass("JsonDesen", "Nebim")">
+                                <a href="~/JsonDesen/Nebim">Nebim Json</a>
                             </li>
-                            <li class="@Html.ActiveClass("Uygulama", "IdentityResources")">
-                                <a href="~/Uygulama/IdentityResources">Identity Kaynaklar (IdentityResources)</a>
-                            </li>
-
-
+                           
 
                         </ul>
                     </li>
