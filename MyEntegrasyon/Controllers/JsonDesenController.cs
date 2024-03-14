@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyEntegrasyon.Models.ViewModel;
+using System.Text.Json;
 
 namespace MyEntegrasyon.Controllers
 {
@@ -45,5 +46,27 @@ namespace MyEntegrasyon.Controllers
         {
             return View();
         }
+
+
+
+        public async Task<JsonResult> JsonNewDesen(string Id)
+        {
+            try
+            {
+            //    var client = _configurationDbContext.Clients.Where(x => x.Id == Convert.ToInt32(Id)).FirstOrDefault();
+
+            //    _configurationDbContext.Clients.Remove(client!); // veritabanındaki Clients tablosundan silindi
+            //    await _configurationDbContext.SaveChangesAsync();
+
+                return Json(new { success = true, responseBaslik = "Tamamlandı", responseText = "" + " Başarıyla Silindi." });
+            }
+            catch (Exception ex)
+            {
+                string mesaj = ex.Message;
+                return Json(new { success = false, responseBaslik = "Hata Oluştu!", responseText = "İşlem sırasında hata oluştu." });
+            }
+        }
+
+
     }
 }

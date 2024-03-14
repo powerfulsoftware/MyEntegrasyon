@@ -8,6 +8,15 @@
 }
 
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+
 <div class="container-fluid p-4">
 
  
@@ -40,7 +49,6 @@
                         @Html.ValidationMessage("FirmaId", new { @class = "text-danger" })
                     </div>
                 </div>
-
                 <div class="form-group row">
                     <label asp-for="Description" class="col-sm-2 col-form-label col-form-label-sm"></label>
                     <div class="col-sm-10">
@@ -52,13 +60,16 @@
                 <div class="form-group row">
                     <label asp-for="Pattern" class="col-sm-2 col-form-label col-form-label-sm"></label>
                     <div class="col-sm-10">
-                        <input asp-for="Pattern" class="form-control" />
+                        <textarea rows="9" itemid="Pattern" class="form-control">dd</textarea>
+                      
                         <span asp-validation-for="Pattern" class="text-danger"></span>
                     </div>
                   
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Oluştur" class="btn btn-primary" />
+                    <button id="Olustur" name="Olustur" type="submit" class="btn btn-primary">Oluştur</button>
+
+                    @* <input type="submit" value="Oluştur" id="btnOlustur" class="btn btn-primary" onclick="functionConfirm(this); return false;" /> *@
                 </div>
             </form>
         </div>
@@ -67,6 +78,89 @@
         @{
             await Html.RenderPartialAsync("_ValidationScriptsPartial");
         }
+
+        <script>
+
+
+            $(document).ready(function () {
+
+
+
+              //  document.getElementById("loading").style.display = "none"; // loading aktif
+                $("#Olustur").click(function () {
+                    document.getElementById("Olustur").disabled = true;
+                    document.getElementById("Olustur").innerHTML = 'Lütfen bekleyiniz...';
+
+
+                    alert("ddddddd");
+
+                    
+                    var _Name = document.getElementById("Name").value;
+                    var _TypeId = document.getElementById("TypeId").checked;
+                    var _FirmaId = document.getElementById("FirmaId").checked;
+                    var _Description = document.getElementById("Description").value;
+                    var _Pattern = document.getElementById("Pattern").value;
+
+
+                    alert(_TypeId)
+
+
+
+
+
+                    $.ajax({
+                        type: "post",
+                        url: "/Uygulama/newClient",  //controlerımda gidicek olan yerim
+                        dataType: "json",
+                        data: {
+                            "ClientId": ClientId,
+                            "ClientName": ClientName,
+                            "ClientSecrets": ClientSecrets,
+                            "RequirePkce": RequirePkce,
+                            "RedirectUris": RedirectUris,
+                            "PostLogoutRedirectUris": PostLogoutRedirectUris,
+                            "AllowedGrantTypes": AllowedGrantTypes,
+                            "AllowedScopes": AllowedScopes,
+                            "AccessTokenLifetime": AccessTokenLifetime,
+                            "AllowOfflineAccess": AllowOfflineAccess,
+                            "RefreshTokenUsage": RefreshTokenUsage,
+                            "RefreshTokenExpiration": RefreshTokenExpiration,
+                            "AbsoluteRefreshTokenLifetime": AbsoluteRefreshTokenLifetime,
+                            "RequireConsent": RequireConsent
+                        },
+                        success: function (sonuc) {
+
+                            setTimeout(function () {
+
+                                document.getElementById("loading").style.display = "none"; // loading aktif
+
+                                if (sonuc.ok) {
+                                    document.getElementById("Yukle").disabled = false;
+                                    document.getElementById("Yukle").innerHTML = 'Gönder';
+
+                                    window.location = "/Uygulama/Clients";
+                                }
+                                else {
+                                    window.alert("Hata Oluştu!");
+                                }
+                            },
+                                2000); // 2 saniye beklemeye alıyorum
+                            document.getElementById("loading").style.display = ""; // loading pasif
+
+
+                        }
+                    });
+
+
+
+                });
+            });
+
+
+        </script>
+
+
+
     }
 
 </div>

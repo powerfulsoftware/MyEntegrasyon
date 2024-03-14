@@ -1033,3 +1033,146 @@ WHERE [a].[UserId] = @__userId_0
 2024-03-14 00:36:37.603 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 5.4078ms
 2024-03-14 00:36:37.611 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/newDesen - 200 null text/html; charset=utf-8 741.6884ms
 2024-03-14 00:36:37.641 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.6025ms
+2024-03-14 23:46:42.652 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-03-14 23:46:49.227 +03:00 [INF] User profile is available. Using 'C:\Users\CELENK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-14 23:46:52.224 +03:00 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-14 23:46:52.255 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-14 23:46:52.260 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-14 23:46:52.262 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-14 23:46:52.282 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-14 23:46:52.342 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-14 23:46:52.645 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-14 23:46:53.539 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-14 23:46:53.541 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-14 23:46:53.589 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-14 23:46:53.592 +03:00 [INF] Hosting environment: Development
+2024-03-14 23:46:53.594 +03:00 [INF] Content root path: D:\Bünyamin\MyEntegrasyon\MyEntegrasyon\MyEntegrasyon
+2024-03-14 23:46:55.249 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-14 23:46:55.552 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-14 23:46:55.571 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-14 23:46:55.601 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-14 23:46:55.795 +03:00 [INF] Executed ViewResult - view Index executed in 195.1346ms.
+2024-03-14 23:46:55.811 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 235.797ms
+2024-03-14 23:46:55.819 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-14 23:46:55.825 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-03-14 23:46:55.825 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-14 23:46:55.837 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 596.76ms
+2024-03-14 23:46:55.837 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 12.0201ms
+2024-03-14 23:46:55.925 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 100.752ms
+2024-03-14 23:46:56.025 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-14 23:46:56.038 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 13.2972ms
+2024-03-14 23:46:56.042 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-14 23:46:56.044 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-14 23:46:56.051 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 7.8566ms
+2024-03-14 23:46:56.054 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-03-14 23:50:58.831 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/newDesen - null null
+2024-03-14 23:50:58.850 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-14 23:50:58.858 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-03-14 23:50:58.861 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/newDesen - 302 0 null 30.2534ms
+2024-03-14 23:50:58.865 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FnewDesen - null null
+2024-03-14 23:50:58.870 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-03-14 23:50:58.876 +03:00 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-14 23:50:58.895 +03:00 [INF] Executing ViewResult, running view Login.
+2024-03-14 23:50:59.107 +03:00 [INF] Executed ViewResult - view Login executed in 213.178ms.
+2024-03-14 23:50:59.110 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon) in 231.2542ms
+2024-03-14 23:50:59.112 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-03-14 23:50:59.114 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FnewDesen - 200 null text/html; charset=utf-8 249.6489ms
+2024-03-14 23:50:59.131 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-14 23:50:59.135 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.015ms
+2024-03-14 23:50:59.144 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-03-14 23:50:59.161 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.5702ms
+2024-03-14 23:50:59.974 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FnewDesen - application/x-www-form-urlencoded 251
+2024-03-14 23:50:59.982 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-03-14 23:51:00.002 +03:00 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(MyEntegrasyon.Models.ViewModel.ViewModelLogin) on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-14 23:51:00.624 +03:00 [INF] Executed DbCommand (100ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-03-14 23:51:00.763 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-03-14 23:51:00.791 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-03-14 23:51:01.103 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-03-14 23:51:01.144 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-03-14 23:51:01.200 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-03-14 23:51:01.236 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2024-03-14 23:51:01.247 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-03-14 23:51:01.257 +03:00 [INF] Executing RedirectResult, redirecting to /.
+2024-03-14 23:51:01.259 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon) in 1254.1216ms
+2024-03-14 23:51:01.261 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-03-14 23:51:01.268 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-14 23:51:01.277 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-14 23:51:01.280 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-14 23:51:01.282 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-14 23:51:01.287 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FnewDesen - 302 0 null 1312.605ms
+2024-03-14 23:51:01.376 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-03-14 23:51:01.385 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-03-14 23:51:01.395 +03:00 [INF] Executed ViewResult - view Index executed in 112.4305ms.
+2024-03-14 23:51:01.397 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 114.7804ms
+2024-03-14 23:51:01.399 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-14 23:51:01.402 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 134.3323ms
+2024-03-14 23:51:01.415 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-14 23:51:01.421 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-03-14 23:51:01.422 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 5.6041ms
+2024-03-14 23:51:01.451 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.9352ms
+2024-03-14 23:51:03.508 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/newDesen - null null
+2024-03-14 23:51:03.517 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.newDesen (MyEntegrasyon)'
+2024-03-14 23:51:03.520 +03:00 [INF] Route matched with {action = "newDesen", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult newDesen() on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-03-14 23:51:03.531 +03:00 [INF] Executing ViewResult, running view newDesen.
+2024-03-14 23:51:03.584 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-03-14 23:51:03.590 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-03-14 23:51:03.601 +03:00 [INF] Executed ViewResult - view newDesen executed in 71.4929ms.
+2024-03-14 23:51:03.604 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.newDesen (MyEntegrasyon) in 81.317ms
+2024-03-14 23:51:03.606 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.newDesen (MyEntegrasyon)'
+2024-03-14 23:51:03.609 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/newDesen - 200 null text/html; charset=utf-8 100.2233ms
+2024-03-14 23:51:03.617 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2024-03-14 23:51:03.617 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2024-03-14 23:51:03.628 +03:00 [INF] The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+2024-03-14 23:51:03.628 +03:00 [INF] The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+2024-03-14 23:51:03.631 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-14 23:51:03.633 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-03-14 23:51:03.635 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/lib/jquery-validation/dist/jquery.validate.min.js - 304 null text/javascript 18.398ms
+2024-03-14 23:51:03.635 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 304 null text/javascript 18.209ms
+2024-03-14 23:51:03.645 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 13.679ms
+2024-03-14 23:51:03.661 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 27.6306ms
