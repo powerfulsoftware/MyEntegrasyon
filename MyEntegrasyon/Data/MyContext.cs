@@ -12,6 +12,12 @@ namespace MyEntegrasyon.Data
         {
 
         }
+
+
+        public DbSet<JsonDesen> jsonDesen { get; set; }
+ 
+
+
         //Detaylı arama için bunu ekledim.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

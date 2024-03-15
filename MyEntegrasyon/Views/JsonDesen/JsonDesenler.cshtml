@@ -1,0 +1,48 @@
+﻿@using MyEntegrasyon.Data.Entities
+@model List<JsonDesen>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .table-condensed {
+        font-size: 10px;
+    }
+</style>
+
+
+
+
+
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Pattern</th>
+            <th scope="col">TypeId</th>
+            <th scope="col">FirmaId</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.Pattern</td>
+                <td>@item.TypeId</td>
+                <td>@item.FirmaId</td>
+              
+            </tr>
+        }
+
+
+
+    </tbody>
+</table>

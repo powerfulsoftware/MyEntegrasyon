@@ -1,6 +1,6 @@
-﻿
+﻿@using MyEntegrasyon.Models.ViewModel
 
-@model MyEntegrasyon.Models.ViewModel.newJSONviewModel
+@model newJSONviewModel
 
 @{
     ViewBag.Title = "Yeni Json Desen Oluşturma";
@@ -60,7 +60,7 @@
                 <div class="form-group row">
                     <label asp-for="Pattern" class="col-sm-2 col-form-label col-form-label-sm"></label>
                     <div class="col-sm-10">
-                        <textarea rows="9" itemid="Pattern" class="form-control">dd</textarea>
+                        <textarea rows="9" id="Pattern" name="Pattern" class="form-control">dd</textarea>
                       
                         <span asp-validation-for="Pattern" class="text-danger"></span>
                     </div>
@@ -92,60 +92,42 @@
                     document.getElementById("Olustur").innerHTML = 'Lütfen bekleyiniz...';
 
 
-                    alert("ddddddd");
-
-                    
                     var _Name = document.getElementById("Name").value;
-                    var _TypeId = document.getElementById("TypeId").checked;
-                    var _FirmaId = document.getElementById("FirmaId").checked;
+                    var _TypeId = document.getElementById("TypeId").value;
+                    var _FirmaId = document.getElementById("FirmaId").value;
                     var _Description = document.getElementById("Description").value;
                     var _Pattern = document.getElementById("Pattern").value;
 
 
-                    alert(_TypeId)
-
-
-
-
-
                     $.ajax({
                         type: "post",
-                        url: "/Uygulama/newClient",  //controlerımda gidicek olan yerim
+                        url: "/JsonDesen/JsonNewDesen",  //controlerımda gidicek olan yerim
                         dataType: "json",
                         data: {
-                            "ClientId": ClientId,
-                            "ClientName": ClientName,
-                            "ClientSecrets": ClientSecrets,
-                            "RequirePkce": RequirePkce,
-                            "RedirectUris": RedirectUris,
-                            "PostLogoutRedirectUris": PostLogoutRedirectUris,
-                            "AllowedGrantTypes": AllowedGrantTypes,
-                            "AllowedScopes": AllowedScopes,
-                            "AccessTokenLifetime": AccessTokenLifetime,
-                            "AllowOfflineAccess": AllowOfflineAccess,
-                            "RefreshTokenUsage": RefreshTokenUsage,
-                            "RefreshTokenExpiration": RefreshTokenExpiration,
-                            "AbsoluteRefreshTokenLifetime": AbsoluteRefreshTokenLifetime,
-                            "RequireConsent": RequireConsent
+                            "Name": _Name,
+                            "TypeId": _TypeId,
+                            "FirmaId": _FirmaId,
+                            "Description": _Description,
+                            "Pattern": _Pattern
                         },
                         success: function (sonuc) {
 
                             setTimeout(function () {
 
-                                document.getElementById("loading").style.display = "none"; // loading aktif
+                                //document.getElementById("loading").style.display = "none"; // loading aktif
 
                                 if (sonuc.ok) {
-                                    document.getElementById("Yukle").disabled = false;
-                                    document.getElementById("Yukle").innerHTML = 'Gönder';
+                                    document.getElementById("Olustur").disabled = false;
+                                    document.getElementById("Olustur").innerHTML = 'Oluştur';
 
-                                    window.location = "/Uygulama/Clients";
+                                    window.location = "/JsonDesen/JsonDesenler";
                                 }
                                 else {
                                     window.alert("Hata Oluştu!");
                                 }
                             },
                                 2000); // 2 saniye beklemeye alıyorum
-                            document.getElementById("loading").style.display = ""; // loading pasif
+                           // document.getElementById("loading").style.display = ""; // loading pasif
 
 
                         }

@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MyEntegrasyon.BusinessLayer.Results;
+using MyEntegrasyon.Data;
+using MyEntegrasyon.Data.Entities;
+using MyEntegrasyon.Models.Messages;
 using MyEntegrasyon.Models.ViewModel;
 using System.Text.Json;
 
@@ -8,36 +12,22 @@ namespace MyEntegrasyon.Controllers
 {
     public class JsonDesenController : Controller
     {
+
+        private readonly MyContext _context;
+
+        public JsonDesenController(MyContext context)
+        {
+                _context = context;
+        }
+
         [Authorize(Roles = "Admin")]
         public IActionResult newDesen()
         {
-            newJSONviewModel newJSO = new newJSONviewModel();
-
-            List<Typeliste> _type = new List<Typeliste>();
-            _type.Add(new Typeliste { Id = "Create",  deger = "Create" });
-            _type.Add(new Typeliste { Id = "Read", deger = "Read" });
-            _type.Add(new Typeliste { Id = "Update", deger = "Update" });
-            _type.Add(new Typeliste { Id = "Delete", deger = "Delete" });
-
-            List<Firmaliste> _firma = new List<Firmaliste>();
-            _firma.Add(new Firmaliste { Id = "Ikas", deger = "Ikas" });
-            _firma.Add(new Firmaliste { Id = "Nebim", deger = "Nebim" });
-
-            ViewBag.TypeId = new SelectList(_type, "Id", "deger");
-            ViewBag.FirmaId = new SelectList(_firma, "Id", "deger");
+            ViewBag.TypeId = new SelectList(newJSONviewModel.typelistes(), "Id", "deger");
+            ViewBag.FirmaId = new SelectList(newJSONviewModel.firmalistes(), "Id", "deger");
             return View();
         }
 
-        public class Typeliste
-        {
-            public string? Id { get; set; }
-            public string? deger { get; set; }
-        }
-        public class Firmaliste
-        {
-            public string? Id { get; set; }
-            public string? deger { get; set; }
-        }
         public IActionResult ikas()
         {
             return View();
@@ -49,16 +39,37 @@ namespace MyEntegrasyon.Controllers
 
 
 
-        public async Task<JsonResult> JsonNewDesen(string Id)
+        public async Task<JsonResult> JsonNewDesen(string Name, string TypeId, string FirmaId, string Description, string Pattern)
         {
             try
             {
-            //    var client = _configurationDbContext.Clients.Where(x => x.Id == Convert.ToInt32(Id)).FirstOrDefault();
+                JsonDesen jsonDesen = new JsonDesen();
+                jsonDesen.Name = Name;
+                jsonDesen.TypeId = TypeId;
+                jsonDesen.FirmaId = FirmaId;
+                jsonDesen.Description = Description;
+                jsonDesen.Pattern = Pattern;
 
-            //    _configurationDbContext.Clients.Remove(client!); // veritabanındaki Clients tablosundan silindi
-            //    await _configurationDbContext.SaveChangesAsync();
+                BusinessLayerResult<JsonDesen> res = new BusinessLayerResult<JsonDesen>();
+                res.Result = jsonDesen;
 
-                return Json(new { success = true, responseBaslik = "Tamamlandı", responseText = "" + " Başarıyla Silindi." });
+
+                await _context.jsonDesen!.AddAsync(res.Result);
+                _context.SaveChanges();
+
+                if (res.Errors.Count > 0) /// Hata varsa
+                {
+                    ErrorViewModel errorNotifyObj = new ErrorViewModel()
+                    {
+                        Items = res.Errors,
+                        Title = "Json Desen Eklenemedi",
+                        RedirectingUrl = "~/JsonDesen/newDesen"
+                    };
+                  
+                    return Json(new { success = false, responseBaslik = "Hata Oluştu!", responseText = errorNotifyObj });
+                }
+
+                return Json(new { success = true, responseBaslik = "Tamamlandı", responseText = "" + " Başarıyla Oluşturuldu." });
             }
             catch (Exception ex)
             {
@@ -66,6 +77,13 @@ namespace MyEntegrasyon.Controllers
                 return Json(new { success = false, responseBaslik = "Hata Oluştu!", responseText = "İşlem sırasında hata oluştu." });
             }
         }
+        public IActionResult JsonDesenler()
+        {
+            List<JsonDesen> list = _context.jsonDesen.ToList();
+
+            return View(list);
+        }
+        
 
 
     }
