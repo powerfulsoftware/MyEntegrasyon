@@ -1,1 +1,162 @@
-﻿<p>json ikas desenleri </p>
+﻿@using MyEntegrasyon.Data.Entities
+@model List<JsonDesen>
+
+@{
+    ViewData["Title"] = "Ikas Json Desenler";
+}
+
+<style>
+    .table-condensed {
+        font-size: 10px;
+    }
+</style>
+
+
+<link rel="stylesheet" href="../assets/plugins/bootstrapv4/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/fontawesome512/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="../assets/plugins/fontawesome512/css/font-awesome-animation.min.css">
+<link rel="stylesheet" href="../assets/plugins/perfectscrollbar/css/perfect-scrollbar.css">
+<link rel="stylesheet" href="../assets/plugins/select2v353/css/select2.min.css">
+<link rel="stylesheet" href="../assets/plugins/select2v353/css/select2-bootstrap.min.css">
+<link rel="stylesheet" href="../assets/plugins/jqueryuiv112/jquery-ui.css">
+<link rel="stylesheet" href="../assets/plugins/datatable/css/datatables.min.css">
+<link rel="stylesheet" href="../assets/spanel/css/spanel.css">
+<link rel="stylesheet" href="../assets/plugins/datatable/buttons/css/buttons.bootstrap4.min.css">
+
+
+
+<div class="container-fluid p-4">
+
+
+
+    <div class="card rounded-0">
+        <div class="card-header">Ikas Json Desenler</div>
+        <div class="card-body">
+
+
+            <table class="table table-bordered table-condensed">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Pattern</th>
+                        <th scope="col">TypeId</th>
+                        <th scope="col">FirmaId</th>
+                        <th scope="col">İŞLEM</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Description</td>
+                            <td>@item.Pattern</td>
+                            <td>@item.TypeId</td>
+                            <td>@item.FirmaId</td>
+                            <td>
+                                <a asp-action="DesenEdit" asp-controller="JsonDesen" asp-route-id="@item.Id" class="btn btn-primary btn-xs">Düzenle</a>
+                                <a href="#" class="btn btn-danger btn-xs">Sil</a>
+                            </td>
+
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="../assets/plugins/jqueryv321/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="../assets/plugins/bootstrapv4/js/bootstrap.min.js"></script>
+<script src="../assets/plugins/perfectscrollbar/js/perfect-scrollbar.min.js"></script>
+<script src="../assets/plugins/jqueryfullscreen/jquery.fullscreen.min.js"></script>
+<script src="../assets/plugins/jqueryuiv112/jquery-ui.js"></script>
+<script src="../assets/plugins/pace/js/pace.min.js"></script>
+<script src="../assets/spanel/js/portlet.js"></script>
+<script src="../assets/plugins/datatable/js/datatables.min.js"></script>
+<script src="../assets/plugins/datatable/buttons/js/buttons.html5.min.js"></script>
+<script src="../assets/plugins/datatable/buttons/js/dataTables.buttons.min.js"></script>
+<script src="../assets/plugins/datatable/buttons/js/jszip.min.js"></script>
+<script src="../assets/plugins/datatable/buttons/js/pdfmake.min.js"></script>
+<script src="../assets/plugins/datatable/buttons/js/vfs_fonts.js"></script>
+<script src="../assets/plugins/datatable/buttons/js/buttons.print.min.js"></script>
+<script src="../assets/plugins/select2v353/js/select2.full.min.js"></script>
+<script src="../assets/spanel/js/spanel.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#datatable').DataTable({
+            "dom": "<'row'<'col-sm-12 text-right mb-3'B>><'row'<'col-sm-6'l><'col-sm-6'f>>rtip",
+            buttons: {
+                name: 'primary',
+                buttons: [
+                    { extend: 'copyHtml5', className: 'btn btn-danger btn-sm', text: 'Kopyala' },
+                    { extend: 'excelHtml5', className: 'btn btn-secondary btn-sm', text: 'Excel' },
+                    { extend: 'csvHtml5', className: 'btn btn-primary btn-sm', text: 'CVS' },
+                    { extend: 'pdfHtml5', className: 'btn btn-success btn-sm', text: 'PDF <i class="fa fa-file-pdf-o"></i>' },
+                    {
+                        extend: 'print', className: 'btn btn-danger btn-sm', text: 'Yazdır <i class="fa fa-print"></i>',
+                        customize: function (win) {
+                            $(win.document.body)
+                                .css('font-size', '10pt')
+                                .prepend(
+                                    '<img src="http://ibb.co/heqCb7" style="position:absolute; top:0; left:0;" />'
+                                );
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                        }
+                    }
+                ]
+            },
+            "lengthMenu": [[1, 10, 25, 50, 100, -1], [1, 10, 25, 50, 100, "Hepsi"]],
+            "iDisplayLength": 1,
+            "pagingType": "full_numbers",
+            "language": {
+                "sDecimal": ",",
+                "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                "sInfoEmpty": "Kayıt yok",
+                "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                "sInfoPostFix": "",
+                "sInfoThousands": ".",
+                "sLengthMenu": "Sayfada _MENU_ kayıt göster",
+                "sLoadingRecords": "Yükleniyor...",
+                "sProcessing": "İşleniyor...",
+                "sSearch": "Ara:",
+                "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                "oPaginate": {
+                    "sFirst": "İlk",
+                    "sLast": "Son",
+                    "sNext": "Sonraki",
+                    "sPrevious": "Önceki"
+                },
+                "oAria": {
+                    "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                    "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
+                }
+            }
+        });
+
+        $('.dataTables_length select').select2({
+            theme: "bootstrap",
+            selectOnClose: true,
+            language: "tr"
+        });
+
+        $('.dataTables_wrapper .dt-buttons').addClass('btn-group');
+
+
+    });
+</script>

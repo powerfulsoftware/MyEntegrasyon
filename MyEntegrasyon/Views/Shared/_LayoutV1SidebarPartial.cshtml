@@ -43,7 +43,7 @@
 
 <div class="sidebar">
     <div class="sidebar-header text-center">
-        <a href="index.html"><strong>e-</strong>Hizmetler</a>
+        <a href="index.html"><strong>My</strong>Entegrasyon</a>
     </div> <!-- sidebar-header div end -->
     <div class="sidebar-profile text-center">
         <img src="~/Templates/V1/assets/spanel/img/yonetici.png" class="img-fluid  mx-auto d-block rounded-circle" alt="">
@@ -93,6 +93,8 @@
 
                     <li class="nav-item submenu
                            
+                            @Html.ActiveClass("JsonDesen", "newDesen")
+                            @Html.ActiveClass("JsonDesen", "JsonDesenler")
                             @Html.ActiveClass("JsonDesen", "ikas")
                             @Html.ActiveClass("JsonDesen", "Nebim")
                            
@@ -102,8 +104,11 @@
                         </a>
                         <i class="fa fa-sitemap"></i>
                         <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                    <li class="@Html.ActiveClass("JsonDesen", "newDesen")">
+                            <li class="@Html.ActiveClass("JsonDesen", "newDesen")">
                                 <a href="~/JsonDesen/newDesen">Yeni Json Desen</a>
+                            </li>
+                            <li class="@Html.ActiveClass("JsonDesen", "JsonDesenler")">
+                        <a href="~/JsonDesen/JsonDesenler">Json Desenler</a>
                             </li>
                             <li class="@Html.ActiveClass("JsonDesen", "ikas")">
                                 <a href="~/JsonDesen/ikas">İkas Json</a>
@@ -179,7 +184,7 @@
     </div> <!-- sidebar-nav div end -->
     <div class="sidebar-footer">
         @* <img src="assets/spanel/img/shift-logo.png" />*@
-        <span>Yoklama Sistemi  &copy; @DateTime.Now.Year</span>
+        <span>Entegrasyon Sistemi  &copy; @DateTime.Now.Year</span>
 
 
 

@@ -30,11 +30,13 @@ namespace MyEntegrasyon.Controllers
 
         public IActionResult ikas()
         {
-            return View();
+            List<JsonDesen> list = _context.jsonDesen.Where(x=>x.FirmaId=="Ikas").ToList();
+            return View(list);
         }
         public IActionResult Nebim()
         {
-            return View();
+            List<JsonDesen> list = _context.jsonDesen.Where(x => x.FirmaId == "Nebim").ToList();
+            return View(list);
         }
 
 
@@ -83,8 +85,57 @@ namespace MyEntegrasyon.Controllers
 
             return View(list);
         }
-        
 
+
+        public IActionResult DesenEdit(int Id)
+        {
+
+            JsonDesen jsonDesen = _context.jsonDesen.Where(x=>x.Id == Id).FirstOrDefault()!;
+            ViewBag.TypeId = new SelectList(newJSONviewModel.typelistes(), "Id", "deger",jsonDesen.TypeId);
+            ViewBag.FirmaId = new SelectList(newJSONviewModel.firmalistes(), "Id", "deger", jsonDesen.FirmaId);
+            return View(jsonDesen);
+        }
+        [HttpPost]
+        public async Task<JsonResult> DesenEdit(int Id, string Name, string TypeId, string FirmaId, string Description, string Pattern)
+        {
+            try
+            {
+                JsonDesen jsonDesen = _context.jsonDesen.Where(x => x.Id == Id).FirstOrDefault()!;
+
+  
+                jsonDesen.Name = Name;
+                jsonDesen.TypeId = TypeId;
+                jsonDesen.FirmaId = FirmaId;
+                jsonDesen.Description = Description;
+                jsonDesen.Pattern = Pattern;
+
+                BusinessLayerResult<JsonDesen> res = new BusinessLayerResult<JsonDesen>();
+                res.Result = jsonDesen;
+
+
+                _context.jsonDesen.UpdateRange(res.Result);
+                _context.SaveChanges();
+
+                if (res.Errors.Count > 0) /// Hata varsa
+                {
+                    ErrorViewModel errorNotifyObj = new ErrorViewModel()
+                    {
+                        Items = res.Errors,
+                        Title = "Json Desen Güncellenemedi",
+                        RedirectingUrl = "~/JsonDesen/DesenEdit/" + Id 
+                    };
+
+                    return Json(new { success = false, responseBaslik = "Hata Oluştu!", responseText = errorNotifyObj });
+                }
+
+                return Json(new { success = true, responseBaslik = "Tamamlandı", responseText = "" + " Başarıyla Oluşturuldu." });
+            }
+            catch (Exception ex)
+            {
+                string mesaj = ex.Message;
+                return Json(new { success = false, responseBaslik = "Hata Oluştu!", responseText = "İşlem sırasında hata oluştu." });
+            }
+        }
 
     }
 }

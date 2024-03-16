@@ -1,9 +1,9 @@
-﻿@using MyEntegrasyon.Models.ViewModel
+﻿@using MyEntegrasyon.Data.Entities
 
-@model newJSONviewModel
+@model JsonDesen
 
 @{
-    ViewBag.Title = "Yeni Json Desen Oluşturma";
+    ViewBag.Title = "Json Desen Edit";
 
 }
 
@@ -19,20 +19,29 @@
 
 <div class="container-fluid p-4">
 
- 
+
 
     <div class="card rounded-0">
         <div class="card-header"> <h3>@ViewBag.Title</h3></div>
         <div class="card-body">
             <form asp-action="newDesen">
                 <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <label asp-for="Id" class="col-sm-2 col-form-label col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Id" readonly class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+
+                </div>
                 <div class="form-group row">
                     <label asp-for="Name" class="col-sm-2 col-form-label col-form-label-sm"></label>
                     <div class="col-sm-10">
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-                   
+
                 </div>
                 <div class="form-group row">
                     <label for="input" class="col-sm-2 col-form-label col-form-label-sm">Type</label>
@@ -56,22 +65,24 @@
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                 </div>
-               
+
                 <div class="form-group row">
                     <label asp-for="Pattern" class="col-sm-2 col-form-label col-form-label-sm"></label>
                     <div class="col-sm-10">
-                        <textarea rows="9" id="Pattern" name="Pattern" class="form-control">dd</textarea>
-                      
+                        <textarea rows="9" id="Pattern" name="Pattern" class="form-control">@Model.Pattern</textarea>
+
                         <span asp-validation-for="Pattern" class="text-danger"></span>
                     </div>
-                  
+
                 </div>
                 <div class="form-group">
-                    <button id="Olustur" name="Olustur" type="submit" class="btn btn-primary">Oluştur</button>
-
+                    <button id="Olustur" name="Olustur" type="submit" class="btn btn-primary">Güncelle</button>
+                   
                     @* <input type="submit" value="Oluştur" id="btnOlustur" class="btn btn-primary" onclick="functionConfirm(this); return false;" /> *@
                 </div>
             </form>
+
+          
         </div>
     </div>
     @section Scripts {
@@ -82,16 +93,22 @@
         <script>
 
 
+           
+
             $(document).ready(function () {
 
 
 
-              //  document.getElementById("loading").style.display = "none"; // loading aktif
+
+               
+
+
+                //  document.getElementById("loading").style.display = "none"; // loading aktif
                 $("#Olustur").click(function () {
                     document.getElementById("Olustur").disabled = true;
                     document.getElementById("Olustur").innerHTML = 'Lütfen bekleyiniz...';
 
-
+                    var _Id = document.getElementById("Id").value;
                     var _Name = document.getElementById("Name").value;
                     var _TypeId = document.getElementById("TypeId").value;
                     var _FirmaId = document.getElementById("FirmaId").value;
@@ -101,9 +118,10 @@
 
                     $.ajax({
                         type: "post",
-                        url: "/JsonDesen/JsonNewDesen",  //controlerımda gidicek olan yerim
+                        url: "/JsonDesen/DesenEdit",  //controlerımda gidicek olan yerim
                         dataType: "json",
                         data: {
+                            "Id": _Id,
                             "Name": _Name,
                             "TypeId": _TypeId,
                             "FirmaId": _FirmaId,
@@ -118,16 +136,18 @@
 
                                 if (sonuc.success) {
                                     document.getElementById("Olustur").disabled = false;
-                                    document.getElementById("Olustur").innerHTML = 'Oluştur';
+                                    document.getElementById("Olustur").innerHTML = 'Güncelle';
 
-                                    window.location = "/JsonDesen/JsonDesenler";
+                                    alert("Başarılı bir şekilde güncellendi")
+
+                                    window.location = "/JsonDesen/DesenEdit/" + _Id;
                                 }
                                 else {
                                     window.alert("Hata Oluştu!");
                                 }
                             },
                                 2000); // 2 saniye beklemeye alıyorum
-                           // document.getElementById("loading").style.display = ""; // loading pasif
+                            // document.getElementById("loading").style.display = ""; // loading pasif
 
 
                         }
