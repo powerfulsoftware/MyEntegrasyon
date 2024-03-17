@@ -10,6 +10,7 @@ using System.Text.Json;
 
 namespace MyEntegrasyon.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class JsonDesenController : Controller
     {
 
@@ -20,7 +21,7 @@ namespace MyEntegrasyon.Controllers
                 _context = context;
         }
 
-        [Authorize(Roles = "Admin")]
+     
         public IActionResult newDesen()
         {
             ViewBag.TypeId = new SelectList(newJSONviewModel.typelistes(), "Id", "deger");

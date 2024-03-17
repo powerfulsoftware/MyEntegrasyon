@@ -13,5 +13,15 @@ namespace MyEntegrasyon.Data.Entities
         public string? TypeId { get; set; } // Tipi CDUR // Oluşturma - Silme - Güncelleme - Okuma
         [DisplayName("Firma"), StringLength(50, ErrorMessage = "{0} alanı max. {1} karakter olmalıdır.")]
         public string? FirmaId { get; set; }
+
+        virtual public string FullName
+        {
+            get { return string.Format("{0} ({1} - {2} - {3})", Name, Description, FirmaId, TypeId); }
+        }
+
+
+
     }
+
+
 }

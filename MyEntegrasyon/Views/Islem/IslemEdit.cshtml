@@ -1,0 +1,138 @@
+﻿@using MyEntegrasyon.Data.Entities;
+
+@model Islem
+
+@{
+    ViewBag.Title = "İşlem Güncelleme";
+
+}
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<div class="container-fluid p-4">
+
+
+
+    <div class="card rounded-0">
+        <div class="card-header"> <h3>@ViewBag.Title</h3></div>
+        <div class="card-body">
+            <form asp-action="newDesen">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group row">
+                    <label asp-for="Id" class="col-sm-2 col-form-label col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Id" readonly class="form-control" />
+                        <span asp-validation-for="Id" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="form-group row">
+                    <label asp-for="IslemAdi" class="col-sm-2 col-form-label col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="IslemAdi" class="form-control" />
+                        <span asp-validation-for="IslemAdi" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label asp-for="JsonDesenId" class="col-sm-2 col-form-label col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        @Html.DropDownList("JsonDesenId", null, "** Lütfen Seçiniz **", htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessage("JsonDesenId", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+                    <label asp-for="Aciklama" class="col-sm-2 col-form-label col-form-label-sm"></label>
+                    <div class="col-sm-10">
+                        <input asp-for="Aciklama" class="form-control" />
+                        <span asp-validation-for="Aciklama" class="text-danger"></span>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <button id="Olustur" name="Olustur" type="submit" class="btn btn-primary">Güncelle</button>
+
+                    @* <input type="submit" value="Oluştur" id="btnOlustur" class="btn btn-primary" onclick="functionConfirm(this); return false;" /> *@
+                </div>
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+
+        <script>
+
+
+            $(document).ready(function () {
+
+
+
+                //  document.getElementById("loading").style.display = "none"; // loading aktif
+                $("#Olustur").click(function () {
+                    document.getElementById("Olustur").disabled = true;
+                    document.getElementById("Olustur").innerHTML = 'Lütfen bekleyiniz...';
+
+                    var _Id = document.getElementById("Id").value;
+                    var _IslemAdi = document.getElementById("IslemAdi").value;
+                    var _JsonDesenId = document.getElementById("JsonDesenId").value;
+                    var _Aciklama = document.getElementById("Aciklama").value;
+
+
+
+                    $.ajax({
+                        type: "post",
+                        url: "/Islem/IslemEdit",  //controlerımda gidicek olan yerim
+                        dataType: "json",
+                        data: {
+                            "Id": _Id,
+                            "IslemAdi": _IslemAdi,
+                            "JsonDesenId": _JsonDesenId,
+                            "Aciklama": _Aciklama
+                        },
+                        success: function (sonuc) {
+
+                            setTimeout(function () {
+
+                                //document.getElementById("loading").style.display = "none"; // loading aktif
+
+                                if (sonuc.success) {
+                                    document.getElementById("Olustur").disabled = false;
+                                    document.getElementById("Olustur").innerHTML = 'Güncelle';
+
+                                    window.location = "/Islem/islemler";
+                                }
+                                else {
+                                    window.alert("Hata Oluştu!");
+                                }
+                            },
+                                2000); // 2 saniye beklemeye alıyorum
+                            // document.getElementById("loading").style.display = ""; // loading pasif
+
+
+                        }
+                    });
+
+
+
+                });
+            });
+
+
+        </script>
+
+
+
+    }
+
+</div>

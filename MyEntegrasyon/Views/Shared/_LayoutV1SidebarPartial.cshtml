@@ -21,16 +21,16 @@
         }
     }
 
-  
-    
+
+
 }
 
 
-@* 
+@*
 @{
     IList<string> userRoles;
     var AdiSoyadi2 = "";
-  
+
         AppUser user2 = await UserManager.FindByNameAsync(User.Identity.Name);
         if (user != null)
         {
@@ -67,59 +67,85 @@
 
 
 
-          
-               @*  @if (rol == "Admin") *@
-                
-                    <li class="nav-item submenu
-                                @Html.ActiveClass("Tanimlama", "BirimTuru")
-                                @Html.ActiveClass("Tanimlama", "Birimler")
-                                @Html.ActiveClass("Tanimlama", "Bolumler")">
-                        <a class="nav-link">
-                            <span class="title">Genel İşlemler</span>
-                        </a>
-                        <i class="fa fa-bars"></i>
-                        <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                            <li class="@Html.ActiveClass("Tanimlama", "BirimTuru")">
-                                <a href="~/Tanimlama/BirimTuru">Birim Türü</a>
-                            </li>
-                            <li class="@Html.ActiveClass("Tanimlama", "Birimler")">
-                                <a href="~/Tanimlama/Birimler">Birim</a>
-                            </li>
-                            <li class="@Html.ActiveClass("Tanimlama", "Bolumler")">
-                                <a href="~/Tanimlama/Bolumler">Bölüm</a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <li class="nav-item submenu
-                           
+            @*  @if (rol == "Admin") *@
+
+
+
+            <li class="nav-item submenu
+                                @Html.ActiveClass("Nebim", "Products" )
+                              ">
+                <a class="nav-link">
+                    <span class="title">Nebim</span>
+                </a>
+                <i class="fa fa-bars"></i>
+                <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                    <li class="@Html.ActiveClass("Nebim", "Products")">
+                        <a href="~/Nebim/Products">Ürün Listesi</a>
+                    </li>
+                  
+                </ul>
+            </li>
+
+
+
+
+
+            <li class="nav-item submenu
+                                @Html.ActiveClass("Islem", "islemler" )
+                                @Html.ActiveClass("Islem", "NewIslem" )
+                                @Html.ActiveClass("Islem", "ikas")
+                                @Html.ActiveClass("Islem", "Nebim")">
+                <a class="nav-link">
+                    <span class="title">İşlemler</span>
+                </a>
+                <i class="fa fa-bars"></i>
+                <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                    <li class="@Html.ActiveClass("Islem", "NewIslem")">
+                        <a href="~/islem/NewIslem">Yeni İşlem</a>
+                    </li>
+                    <li class="@Html.ActiveClass("Islem", "islemler")">
+                        <a href="~/islem/islemler">İşlemler</a>
+                    </li>
+                    <li class="@Html.ActiveClass("Islem", "ikas")">
+                        <a href="~/islem/ikas">Ikas İşlemleri</a>
+                    </li>
+                    <li class="@Html.ActiveClass("Islem", "Nebim")">
+                        <a href="~/islem/Nebim">Nebim İşlemleri</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item submenu
+
+                            @Html.ActiveClass("JsonDesen", "DesenEdit")
                             @Html.ActiveClass("JsonDesen", "newDesen")
                             @Html.ActiveClass("JsonDesen", "JsonDesenler")
                             @Html.ActiveClass("JsonDesen", "ikas")
                             @Html.ActiveClass("JsonDesen", "Nebim")
-                           
-                                                                                            ">
-                        <a class="nav-link">
-                            <span class="title">Json Desenler</span>
-                        </a>
-                        <i class="fa fa-sitemap"></i>
-                        <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
-                            <li class="@Html.ActiveClass("JsonDesen", "newDesen")">
-                                <a href="~/JsonDesen/newDesen">Yeni Json Desen</a>
-                            </li>
-                            <li class="@Html.ActiveClass("JsonDesen", "JsonDesenler")">
-                        <a href="~/JsonDesen/JsonDesenler">Json Desenler</a>
-                            </li>
-                            <li class="@Html.ActiveClass("JsonDesen", "ikas")">
-                                <a href="~/JsonDesen/ikas">İkas Json</a>
-                            </li>
-                             <li class="@Html.ActiveClass("JsonDesen", "Nebim")">
-                                <a href="~/JsonDesen/Nebim">Nebim Json</a>
-                            </li>
-                           
 
-                        </ul>
+                        ">
+                <a class="nav-link">
+                    <span class="title">Json Desenler</span>
+                </a>
+                <i class="fa fa-sitemap"></i>
+                <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                    <li class="@Html.ActiveClass("JsonDesen", "newDesen")">
+                        <a href="~/JsonDesen/newDesen">Yeni Json Desen</a>
                     </li>
+                    <li class="@Html.ActiveClass("JsonDesen", "JsonDesenler")">
+                        <a href="~/JsonDesen/JsonDesenler">Json Desenler</a>
+                    </li>
+                    <li class="@Html.ActiveClass("JsonDesen", "ikas")">
+                        <a href="~/JsonDesen/ikas">İkas Json</a>
+                    </li>
+                    <li class="@Html.ActiveClass("JsonDesen", "Nebim")">
+                        <a href="~/JsonDesen/Nebim">Nebim Json</a>
+                    </li>
+
+
+                </ul>
+            </li>
 
 
             @if (@userRoles != null)
@@ -162,16 +188,16 @@
                         <span class="title">Giriş Yap</span>
 
                     </a>
-                    <i class="fa fa-sign-in"></i>  
+                    <i class="fa fa-sign-in"></i>
                 </li>
             }
 
 
-            
 
-                
 
-         
+
+
+
 
 
 
