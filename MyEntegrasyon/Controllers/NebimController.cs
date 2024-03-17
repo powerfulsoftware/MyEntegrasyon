@@ -7,15 +7,24 @@ namespace MyEntegrasyon.Controllers
 {
     public class NebimController : Controller
     {
+
+        private readonly IConfiguration _configuration;
+        private readonly HttpClient _httpClient;
+
+
+        public NebimController(IConfiguration configuration, HttpClient httpClient)
+        {
+            _configuration = configuration;
+            _httpClient = httpClient;
+        }
+
+
+
         private string Connect_Url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
         public async Task<IActionResult> Products()
         {
-
-
-          //  NebimV3\NebimV3Resimler\101A01267\ColorPhotos\101A01267_030.jpg
-
-
-
+            _httpClient.BaseAddress = new Uri(_configuration.GetSection("UrlServiceSettings:ConnectAdress").Value!);
+            //  NebimV3\NebimV3Resimler\101A01267\ColorPhotos\101A01267_030.jpg
 
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");

@@ -9,10 +9,26 @@ namespace MyEntegrasyon.Controllers
     [Authorize(Roles = "User")]
     public class ProductController : Controller
     {
+        private readonly IConfiguration _configuration;
+        private readonly HttpClient _httpClient;
+        public ProductController(IConfiguration configuration, HttpClient httpClient)
+        {
+            _configuration = configuration;
+            _httpClient = httpClient;
+        }
+
+
+
         private string Connect_Url = "http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect";
 
         public async Task<IActionResult> NebimProducts()
         {
+
+
+
+            _httpClient.BaseAddress = new Uri(_configuration.GetSection("UrlServiceSettings:ConnectAdress").Value!);
+
+
             HttpClient client = new HttpClient();
             client.DefaultRequestHeaders.Add("Accept", "application/json");
             var result = await client.GetStringAsync(Connect_Url);
