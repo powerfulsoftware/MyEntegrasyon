@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyEntegrasyon.BusinessLayer.Results;
 using MyEntegrasyon.Data;
@@ -8,6 +9,7 @@ using MyEntegrasyon.Models.ViewModel;
 
 namespace MyEntegrasyon.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class IslemController : Controller
     {
         private readonly MyContext _context;

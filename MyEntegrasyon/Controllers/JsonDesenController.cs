@@ -90,7 +90,6 @@ namespace MyEntegrasyon.Controllers
 
         public IActionResult DesenEdit(int Id)
         {
-
             JsonDesen jsonDesen = _context.jsonDesen.Where(x=>x.Id == Id).FirstOrDefault()!;
             ViewBag.TypeId = new SelectList(newJSONviewModel.typelistes(), "Id", "deger",jsonDesen.TypeId);
             ViewBag.FirmaId = new SelectList(newJSONviewModel.firmalistes(), "Id", "deger", jsonDesen.FirmaId);

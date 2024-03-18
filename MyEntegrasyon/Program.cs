@@ -22,6 +22,7 @@ try
 
     var builder = WebApplication.CreateBuilder(args);
 
+    builder.Services.AddHttpClient();
 
     builder.Host.UseSerilog(); // <-- Add this line
 
@@ -66,7 +67,7 @@ try
             SecurePolicy = CookieSecurePolicy.Always //HTTPS üzerinden eriþilebilir yapýyoruz.
         };
         opts.SlidingExpiration = true; //Expiration süresinin yarýsý kadar süre zarfýnda istekte bulunulursa eðer geri kalan yarýsýný tekrar sýfýrlayarak ilk ayarlanan süreyi tazeleyecektir.
-        opts.ExpireTimeSpan = TimeSpan.FromMinutes(2); //CookieBuilder nesnesinde tanýmlanan Expiration deðerinin varsayýlan deðerlerle ezilme ihtimaline karþýn tekrardan Cookie vadesi burada da belirtiliyor.
+        opts.ExpireTimeSpan = TimeSpan.FromMinutes(60); //CookieBuilder nesnesinde tanýmlanan Expiration deðerinin varsayýlan deðerlerle ezilme ihtimaline karþýn tekrardan Cookie vadesi burada da belirtiliyor.
     });
 
 
