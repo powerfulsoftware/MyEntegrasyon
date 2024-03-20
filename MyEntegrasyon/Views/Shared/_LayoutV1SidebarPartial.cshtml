@@ -72,6 +72,26 @@
 
 
 
+
+            <li class="nav-item submenu
+                                @Html.ActiveClass("Ikas", "YeniUnrunEkle" )
+                              ">
+                <a class="nav-link">
+                    <span class="title">Ikas</span>
+                </a>
+                <i class="fa fa-bars"></i>
+                <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
+                    <li class="@Html.ActiveClass("Ikas", "YeniUnrunEkle")">
+                        <a href="~/Ikas/YeniUnrunEkle">Yeni ürünleri Ekle</a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+
+
+
             <li class="nav-item submenu
                                 @Html.ActiveClass("Nebim", "Products" )
                               ">
