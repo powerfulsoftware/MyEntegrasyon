@@ -274,14 +274,6 @@ namespace MyEntegrasyon.Controllers
 
 
 
-
-
-
-
-
-
-
-
             using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
             {
 
@@ -340,6 +332,8 @@ namespace MyEntegrasyon.Controllers
                     _salesChannels.Add(new SalesChannel { id = "12345", status = "PASSIVE" });
 
                     Input input = new Input();
+
+                    input.Id = parameter.ItemCode;
                     input.name = parameter.ItemName;
                     input!.type = "PHYSICAL"; // Bu kısım sorulacak
                     input!.shortDescription = parameter.ItemDesc;

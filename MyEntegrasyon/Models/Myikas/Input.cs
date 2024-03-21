@@ -2,6 +2,8 @@
 {
     public class Input
     {
+        public string? Id { get; set; }  
+
        // public string? brand { get; set; }
         public string? brandId { get; set; }
 
