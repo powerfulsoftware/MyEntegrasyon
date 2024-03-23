@@ -2,13 +2,13 @@
 {
     public class Input
     {
-        public string? Id { get; set; }  
+      //  public string? Id { get; set; }  
 
        // public string? brand { get; set; }
-        public string? brandId { get; set; }
+    //    public string? brandId { get; set; }
 
        // public categories? categoryIds { get; set; }
-        public string? categoryIds { get; set; }
+      //  public string? categoryIds { get; set; }
 
         public string? name { get; set; }
 

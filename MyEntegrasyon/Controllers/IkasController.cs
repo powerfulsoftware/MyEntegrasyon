@@ -3,15 +3,20 @@ using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using GraphQL.SystemTextJson;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Client;
+using Microsoft.VisualBasic;
 using MyEntegrasyon.Data;
 using MyEntegrasyon.Models.Myikas;
+using MyEntegrasyon.Models.Myikas.BrandAdd;
 using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Net.Http;
+using System.Reflection.Metadata;
 using System.Web;
 using static System.Net.Mime.MediaTypeNames;
+using Parameter = MyEntegrasyon.Models.Nebim.Parameter;
 
 namespace MyEntegrasyon.Controllers
 {
@@ -31,10 +36,6 @@ namespace MyEntegrasyon.Controllers
         private static string _access_token = string.Empty;
 
 
-
-
-
-
         public IkasController(MyContext context, IConfiguration configuration, HttpClient httpClient)
         {
             _context = context;
@@ -48,17 +49,117 @@ namespace MyEntegrasyon.Controllers
         }
 
 
-        public async Task<bool> YeniUnrunEkle()
+        public async Task<RootProductBrand> MarkaListesiGetir()
+        {
+            RootProductBrand BrandList = new RootProductBrand();    
+            using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                var content3 = new StringContent("grant_type=client_credentials&scope=https://api.businesscentral.dynamics.com/.default&client_id="
+              + HttpUtility.UrlEncode(_clientId) + "&client_secret=" + HttpUtility.UrlEncode(_secret));
+                content3.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                var response3 = await _httpClient.PostAsync(_url, content3);
+                if (response3.IsSuccessStatusCode)
+                {
+                    JObject result3 = JObject.Parse(await response3.Content.ReadAsStringAsync());
+                    _access_token = result3["access_token"]!.ToString();
+                }
+
+                client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                /////////  MARKA LİSTESİ
+                GraphQLResponse<RootProductBrand> gelen_Brand = new GraphQLResponse<RootProductBrand>();
+                var request_Brand = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "GetBrands").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )                                                                                                         
+                };
+                gelen_Brand = await client.SendQueryAsync<RootProductBrand>(request_Brand);
+                BrandList = gelen_Brand.Data;
+            }
+
+            return BrandList;
+        }
+        public async Task<string> YeniMarkaEkle(string name)
+        {
+           
+            string ID = string.Empty;
+
+            using (var client2 = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                client2.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                MyEntegrasyon.Models.Myikas.BrandAdd.Root _root = new Models.Myikas.BrandAdd.Root();
+                MyEntegrasyon.Models.Myikas.BrandAdd.Input _input = new Models.Myikas.BrandAdd.Input();
+                _input.name = name;
+                _root.input = _input;
+
+                // var requestJson = "{input:{name: " + item_product.BrandDesc!.Replace("İ","I") + "}}";
+                //  var inputs = new GraphQLSerializer().Deserialize<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(requestJson);
+
+
+                GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root> gelen_Brand = new GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root>();
+                var request_Brand = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "saveProductBrand").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                    Variables = _root
+                };
+
+                try
+                {
+                    gelen_Brand = await client2.SendQueryAsync<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(request_Brand);
+                    MyEntegrasyon.Models.Myikas.BrandAdd.Root saveProductBrand = gelen_Brand.Data;
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+
+                }
+
+
+            }
+
+            return ID;
+        }
+
+
+        public async Task<List<MyEntegrasyon.Models.Myikas.Category.ListCategory>> ListCategory()
         {
 
+         List<MyEntegrasyon.Models.Myikas.Category.ListCategory> kategoriListesi = new List<MyEntegrasyon.Models.Myikas.Category.ListCategory>();
+
+            GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen5 = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+
+            using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+                client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+                //client.HttpClient.DefaultRequestHeaders.Add("User-Agent", "SharpenAboutBox");
+                //client.HttpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
+
+                var request5 = new GraphQLRequest()
+                {
+
+                    //listCategory 
+                    Query = _context.Islem.Where(x => x.IslemAdi == "listCategory").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )    
+                };
+                gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
+                 kategoriListesi = gelen5.Data.listCategory!;
+            }
+
+            // ViewBag.request = gelen.Data;
+
+            return kategoriListesi;
+        }
 
 
 
+
+        public async Task<bool> YeniUnrunEkle()
+        {
 
             ///////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////
             ////////////////     NEBİM KISMI       /////////////////
-
 
 
             _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
@@ -262,15 +363,13 @@ namespace MyEntegrasyon.Controllers
 
 
 
-
-
             ///////////////////////////////////////////////////////
             ///////////////////////////////////////////////////////
             ////////////////     İKAS KISMI       /////////////////
 
             // GetAccessToken();
 
-
+            
 
 
 
@@ -287,56 +386,102 @@ namespace MyEntegrasyon.Controllers
                     _access_token = result3["access_token"]!.ToString();
                 }
 
-
                 client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
 
 
-                //client.HttpClient.DefaultRequestHeaders.Add("User-Agent", "SharpenAboutBox");
-                //client.HttpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
+
+                // Marka Listesi
+                RootProductBrand _BrandList = await MarkaListesiGetir();
 
 
 
 
-                // nebimden gelen json dosyasını Root modeline eklenecek sonra ikasın istediği json formatına çevrilecek
+
+                //GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen5 = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+                //var request5 = new GraphQLRequest()
+                //{
+
+                //    //listCategory 
+                //    Query = _context.Islem.Where(x => x.IslemAdi == "listCategory").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )    
+                //};
+                //gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
+                //var  kategoriListesi = gelen5.Data.listCategory;
 
 
-                foreach (var parameter in parameters)
+
+
+
+
+                List<MyEntegrasyon.Models.Myikas.Category.ListCategory> kategoriListesi = await ListCategory();
+
+
+
+
+                foreach (var item_product in _products)
                 {
                     GraphQLResponse<dynamic> gelen = new GraphQLResponse<dynamic>();
                     GraphQLRequest request = new GraphQLRequest();
 
                     // fiyatlar
                     List<Price> _prices = new List<Price>(); // fiyatlar
-                    _prices.Add(new Price
-                    {
-                        buyPrice = (float)Convert.ToDouble(parameter.AlisFiyati, CultureInfo.InvariantCulture),
-                        currency = parameter.CurrencyCode!,
-                        discountPrice = (float)Convert.ToDouble(parameter.Price5),
-                        sellPrice = (float)Convert.ToDouble(parameter.Price1)
-                    });
 
+                    // Varyant değeri kimliklerinin listesi.
+                    List<VariantValue> _variantValueIds = new List<VariantValue>(); // Varyant değeri kimliklerinin listesi.
 
                     // varyantlar
                     List<Variant> _variants = new List<Variant>(); // varyantlar
-                    _variants.Add(new Variant
-                    {
-                        barcodeList = new string[] { parameter.Barcode! },
-                        isActive = true,
-                        SKU = parameter.ItemCode,
-                        prices = _prices
-
-                    });
-
                     // satış Kanalları
                     List<SalesChannel> _salesChannels = new List<SalesChannel>(); // satış Kanalları
-                    _salesChannels.Add(new SalesChannel { id = "12345", status = "PASSIVE" });
+                    foreach (var item_Variant in item_product.ProductVariants!)
+                    {
 
-                    Input input = new Input();
+                        // Marka adı varmı? kontol ediyoruz. Yoksa oluşturacağız.
+                        bool BuMarkaAdiVarMi = _BrandList.listProductBrand!.Where(x => x.name == item_product.BrandDesc).ToList().Count > 0;
+                        if(!BuMarkaAdiVarMi)// marka oluşturulacak
+                        {
+                            var gelendeger =  YeniMarkaEkle(item_product.BrandDesc!);
+                        }
 
-                    input.Id = parameter.ItemCode;
-                    input.name = parameter.ItemName;
+
+                        // fiyatlar
+                        _prices.Add(new Price
+                        {
+                           // buyPrice = (float)Convert.ToDouble(item_Variant.AlisFiyati, CultureInfo.InvariantCulture),
+                            //currency = item_Variant.CurrencyCode!,
+                           // discountPrice = (float)Convert.ToDouble(item_Variant.Price5),
+                            sellPrice = (float)Convert.ToDouble(item_Variant.Price1)
+                        });
+                        _variantValueIds.Add(new VariantValue{
+
+                            variantTypeId = item_Variant.ItemDimTypeCode.ToString(),
+                            variantValueId= item_Variant.ItemDim1Code
+                        });
+
+                        // varyantlar
+                        _variants.Add(new Variant
+                        {
+                           // barcodeList = new string[] { item_Variant.Barcode! },
+                            isActive = true,
+                          //  SKU = "",
+                            //SKU = item_product.ItemCode!,
+                            prices = _prices,
+                           // variantValueIds = _variantValueIds
+
+                        });
+
+                        // satış Kanalları
+                        _salesChannels.Add(new SalesChannel { id = "12345", status = "PASSIVE" });
+
+
+                       
+                    }
+
+                    Models.Myikas.Input input = new Models.Myikas.Input();
+
+                    // input.Id = item_product.ItemCode;
+                    input.name = item_product.ItemName;
                     input!.type = "PHYSICAL"; // Bu kısım sorulacak
-                    input!.shortDescription = parameter.ItemDesc;
+                    input!.shortDescription = item_product.ItemDesc;
                     // input.totalStock = (float)Convert.ToDouble(parameter.Qty);
                     input.variants = _variants;
                     //  input!.brandId = parameter.BrandDesc;
@@ -347,7 +492,7 @@ namespace MyEntegrasyon.Controllers
                     input!.salesChannelIds = "12345";
 
 
-                    Root root = new Root();
+                    Models.Myikas.Root root = new Models.Myikas.Root();
                     root.input = input;
 
 
@@ -367,9 +512,12 @@ namespace MyEntegrasyon.Controllers
 
                     gelen = await client.SendMutationAsync<dynamic>(request);
                     // return await client.SendQueryAsync<dynamic>(request);
+
+
+
+
+
                 }
-
-
 
 
 
