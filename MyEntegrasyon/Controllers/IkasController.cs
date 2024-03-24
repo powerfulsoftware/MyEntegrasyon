@@ -8,6 +8,7 @@ using Microsoft.VisualBasic;
 using MyEntegrasyon.Data;
 using MyEntegrasyon.Models.Myikas;
 using MyEntegrasyon.Models.Myikas.BrandAdd;
+using MyEntegrasyon.Models.Myikas.Category;
 using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -109,6 +110,7 @@ namespace MyEntegrasyon.Controllers
                 {
                     gelen_Brand = await client2.SendQueryAsync<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(request_Brand);
                     MyEntegrasyon.Models.Myikas.BrandAdd.Root saveProductBrand = gelen_Brand.Data;
+                    ID = saveProductBrand.saveProductBrand!.id!;
                 }
                 catch (Exception ex)
                 {
@@ -151,6 +153,47 @@ namespace MyEntegrasyon.Controllers
             return kategoriListesi;
         }
 
+
+        public async Task<string> YeniKategoriEkle(string name)
+        {
+
+            string ID = string.Empty;
+
+            using (var client2 = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                client2.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                MyEntegrasyon.Models.Myikas.Category.Root _root = new Models.Myikas.Category.Root();
+                MyEntegrasyon.Models.Myikas.Category.Input _input = new Models.Myikas.Category.Input();
+                _input.name = name;
+                _root.input = _input;
+
+                GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen_Categori = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+                var request_Categori = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "saveCategory").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                    Variables = _root
+                };
+
+                try
+                {
+                    gelen_Categori = await client2.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request_Categori);
+                    MyEntegrasyon.Models.Myikas.Category.Root saveCategory = gelen_Categori.Data;
+                    ID = saveCategory.saveCategory!.id!;
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+
+                }
+
+
+            }
+
+            return ID;
+        }
+        
 
 
 
@@ -392,27 +435,9 @@ namespace MyEntegrasyon.Controllers
 
                 // Marka Listesi
                 RootProductBrand _BrandList = await MarkaListesiGetir();
+                // kategori Listesi
+                List<MyEntegrasyon.Models.Myikas.Category.ListCategory> _KategoriListesi = await ListCategory();
 
-
-
-
-
-                //GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen5 = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
-                //var request5 = new GraphQLRequest()
-                //{
-
-                //    //listCategory 
-                //    Query = _context.Islem.Where(x => x.IslemAdi == "listCategory").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )    
-                //};
-                //gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
-                //var  kategoriListesi = gelen5.Data.listCategory;
-
-
-
-
-
-
-                List<MyEntegrasyon.Models.Myikas.Category.ListCategory> kategoriListesi = await ListCategory();
 
 
 
@@ -434,13 +459,72 @@ namespace MyEntegrasyon.Controllers
                     List<SalesChannel> _salesChannels = new List<SalesChannel>(); // satış Kanalları
                     foreach (var item_Variant in item_product.ProductVariants!)
                     {
-
                         // Marka adı varmı? kontol ediyoruz. Yoksa oluşturacağız.
                         bool BuMarkaAdiVarMi = _BrandList.listProductBrand!.Where(x => x.name == item_product.BrandDesc).ToList().Count > 0;
                         if(!BuMarkaAdiVarMi)// marka oluşturulacak
                         {
-                            var gelendeger =  YeniMarkaEkle(item_product.BrandDesc!);
+
+                            MyEntegrasyon.Models.Myikas.BrandAdd.Root _root = new Models.Myikas.BrandAdd.Root();
+                            MyEntegrasyon.Models.Myikas.BrandAdd.Input _input = new Models.Myikas.BrandAdd.Input();
+                            _input.name = item_product.BrandDesc;
+                            _root.input = _input;
+
+                            // var requestJson = "{input:{name: " + item_product.BrandDesc!.Replace("İ","I") + "}}";
+                            //  var inputs = new GraphQLSerializer().Deserialize<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(requestJson);
+
+
+                            GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root> gelen_Brand = new GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root>();
+                            var request_Brand = new GraphQLRequest()
+                            {
+                                Query = _context.Islem.Where(x => x.IslemAdi == "saveProductBrand").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                Variables = _root
+                            };
+
+                            try
+                            {
+                                gelen_Brand = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(request_Brand);
+                                MyEntegrasyon.Models.Myikas.BrandAdd.Root saveProductBrand = gelen_Brand.Data;
+                                string ID = saveProductBrand.saveProductBrand!.id!;
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+
+                            }
+                           // var gelendeger =  YeniMarkaEkle(item_product.BrandDesc!);
                         }
+                        // Kategori varmı? kontol ediyoruz. Yoksa oluşturacağız.
+                        bool BuKategoriVarMi = _KategoriListesi!.Where(x => x.name == item_product.Cat01Desc).ToList().Count > 0;
+                        if (!BuKategoriVarMi)// Kategori oluşturulacak
+                        {
+
+                            MyEntegrasyon.Models.Myikas.Category.Root _root = new Models.Myikas.Category.Root();
+                            MyEntegrasyon.Models.Myikas.Category.Input _input = new Models.Myikas.Category.Input();
+                            _input.name = item_product.Cat01Desc;
+                            _root.input = _input;
+
+                            GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen_Categori = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+                            var request_Categori = new GraphQLRequest()
+                            {
+                                Query = _context.Islem.Where(x => x.IslemAdi == "saveCategory").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                Variables = _root
+                            };
+
+                            try
+                            {
+                                gelen_Categori = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request_Categori);
+                                MyEntegrasyon.Models.Myikas.Category.Root saveCategory = gelen_Categori.Data;
+                                string ID = saveCategory.saveCategory!.id!;
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+
+                            }
+                            // var gelendeger = YeniKategoriEkle(item_product.Cat01Desc!);
+                        }
+
+
 
 
                         // fiyatlar
