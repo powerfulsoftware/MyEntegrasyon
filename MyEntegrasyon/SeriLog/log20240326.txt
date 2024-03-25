@@ -1,0 +1,405 @@
+2024-03-26 00:22:51.114 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-03-26 00:22:53.992 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-26 00:22:55.403 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:22:55.419 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:22:55.423 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:22:55.425 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:22:55.435 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-26 00:22:55.495 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-26 00:22:55.632 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-26 00:22:55.994 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-26 00:22:55.996 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-26 00:22:56.023 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-26 00:22:56.024 +03:00 [INF] Hosting environment: Development
+2024-03-26 00:22:56.025 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-03-26 00:22:57.351 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-26 00:22:57.376 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:22:57.388 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-26 00:22:57.401 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-26 00:22:57.490 +03:00 [INF] Executed ViewResult - view Index executed in 88.1613ms.
+2024-03-26 00:22:57.496 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 105.5077ms
+2024-03-26 00:22:57.498 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:22:57.504 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 157.6414ms
+2024-03-26 00:22:57.532 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-26 00:22:57.536 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.1378ms
+2024-03-26 00:22:58.067 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:22:58.072 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 4.8822ms
+2024-03-26 00:22:58.073 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:22:58.078 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:22:58.081 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.3254ms
+2024-03-26 00:22:58.083 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:22:58.107 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-26 00:22:58.108 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 1.7824ms
+2024-03-26 00:22:58.109 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-26 00:22:58.111 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-26 00:22:58.113 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 2.2161ms
+2024-03-26 00:22:58.114 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-03-26 00:22:59.730 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Ikas/YeniUnrunEkle - null null
+2024-03-26 00:22:59.732 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.IkasController.YeniUnrunEkle (MyEntegrasyon)'
+2024-03-26 00:22:59.738 +03:00 [INF] Route matched with {action = "YeniUnrunEkle", controller = "Ikas"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Boolean] YeniUnrunEkle() on controller MyEntegrasyon.Controllers.IkasController (MyEntegrasyon).
+2024-03-26 00:23:00.009 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:23:00.013 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:23:00.768 +03:00 [INF] Received HTTP response headers after 747.1345ms - 200
+2024-03-26 00:23:00.775 +03:00 [INF] End processing HTTP request after 767.2436ms - 200
+2024-03-26 00:23:00.891 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(w1myko3syl5qmmmqy5ajdzed))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:23:00.893 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(w1myko3syl5qmmmqy5ajdzed))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:23:08.829 +03:00 [INF] Received HTTP response headers after 7933.7526ms - 200
+2024-03-26 00:23:08.835 +03:00 [INF] End processing HTTP request after 7943.4646ms - 200
+2024-03-26 00:23:09.531 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:23:09.533 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:23:09.871 +03:00 [INF] Received HTTP response headers after 337.4002ms - 200
+2024-03-26 00:23:09.876 +03:00 [INF] End processing HTTP request after 344.8801ms - 200
+2024-03-26 00:23:09.913 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:23:09.916 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:23:10.026 +03:00 [INF] Received HTTP response headers after 106.9407ms - 200
+2024-03-26 00:23:10.028 +03:00 [INF] End processing HTTP request after 115.1722ms - 200
+2024-03-26 00:23:10.254 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'GetBrands'
+2024-03-26 00:23:10.402 +03:00 [INF] Executed DbCommand (63ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:23:10.899 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'listCategory'
+2024-03-26 00:23:10.905 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:23:16.426 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'saveVariantType'
+2024-03-26 00:23:16.429 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:23:16.820 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'saveVariantType'
+2024-03-26 00:24:23.089 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-03-26 00:24:23.663 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-26 00:24:24.426 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:24:24.447 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:24:24.450 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:24:24.452 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:24:24.462 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-26 00:24:24.486 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-26 00:24:24.621 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-26 00:24:24.805 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-26 00:24:24.806 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-26 00:24:24.828 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-26 00:24:24.830 +03:00 [INF] Hosting environment: Development
+2024-03-26 00:24:24.831 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-03-26 00:24:25.798 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-26 00:24:25.823 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:24:25.836 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-26 00:24:25.851 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-26 00:24:25.918 +03:00 [INF] Executed ViewResult - view Index executed in 67.1985ms.
+2024-03-26 00:24:25.924 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 86.0379ms
+2024-03-26 00:24:25.926 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:24:25.935 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 141.0214ms
+2024-03-26 00:24:25.972 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-26 00:24:25.976 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.9433ms
+2024-03-26 00:24:26.469 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:24:26.474 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.4348ms
+2024-03-26 00:24:26.476 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:24:26.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:24:26.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 3.2193ms
+2024-03-26 00:24:26.482 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:24:26.500 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-26 00:24:26.502 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.1139ms
+2024-03-26 00:24:26.504 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-26 00:24:26.505 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-26 00:24:26.507 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.4637ms
+2024-03-26 00:24:26.508 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-03-26 00:24:31.682 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Ikas/YeniUnrunEkle - null null
+2024-03-26 00:24:31.684 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.IkasController.YeniUnrunEkle (MyEntegrasyon)'
+2024-03-26 00:24:31.691 +03:00 [INF] Route matched with {action = "YeniUnrunEkle", controller = "Ikas"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Boolean] YeniUnrunEkle() on controller MyEntegrasyon.Controllers.IkasController (MyEntegrasyon).
+2024-03-26 00:24:31.743 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:24:31.746 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:24:31.981 +03:00 [INF] Received HTTP response headers after 227.893ms - 200
+2024-03-26 00:24:31.986 +03:00 [INF] End processing HTTP request after 245.7343ms - 200
+2024-03-26 00:24:32.075 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(f5ntqryta2c3gnohxu2uye0f))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:24:32.078 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(f5ntqryta2c3gnohxu2uye0f))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:24:39.257 +03:00 [INF] Received HTTP response headers after 7177.9553ms - 200
+2024-03-26 00:24:39.262 +03:00 [INF] End processing HTTP request after 7186.9419ms - 200
+2024-03-26 00:24:40.015 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:24:40.016 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:24:40.398 +03:00 [INF] Received HTTP response headers after 380.8301ms - 200
+2024-03-26 00:24:40.404 +03:00 [INF] End processing HTTP request after 388.9948ms - 200
+2024-03-26 00:24:40.441 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:24:40.447 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:24:40.558 +03:00 [INF] Received HTTP response headers after 107.9842ms - 200
+2024-03-26 00:24:40.564 +03:00 [INF] End processing HTTP request after 122.4328ms - 200
+2024-03-26 00:24:40.710 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'GetBrands'
+2024-03-26 00:24:40.784 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:24:41.272 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'listCategory'
+2024-03-26 00:24:41.282 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:24:53.640 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'saveVariantType'
+2024-03-26 00:24:53.642 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:25:18.048 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-03-26 00:25:18.846 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-26 00:25:19.599 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:25:19.616 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:25:19.620 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:25:19.622 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:25:19.634 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-26 00:25:19.657 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-26 00:25:19.812 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-26 00:25:19.992 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-26 00:25:19.993 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-26 00:25:20.020 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-26 00:25:20.021 +03:00 [INF] Hosting environment: Development
+2024-03-26 00:25:20.023 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-03-26 00:25:21.041 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-26 00:25:21.072 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:25:21.085 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-26 00:25:21.101 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-26 00:25:21.180 +03:00 [INF] Executed ViewResult - view Index executed in 79.1366ms.
+2024-03-26 00:25:21.184 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 97.2248ms
+2024-03-26 00:25:21.186 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:25:21.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 154.8995ms
+2024-03-26 00:25:21.225 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-26 00:25:21.229 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.7551ms
+2024-03-26 00:25:21.733 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:25:21.738 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.512ms
+2024-03-26 00:25:21.740 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:25:21.743 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:25:21.747 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 3.4434ms
+2024-03-26 00:25:21.748 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:25:21.767 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-26 00:25:21.770 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.8216ms
+2024-03-26 00:25:21.771 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-26 00:25:21.773 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-26 00:25:21.774 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.2445ms
+2024-03-26 00:25:21.775 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-03-26 00:25:54.960 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-03-26 00:25:55.563 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-26 00:25:56.286 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:25:56.304 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:25:56.308 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:25:56.310 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:25:56.320 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-26 00:25:56.344 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-26 00:25:56.484 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-26 00:25:56.662 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-26 00:25:56.663 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-26 00:25:56.710 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-26 00:25:56.714 +03:00 [INF] Hosting environment: Development
+2024-03-26 00:25:56.716 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-03-26 00:25:57.533 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-26 00:25:57.559 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:25:57.572 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-26 00:25:57.587 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-26 00:25:57.657 +03:00 [INF] Executed ViewResult - view Index executed in 69.5543ms.
+2024-03-26 00:25:57.662 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 87.6436ms
+2024-03-26 00:25:57.664 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:25:57.670 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 140.45ms
+2024-03-26 00:25:57.700 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-26 00:25:57.704 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.3427ms
+2024-03-26 00:25:58.222 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:25:58.228 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.8389ms
+2024-03-26 00:25:58.230 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:25:58.232 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:25:58.235 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 2.7628ms
+2024-03-26 00:25:58.236 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:25:58.252 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-26 00:25:58.254 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.4683ms
+2024-03-26 00:25:58.255 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-26 00:25:58.257 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-26 00:25:58.258 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.6762ms
+2024-03-26 00:25:58.259 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-03-26 00:26:05.377 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Ikas/YeniUnrunEkle - null null
+2024-03-26 00:26:05.379 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.IkasController.YeniUnrunEkle (MyEntegrasyon)'
+2024-03-26 00:26:05.386 +03:00 [INF] Route matched with {action = "YeniUnrunEkle", controller = "Ikas"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Boolean] YeniUnrunEkle() on controller MyEntegrasyon.Controllers.IkasController (MyEntegrasyon).
+2024-03-26 00:26:05.439 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:26:05.441 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:26:05.692 +03:00 [INF] Received HTTP response headers after 246.3064ms - 200
+2024-03-26 00:26:05.697 +03:00 [INF] End processing HTTP request after 259.6973ms - 200
+2024-03-26 00:26:05.774 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(0hkocfv4e5mtkp0m1bw14jko))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:26:05.776 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(0hkocfv4e5mtkp0m1bw14jko))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:26:12.879 +03:00 [INF] Received HTTP response headers after 7101.3777ms - 200
+2024-03-26 00:26:12.883 +03:00 [INF] End processing HTTP request after 7109.6656ms - 200
+2024-03-26 00:26:13.498 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:26:13.500 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:26:13.968 +03:00 [INF] Received HTTP response headers after 467.0505ms - 200
+2024-03-26 00:26:13.970 +03:00 [INF] End processing HTTP request after 471.3568ms - 200
+2024-03-26 00:26:13.979 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:26:13.980 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:26:14.093 +03:00 [INF] Received HTTP response headers after 111.7017ms - 200
+2024-03-26 00:26:14.098 +03:00 [INF] End processing HTTP request after 119.447ms - 200
+2024-03-26 00:26:14.248 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'GetBrands'
+2024-03-26 00:26:14.325 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:26:14.743 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'listCategory'
+2024-03-26 00:26:14.748 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:26:22.824 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'saveVariantType'
+2024-03-26 00:26:22.827 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:27:42.905 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-03-26 00:27:43.508 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-03-26 00:27:44.228 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:27:44.246 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:27:44.248 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-03-26 00:27:44.250 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-03-26 00:27:44.260 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-03-26 00:27:44.282 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-03-26 00:27:44.416 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-03-26 00:27:44.580 +03:00 [INF] Now listening on: https://localhost:7020
+2024-03-26 00:27:44.581 +03:00 [INF] Now listening on: http://localhost:5185
+2024-03-26 00:27:44.606 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-26 00:27:44.608 +03:00 [INF] Hosting environment: Development
+2024-03-26 00:27:44.609 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-03-26 00:27:45.368 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-03-26 00:27:45.396 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:27:45.407 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-03-26 00:27:45.421 +03:00 [INF] Executing ViewResult, running view Index.
+2024-03-26 00:27:45.489 +03:00 [INF] Executed ViewResult - view Index executed in 67.7661ms.
+2024-03-26 00:27:45.495 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 85.0013ms
+2024-03-26 00:27:45.496 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-03-26 00:27:45.503 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 139.7359ms
+2024-03-26 00:27:45.533 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-03-26 00:27:45.537 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.4412ms
+2024-03-26 00:27:46.061 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:27:46.066 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.2379ms
+2024-03-26 00:27:46.068 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:27:46.070 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-03-26 00:27:46.073 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 2.9127ms
+2024-03-26 00:27:46.074 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-03-26 00:27:46.090 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-03-26 00:27:46.092 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.5638ms
+2024-03-26 00:27:46.094 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-03-26 00:27:46.095 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-03-26 00:27:46.096 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.2438ms
+2024-03-26 00:27:46.097 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-03-26 00:27:49.053 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Ikas/YeniUnrunEkle - null null
+2024-03-26 00:27:49.055 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.IkasController.YeniUnrunEkle (MyEntegrasyon)'
+2024-03-26 00:27:49.062 +03:00 [INF] Route matched with {action = "YeniUnrunEkle", controller = "Ikas"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Boolean] YeniUnrunEkle() on controller MyEntegrasyon.Controllers.IkasController (MyEntegrasyon).
+2024-03-26 00:27:49.115 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:27:49.118 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(fjcangjis432kyhkvtblqxia))/IntegratorService/Connect
+2024-03-26 00:27:49.384 +03:00 [INF] Received HTTP response headers after 262.7366ms - 200
+2024-03-26 00:27:49.387 +03:00 [INF] End processing HTTP request after 274.6064ms - 200
+2024-03-26 00:27:49.440 +03:00 [INF] Start processing HTTP request GET http://95.70.226.23:1515/(S(jjskm5cebwrvi3twnd3r2rqq))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:27:49.442 +03:00 [INF] Sending HTTP request GET http://95.70.226.23:1515/(S(jjskm5cebwrvi3twnd3r2rqq))/IntegratorService/RunProc?%7B'ProcName':'KidaIkasEntegrasyonSon','Parameters':[]%7D
+2024-03-26 00:27:56.667 +03:00 [INF] Received HTTP response headers after 7223.16ms - 200
+2024-03-26 00:27:56.674 +03:00 [INF] End processing HTTP request after 7233.7144ms - 200
+2024-03-26 00:27:57.305 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:27:57.306 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:27:57.678 +03:00 [INF] Received HTTP response headers after 370.6753ms - 200
+2024-03-26 00:27:57.683 +03:00 [INF] End processing HTTP request after 378.0879ms - 200
+2024-03-26 00:27:57.714 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:27:57.718 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-03-26 00:27:57.831 +03:00 [INF] Received HTTP response headers after 109.3354ms - 200
+2024-03-26 00:27:57.839 +03:00 [INF] End processing HTTP request after 125.5146ms - 200
+2024-03-26 00:27:57.974 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'GetBrands'
+2024-03-26 00:27:58.048 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:27:58.547 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'listCategory'
+2024-03-26 00:27:58.557 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:28:05.126 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'saveVariantType'
+2024-03-26 00:28:05.128 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-03-26 00:28:25.123 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'saveVariantType'
