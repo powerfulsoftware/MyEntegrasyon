@@ -9,6 +9,7 @@ using MyEntegrasyon.Data;
 using MyEntegrasyon.Models.Myikas;
 using MyEntegrasyon.Models.Myikas.BrandAdd;
 using MyEntegrasyon.Models.Myikas.Category;
+using MyEntegrasyon.Models.Myikas.VariantC;
 using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -399,8 +400,6 @@ namespace MyEntegrasyon.Controllers
 
 
                 }
-
-
             }
 
 
@@ -523,6 +522,135 @@ namespace MyEntegrasyon.Controllers
                             }
                             // var gelendeger = YeniKategoriEkle(item_product.Cat01Desc!);
                         }
+
+
+                        // Varyant Türleri -- ItemDimTypeCode
+
+                        // 0 // Renksiz Bedensiz : 0359c3b9-ce47-4440-b3a9-1a33d8878db0
+                        // 1 // Renkli Bedensiz : 2d7f79a3-363b-4fa2-aaf5-8c79633fddc1
+                        // 2 // Renkli Bedenli : bb3f57e0-9dc0-4870-9229-70832db410bd
+
+                        if (item_Variant.ItemDimTypeCode == 0) // Renksiz Bedensiz
+                        {
+                            // ID : 0359c3b9-ce47-4440-b3a9-1a33d8878db0
+
+                            string ID_eq = "0359c3b9-ce47-4440-b3a9-1a33d8878db0";
+
+
+                            MyEntegrasyon.Models.Myikas.VariantC.Root _root = new Models.Myikas.VariantC.Root();
+                            MyEntegrasyon.Models.Myikas.VariantC.ListVariantTypeId _listVariantTypeId = new Models.Myikas.VariantC.ListVariantTypeId();
+                            _listVariantTypeId.eq = ID_eq;
+                            _root.listVariantTypeId = _listVariantTypeId;
+
+                            GraphQLResponse<MyEntegrasyon.Models.Myikas.VariantC.Root> gelen_VariantType = new GraphQLResponse<MyEntegrasyon.Models.Myikas.VariantC.Root>();
+                            var request_Categori = new GraphQLRequest()
+                            {
+                                Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeGetID").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                Variables = _root
+                            };
+
+                            try
+                            {
+                                gelen_VariantType = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.VariantC.Root>(request_Categori);
+                                MyEntegrasyon.Models.Myikas.VariantC.Root ListVariantTypeId = gelen_VariantType.Data;
+                                // string ID = ListVariantTypeId.saveCategory!.id!;
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+
+                            }
+
+                        }
+
+                        if (item_Variant.ItemDimTypeCode == 1) // Renkli Bedensiz
+                        {
+
+                            // ID : 2d7f79a3-363b-4fa2-aaf5-8c79633fddc1
+                            string ID_eq = "2d7f79a3-363b-4fa2-aaf5-8c79633fddc1";
+
+
+                            MyEntegrasyon.Models.Myikas.VariantC.Root _root = new Models.Myikas.VariantC.Root();
+                            MyEntegrasyon.Models.Myikas.VariantC.ListVariantTypeId _listVariantTypeId = new Models.Myikas.VariantC.ListVariantTypeId();
+                            _listVariantTypeId.eq = ID_eq;
+                            _root.listVariantTypeId = _listVariantTypeId;
+
+                            GraphQLResponse<MyEntegrasyon.Models.Myikas.VariantC.Root> gelen_VariantType = new GraphQLResponse<MyEntegrasyon.Models.Myikas.VariantC.Root>();
+                            var request_Categori = new GraphQLRequest()
+                            {
+                                Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeGetID").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                Variables = _root
+                            };
+
+                            try
+                            {
+                                gelen_VariantType = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.VariantC.Root>(request_Categori);
+                                MyEntegrasyon.Models.Myikas.VariantC.Root ListVariantTypeId = gelen_VariantType.Data;
+                                // string ID = ListVariantTypeId.saveCategory!.id!;
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+
+                            }
+                        }
+
+                        if (item_Variant.ItemDimTypeCode == 2) // Renkli Bedenli 
+                        {
+                            // ID : bb3f57e0-9dc0-4870-9229-70832db410bd
+                            string ID_eq = "bb3f57e0-9dc0-4870-9229-70832db410bd";
+                         
+
+                            MyEntegrasyon.Models.Myikas.VariantC.Root _root = new Models.Myikas.VariantC.Root();
+                            MyEntegrasyon.Models.Myikas.VariantC.ListVariantTypeId _listVariantTypeId = new Models.Myikas.VariantC.ListVariantTypeId();
+                            _listVariantTypeId.eq = ID_eq;
+                            _root.listVariantTypeId = _listVariantTypeId;
+
+                            GraphQLResponse<MyEntegrasyon.Models.Myikas.VariantC.Root> gelen_VariantType = new GraphQLResponse<MyEntegrasyon.Models.Myikas.VariantC.Root>();
+                            var request_Categori = new GraphQLRequest()
+                            {
+                                Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeGetID").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                Variables = _root
+                            };
+
+                            try
+                            {
+                                gelen_VariantType = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.VariantC.Root>(request_Categori);
+                                _root = gelen_VariantType.Data;
+                                // string ID = ListVariantTypeId.saveCategory!.id!;
+                            }
+                            catch (Exception ex)
+                            {
+                                string message = ex.Message;
+
+                            }
+
+
+                            foreach (var item in _root.listVariantType!)
+                            {
+                                string? Id = item.id;
+                                string? name = item.name;
+                                string selectionType = item.selectionType;
+                                List<Value> ? values = item.values;
+
+
+                                foreach (var item_value in values)
+                                {
+                                    if(item_value.colorCode != item_Variant.ColorCode && item_value.name != item_Variant.ColorDesc)
+                                    {
+
+                                    }
+                                }
+
+
+
+                            }
+
+
+
+                        }
+
+
 
 
 
