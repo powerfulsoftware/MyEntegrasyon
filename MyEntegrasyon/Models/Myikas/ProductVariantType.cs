@@ -4,7 +4,7 @@
     {
         public float order { get; set; } // Varyant türünün sırası.
         public string? variantTypeId { get; set; } // Varyant türünün kimliği.
-        public string? variantValueIds { get; set; } // Varyant değeri tanımlayıcılarının listesi.
+        public List<string>? variantValueIds { get; set; } // Varyant değeri tanımlayıcılarının listesi.
 
 
 

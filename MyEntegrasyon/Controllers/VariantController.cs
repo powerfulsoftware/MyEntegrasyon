@@ -55,6 +55,7 @@ namespace MyEntegrasyon.Controllers
         }
         public async Task<IActionResult> Index()
         {
+          
 
             List<ListVariantType> listVariantTypes = new List<ListVariantType>();
             using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
@@ -72,7 +73,7 @@ namespace MyEntegrasyon.Controllers
 
                 client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
 
-                /////////  MARKA LİSTESİ
+                /////////  MARKA LİSTESİ   /////////
                 GraphQLResponse<Root> gelen_Brand = new GraphQLResponse<Root>();
                 var request_Brand = new GraphQLRequest()
                 {
@@ -84,5 +85,88 @@ namespace MyEntegrasyon.Controllers
 
             return View(listVariantTypes);
         }
+
+
+        public async Task Delete()
+        {
+            List<string> list = new List<string>();
+            List<ListVariantType> listVariantTypes = new List<ListVariantType>();
+            using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                var content4 = new StringContent("grant_type=client_credentials&scope=https://api.businesscentral.dynamics.com/.default&client_id="
+              + HttpUtility.UrlEncode(_clientId) + "&client_secret=" + HttpUtility.UrlEncode(_secret));
+                content4.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                var response3 = await _httpClient.PostAsync(_url, content4);
+                if (response3.IsSuccessStatusCode)
+                {
+                    JObject result3 = JObject.Parse(await response3.Content.ReadAsStringAsync());
+                    _access_token = result3["access_token"]!.ToString();
+                }
+
+                client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                /////////  MARKA LİSTESİ   /////////
+                GraphQLResponse<Root> gelen_Brand = new GraphQLResponse<Root>();
+                var request_Brand = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "listVariantType").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )                                                                                                         
+                };
+                gelen_Brand = await client.SendQueryAsync<Root>(request_Brand);
+                listVariantTypes = gelen_Brand.Data.listVariantType;
+
+
+                foreach (var item in listVariantTypes!)
+                {
+                    list.Add(item.id!);
+                }
+
+
+
+
+                ////////  Silme işlemi ////////////
+
+
+
+
+
+
+                 // deleteVariantTypeList
+
+                MyEntegrasyon.Models.Myikas.SaveVariant.Root _root = new Models.Myikas.SaveVariant.Root();
+                _root.idList = list;
+
+                GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantDelete = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
+                var request_VariantDelete = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "deleteVariantTypeList").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                    Variables = _root
+                };
+
+                try
+                {
+                    gelen_VariantDelete = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantDelete);
+                    bool VariantDelete = gelen_VariantDelete.Data.deleteVariantTypeList;
+                   
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+
+                }
+
+
+
+            }
+
+
+
+            Response.Redirect("Index");
+
+
+        }
+
+
+
     }
 }
