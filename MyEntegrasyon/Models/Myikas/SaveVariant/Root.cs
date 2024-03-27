@@ -8,5 +8,7 @@
         public List<string>? idList { get; set; }
 
         public bool deleteVariantTypeList { get; set; } // variyant listesi silinince dönen değer
+
+        public Name? name { get; set; } // variyant listesi name ile çekme 
     }
 }
