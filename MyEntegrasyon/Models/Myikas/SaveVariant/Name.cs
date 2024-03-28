@@ -2,6 +2,6 @@
 {
     public class Name
     {
-        public string? like { get; set; }
+        public string? eq { get; set; }
     }
 }
