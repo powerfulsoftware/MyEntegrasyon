@@ -12,5 +12,6 @@
         public Name? name { get; set; } // variyant listesi name ile çekme 
 
         public List<ListVariantType>? listVariantType { get; set; }  // variyant listesi name ile çekme  // sonuc bu kısma aktarılacak
+
     }
 }

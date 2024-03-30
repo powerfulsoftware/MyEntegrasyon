@@ -19,8 +19,8 @@
        // public float totalStock { get; set; }
         public string? type { get; set; }
         public List<Variant>? variants { get; set; }
-      //  public List<SalesChannel>? salesChannels { get; set; }
-     //   public string? salesChannelIds { get; set; }
+       public List<SalesChannel>? salesChannels { get; set; }
+        public string? salesChannelIds { get; set; }
 
         public List<ProductVariantType>? productVariantTypes { get; set; }
     }
