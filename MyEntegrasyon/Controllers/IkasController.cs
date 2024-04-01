@@ -456,10 +456,17 @@ namespace MyEntegrasyon.Controllers
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                var ddddd = _products.Take(2);
 
-                foreach (var item_product in _products.Take(2))
+                foreach (var item_product in _products.Take(3))
                 {
+
+
+                    if (item_product.ItemCode != "101A03431")
+                    {
+
+                   
+
+
 
                     List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
 
@@ -918,15 +925,21 @@ namespace MyEntegrasyon.Controllers
                        // input.id = item_product.ItemCode;
                         input.name = item_product.ItemName;
                         input!.type = "PHYSICAL"; // Bu kısım sorulacak
-                        input!.shortDescription = item_product.ItemDesc;
+                       // input!.shortDescription = item_product.ItemDesc;
+                        input!.shortDescription = "item product ItemDesc";
+
+
+
+
                         // input.totalStock = (float)Convert.ToDouble(parameter.Qty);
+                     
                         input.variants = _variants;
                         input!.brandId = _brandId; // string
                                                    // input!.brand = parameter.BrandDesc;
                         input!.categoryIds = _categoryIds; // List<string>
                                                            // input!.categoryIds = new categories { id = parameter.Cat01Code, name = parameter.Cat01Desc, parentId="Tekstil" };
                         input!.salesChannels = _salesChannels;
-                        input!.salesChannelIds = "12345";
+                        input!.salesChannelIds = "404e7a81-298a-4562-9a1c-697b939f0e20";
                         input.productVariantTypes = productVariantTypes;
 
                         Models.Myikas.Root root = new Models.Myikas.Root();
@@ -941,19 +954,22 @@ namespace MyEntegrasyon.Controllers
                         //  var requestJson = "";   // Models.GraphQLQueries.saveProduct89; // Nebimden gelen veriler Root formatında json verisi olarak bu kısıma eklenecek.
                         //  var inputs = new GraphQLSerializer().Deserialize<Root>(requestJson);
 
+                       
+                            GraphQLResponse<dynamic> gelen = new GraphQLResponse<dynamic>();
+                            GraphQLRequest request = new GraphQLRequest();
+
+                            request.Query = _context.Islem.Where(x => x.IslemAdi == "ikasSaveProduct").FirstOrDefault()!.JsonDesen!.Pattern!;   // Desen ( Pattern )
+                            request.Variables = root;
+                            request.OperationName = "Mutation";
 
 
-                        GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveProduct.Root> gelen = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveProduct.Root>();
-                        GraphQLRequest request = new GraphQLRequest();
+                            gelen = await client.SendMutationAsync<dynamic>(request);
+                       
+                
 
-                        request.Query = _context.Islem.Where(x => x.IslemAdi == "ikasSaveProduct").FirstOrDefault()!.JsonDesen!.Pattern!;   // Desen ( Pattern )
-                        request.Variables = root;
-                        request.OperationName = "Mutation";
+                       
 
-
-                        gelen = await client.SendMutationAsync<MyEntegrasyon.Models.Myikas.SaveProduct.Root>(request);
-
-                        MyEntegrasyon.Models.Myikas.SaveProduct.Root _SaveProduct = gelen.Data;
+                       // MyEntegrasyon.Models.Myikas.SaveProduct.Root _SaveProduct = gelen.Data;
 
                         // return await client.SendQueryAsync<dynamic>(request);
 
@@ -970,6 +986,12 @@ namespace MyEntegrasyon.Controllers
 
 
                     }
+
+
+
+
+                    }
+
 
                 }
 

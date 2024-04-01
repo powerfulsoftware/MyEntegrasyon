@@ -7,7 +7,7 @@
         public List<Price>? prices { get; set; }
        // public string? SKU { get; set; }
 
-       public List<VariantValue>? variantValueIds { get; set; }
+      public List<VariantValue>? variantValueIds { get; set; }
 
     }
 }
