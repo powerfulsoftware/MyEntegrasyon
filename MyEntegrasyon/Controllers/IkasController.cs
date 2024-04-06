@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Globalization;
 using System.Net.Http;
+using System.Reactive.Joins;
 using System.Reflection.Metadata;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Nodes;
@@ -457,271 +458,235 @@ namespace MyEntegrasyon.Controllers
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-                foreach (var item_product in _products.Take(3))
+                foreach (var item_product in _products)
                 {
+                    //  101A10350 - olumsuz
+                    //  101A10332 - olumlu
 
-
-                    if (item_product.ItemCode != "101A03431")
+                    if (item_product.ItemCode == "101A10350")
                     {
 
-                   
+                        List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
 
-
-
-                    List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
-
-
-                    if (item_product.Cat01Code != "0")
-                    {
-
-                        // fiyatlar
-                        List<Price> _prices = new List<Price>(); // fiyatlar
-
-                        // varyantlar
-                        List<Variant> _variants = new List<Variant>(); // varyantlar
-                                                                       // satış Kanalları
-                        List<SalesChannel> _salesChannels = new List<SalesChannel>(); // satış Kanalları
-
-                        string? _brandId = "";
-                        List<string> _categoryIds = new List<string>();
-
-
-                        List<ProductVariantType> productVariantTypes = new List<ProductVariantType>();
-
-
-                        int ilk = 0;
-
-                        foreach (var item_Variant in item_product.ProductVariants!)
+                        if (item_product.Cat01Code != "0")
                         {
+                            // fiyatlar
+                            List<Price> _prices = new List<Price>(); // fiyatlar
 
-                            // Marka Listesi
-                            _BrandList = await MarkaListesiGetir();
+                            // varyantlar
+                            List<Variant> _variants = new List<Variant>(); // varyantlar
+                                                                           // satış Kanalları
+                            List<SalesChannel> _salesChannels = new List<SalesChannel>(); // satış Kanalları
 
-                            // Marka adı varmı? kontol ediyoruz. Yoksa oluşturacağız.
-                            bool BuMarkaAdiVarMi = _BrandList.listProductBrand!.Where(x => x.name == item_product.BrandDesc).ToList().Count > 0;
-                            if (!BuMarkaAdiVarMi)// marka oluşturulacak
+                            string? _brandId = "";
+                            List<string> _categoryIds = new List<string>();
+
+
+                            List<ProductVariantType> productVariantTypes = new List<ProductVariantType>();
+
+
+                            int ilk = 0;
+
+                            foreach (var item_Variant in item_product.ProductVariants!)
                             {
 
-                                MyEntegrasyon.Models.Myikas.BrandAdd.Root _root = new Models.Myikas.BrandAdd.Root();
-                                MyEntegrasyon.Models.Myikas.BrandAdd.Input _input = new Models.Myikas.BrandAdd.Input();
-                                _input.name = item_product.BrandDesc;
-                                _root.input = _input;
+                                // Marka Listesi
+                                _BrandList = await MarkaListesiGetir();
 
-                                // var requestJson = "{input:{name: " + item_product.BrandDesc!.Replace("İ","I") + "}}";
-                                //  var inputs = new GraphQLSerializer().Deserialize<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(requestJson);
-
-
-                                GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root> gelen_Brand = new GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root>();
-                                var request_Brand = new GraphQLRequest()
+                                // Marka adı varmı? kontol ediyoruz. Yoksa oluşturacağız.
+                                bool BuMarkaAdiVarMi = _BrandList.listProductBrand!.Where(x => x.name == item_product.BrandDesc).ToList().Count > 0;
+                                if (!BuMarkaAdiVarMi)// marka oluşturulacak
                                 {
-                                    Query = _context.Islem.Where(x => x.IslemAdi == "saveProductBrand").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
-                                    Variables = _root
-                                };
 
-                                try
-                                {
-                                    gelen_Brand = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(request_Brand);
-                                    MyEntegrasyon.Models.Myikas.BrandAdd.Root saveProductBrand = gelen_Brand.Data;
-                                    _brandId = saveProductBrand.saveProductBrand!.id!;
-                                }
-                                catch (Exception ex)
-                                {
-                                    string message = ex.Message;
+                                    MyEntegrasyon.Models.Myikas.BrandAdd.Root _root = new Models.Myikas.BrandAdd.Root();
+                                    MyEntegrasyon.Models.Myikas.BrandAdd.Input _input = new Models.Myikas.BrandAdd.Input();
+                                    _input.name = item_product.BrandDesc;
+                                    _root.input = _input;
 
-                                }
-                                // var gelendeger =  YeniMarkaEkle(item_product.BrandDesc!);
-                            }
-                            else
-                            {
-                                _brandId = _BrandList.listProductBrand!.Where(x => x.name == item_product.BrandDesc).FirstOrDefault()!.id;
-                            }
-
-                            _KategoriListesi = await ListCategory();
+                                    // var requestJson = "{input:{name: " + item_product.BrandDesc!.Replace("İ","I") + "}}";
+                                    //  var inputs = new GraphQLSerializer().Deserialize<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(requestJson);
 
 
-                            // Kategori varmı? kontol ediyoruz. Yoksa oluşturacağız.
-                            bool BuKategoriVarMi = _KategoriListesi!.Where(x => x.name == item_product.Cat01Desc).ToList().Count > 0;
-                            if (!BuKategoriVarMi)// Kategori oluşturulacak
-                            {
-
-                                MyEntegrasyon.Models.Myikas.Category.Root _root = new Models.Myikas.Category.Root();
-                                MyEntegrasyon.Models.Myikas.Category.Input _input = new Models.Myikas.Category.Input();
-                                _input.name = item_product.Cat01Desc;
-                                _root.input = _input;
-
-                                GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen_Categori = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
-                                var request_Categori = new GraphQLRequest()
-                                {
-                                    Query = _context.Islem.Where(x => x.IslemAdi == "saveCategory").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
-                                    Variables = _root
-                                };
-
-                                try
-                                {
-                                    gelen_Categori = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request_Categori);
-                                    MyEntegrasyon.Models.Myikas.Category.Root saveCategory = gelen_Categori.Data;
-                                    string ID = saveCategory.saveCategory!.id!;
-
-                                    _categoryIds.Add(ID);
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    string message = ex.Message;
-
-                                }
-                                // var gelendeger = YeniKategoriEkle(item_product.Cat01Desc!);
-                            }
-                            else
-                            {
-                              _categoryIds.Clear();
-                              string  ID = _KategoriListesi!.Where(x => x.name == item_product.Cat01Desc).FirstOrDefault()!.id!;
-                              _categoryIds.Add(ID);
-                            }
-
-                            // Varyant Türleri -- ItemDimTypeCode
-
-                            // 0 // Renksiz Bedensiz : 0359c3b9-ce47-4440-b3a9-1a33d8878db0
-                            // 1 // Renkli Bedensiz : 2d7f79a3-363b-4fa2-aaf5-8c79633fddc1
-                            // 2 // Renkli Bedenli : bb3f57e0-9dc0-4870-9229-70832db410bd
-
-                            /////////////////////////////////////////////////////////////////////////////
-                            /////////////////////////////////////////////////////////////////////////////
-                            /////////////////////////////////////////////////////////////////////////////
-                            /////////////////////////////////////////////////////////////////////////////
-                            //// Beden ve Renk Variant listesini çekip kontrol mekanızmasını kuracağız.
-                            int sayi_renk = 0;
-                            MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeName_Renk_Kontrol_icin = new Models.Myikas.SaveVariant.Root(); //// gelecek verileri buraya aktaracaz ve varyant sorgsunu yapacaz.
-
-                            MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Renk_Kontrol_icin = new Models.Myikas.SaveVariant.Root();
-                            MyEntegrasyon.Models.Myikas.SaveVariant.Name _VariantTypeName_Renk_Kontrol_icin = new Models.Myikas.SaveVariant.Name();
-                            _VariantTypeName_Renk_Kontrol_icin.eq = item_product.ItemCode + "_Renk";
-                            _root_Renk_Kontrol_icin.name = _VariantTypeName_Renk_Kontrol_icin;
-
-                            GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Renk_Kontrol_icin = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
-                            var request_VariantType_Renk_Kontrol_icin = new GraphQLRequest()
-                            {
-                                Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeName").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
-                                Variables = _root_Renk_Kontrol_icin
-                            };
-
-                            try
-                            {
-                                gelen_VariantType_Renk_Kontrol_icin = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Renk_Kontrol_icin);
-                                ListVariantTypeName_Renk_Kontrol_icin = gelen_VariantType_Renk_Kontrol_icin.Data;
-
-
-
-                                sayi_renk = ListVariantTypeName_Renk_Kontrol_icin.listVariantType!.Count();
-
-                                // string ID = ListVariantTypeId.saveCategory!.id!;
-
-                            }
-                            catch (Exception ex)
-                            {
-                                string message = ex.Message;
-
-                            }
-
-
-                            //////// BEDEN İÇİN //// 
-                            int sayi_beden = 0;
-                            MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeName_Benden_Kontrol_icin = new Models.Myikas.SaveVariant.Root(); //// gelecek verileri buraya aktaracaz ve varyant sorgsunu yapacaz.
-
-                            MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Benden_Kontrol_icin = new Models.Myikas.SaveVariant.Root();
-                            MyEntegrasyon.Models.Myikas.SaveVariant.Name _VariantTypeName_Benden_Kontrol_icin = new Models.Myikas.SaveVariant.Name();
-                            _VariantTypeName_Benden_Kontrol_icin.eq = item_product.ItemCode + "_Benden";
-                            _root_Benden_Kontrol_icin.name = _VariantTypeName_Benden_Kontrol_icin;
-
-                            GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Benden_Kontrol_icin = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
-                            var request_VariantType_Benden_Kontrol_icin = new GraphQLRequest()
-                            {
-                                Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeName").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
-                                Variables = _root_Benden_Kontrol_icin
-                            };
-
-                            try
-                            {
-                                gelen_VariantType_Benden_Kontrol_icin = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Benden_Kontrol_icin);
-                                ListVariantTypeName_Benden_Kontrol_icin = gelen_VariantType_Benden_Kontrol_icin.Data;
-                                // string ID = ListVariantTypeId.saveCategory!.id!;
-                                sayi_beden = ListVariantTypeName_Renk_Kontrol_icin.listVariantType!.Count();
-                            }
-                            catch (Exception ex)
-                            {
-                                string message = ex.Message;
-
-                            }
-
-                            /////////////////////////////////////////////////////////////////////////////
-                            /////////////////////////////////////////////////////////////////////////////
-                            ////////////////////////////////////////////////////////////////////////////////
-                            /////////////////////////////////////////////////////////////////////////////
-
-                            ilk = ilk + 1;
-
-
-                            if (sayi_renk == 0) // Oluşturulmamışsa
-                            {
-                                ///////////////////////////////////////////
-                                //////////////////Renk///////////////////////////
-                                MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Renk = new Models.Myikas.SaveVariant.Root();
-                                MyEntegrasyon.Models.Myikas.SaveVariant.Input _VariantTypeInput_Renk = new Models.Myikas.SaveVariant.Input();
-                                List<MyEntegrasyon.Models.Myikas.SaveVariant.Value> _Values_Renk = new List<MyEntegrasyon.Models.Myikas.SaveVariant.Value>();
-                                foreach (var item_newAddvariants in item_product.ProductVariants)
-                                {
-                                    if (!(_Values_Renk.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                                    GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root> gelen_Brand = new GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root>();
+                                    var request_Brand = new GraphQLRequest()
                                     {
-                                        if (ListVariantTypeName_Renk_Kontrol_icin.saveVariantType != null)
+                                        Query = _context.Islem.Where(x => x.IslemAdi == "saveProductBrand").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                        Variables = _root
+                                    };
+
+                                    try
+                                    {
+                                        gelen_Brand = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(request_Brand);
+                                        MyEntegrasyon.Models.Myikas.BrandAdd.Root saveProductBrand = gelen_Brand.Data;
+                                        _brandId = saveProductBrand.saveProductBrand!.id!;
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        string message = ex.Message;
+
+                                    }
+                                    // var gelendeger =  YeniMarkaEkle(item_product.BrandDesc!);
+                                }
+                                else
+                                {
+                                    _brandId = _BrandList.listProductBrand!.Where(x => x.name == item_product.BrandDesc).FirstOrDefault()!.id;
+                                }
+
+                                _KategoriListesi = await ListCategory();
+
+
+                                // Kategori varmı? kontol ediyoruz. Yoksa oluşturacağız.
+                                bool BuKategoriVarMi = _KategoriListesi!.Where(x => x.name == item_product.Cat01Desc).ToList().Count > 0;
+                                if (!BuKategoriVarMi)// Kategori oluşturulacak
+                                {
+
+                                    MyEntegrasyon.Models.Myikas.Category.Root _root = new Models.Myikas.Category.Root();
+                                    MyEntegrasyon.Models.Myikas.Category.Input _input = new Models.Myikas.Category.Input();
+                                    _input.name = item_product.Cat01Desc;
+                                    _root.input = _input;
+
+                                    GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen_Categori = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+                                    var request_Categori = new GraphQLRequest()
+                                    {
+                                        Query = _context.Islem.Where(x => x.IslemAdi == "saveCategory").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                        Variables = _root
+                                    };
+
+                                    try
+                                    {
+                                        gelen_Categori = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request_Categori);
+                                        MyEntegrasyon.Models.Myikas.Category.Root saveCategory = gelen_Categori.Data;
+                                        string ID = saveCategory.saveCategory!.id!;
+
+                                        _categoryIds.Add(ID);
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        string message = ex.Message;
+
+                                    }
+                                    // var gelendeger = YeniKategoriEkle(item_product.Cat01Desc!);
+                                }
+                                else
+                                {
+                                    _categoryIds.Clear();
+                                    string ID = _KategoriListesi!.Where(x => x.name == item_product.Cat01Desc).FirstOrDefault()!.id!;
+                                    _categoryIds.Add(ID);
+                                }
+
+                                // Varyant Türleri -- ItemDimTypeCode
+
+                                // 0 // Renksiz Bedensiz : 0359c3b9-ce47-4440-b3a9-1a33d8878db0
+                                // 1 // Renkli Bedensiz : 2d7f79a3-363b-4fa2-aaf5-8c79633fddc1
+                                // 2 // Renkli Bedenli : bb3f57e0-9dc0-4870-9229-70832db410bd
+
+                                /////////////////////////////////////////////////////////////////////////////
+                                /////////////////////////////////////////////////////////////////////////////
+                                /////////////////////////////////////////////////////////////////////////////
+                                /////////////////////////////////////////////////////////////////////////////
+                                //// Beden ve Renk Variant listesini çekip kontrol mekanızmasını kuracağız.
+                                int sayi_renk = 0;
+                                MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeName_Renk_Kontrol_icin = new Models.Myikas.SaveVariant.Root(); //// gelecek verileri buraya aktaracaz ve varyant sorgsunu yapacaz.
+
+                                MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Renk_Kontrol_icin = new Models.Myikas.SaveVariant.Root();
+                                MyEntegrasyon.Models.Myikas.SaveVariant.Name _VariantTypeName_Renk_Kontrol_icin = new Models.Myikas.SaveVariant.Name();
+                                _VariantTypeName_Renk_Kontrol_icin.eq = item_product.ItemCode + "_Renk";
+                                _root_Renk_Kontrol_icin.name = _VariantTypeName_Renk_Kontrol_icin;
+
+                                GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Renk_Kontrol_icin = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
+                                var request_VariantType_Renk_Kontrol_icin = new GraphQLRequest()
+                                {
+                                    Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeName").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                    Variables = _root_Renk_Kontrol_icin
+                                };
+
+                                try
+                                {
+                                    gelen_VariantType_Renk_Kontrol_icin = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Renk_Kontrol_icin);
+                                    ListVariantTypeName_Renk_Kontrol_icin = gelen_VariantType_Renk_Kontrol_icin.Data;
+
+
+
+                                    sayi_renk = ListVariantTypeName_Renk_Kontrol_icin.listVariantType!.Count();
+
+
+                                    if(sayi_renk > 0)
+                                    {
+                                        List<string> _variantValueIds = new List<string>();
+                                        
+                                        foreach (var item in ListVariantTypeName_Renk_Kontrol_icin.listVariantType!)
                                         {
-                                            if (!(ListVariantTypeName_Renk_Kontrol_icin.saveVariantType!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+
+                                            foreach (var item_variantValueId in item.values!)
                                             {
-                                                _Values_Renk.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ColorDesc });
+                                                _variantValueIds.Add(item_variantValueId.id!);
+                                            }
+                                            if (!(productVariantTypes.Where(x => x.variantTypeId == item.id).Count() > 0))
+                                            {
+                                                productVariantTypes.Add(new ProductVariantType { order = 0, variantTypeId = item.id, variantValueIds = _variantValueIds });
                                             }
                                         }
-                                        else
-                                        {
-                                            _Values_Renk.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ColorDesc });
-                                        }
                                     }
+
+
+
+
+                                    // string ID = ListVariantTypeId.saveCategory!.id!;
+
+                                }
+                                catch (Exception ex)
+                                {
+                                    string message = ex.Message;
+
                                 }
 
 
+                                //////// BEDEN İÇİN //// 
+                                int sayi_beden = 0;
+                                MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeName_Benden_Kontrol_icin = new Models.Myikas.SaveVariant.Root(); //// gelecek verileri buraya aktaracaz ve varyant sorgsunu yapacaz.
 
-                                _VariantTypeInput_Renk.name = item_product.ItemCode + "_Renk";
-                                _VariantTypeInput_Renk.selectionType = "COLOR";
-                                _VariantTypeInput_Renk.values = _Values_Renk;
-                                _root_Renk.input = _VariantTypeInput_Renk;
+                                MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Benden_Kontrol_icin = new Models.Myikas.SaveVariant.Root();
+                                MyEntegrasyon.Models.Myikas.SaveVariant.Name _VariantTypeName_Benden_Kontrol_icin = new Models.Myikas.SaveVariant.Name();
+                                _VariantTypeName_Benden_Kontrol_icin.eq = item_product.ItemCode + "_Beden";
+                                _root_Benden_Kontrol_icin.name = _VariantTypeName_Benden_Kontrol_icin;
 
-                                GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Renk = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
-                                var request_VariantType_Renk = new GraphQLRequest()
+                                GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Benden_Kontrol_icin = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
+                                var request_VariantType_Benden_Kontrol_icin = new GraphQLRequest()
                                 {
-                                    Query = _context.Islem.Where(x => x.IslemAdi == "saveVariantType").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
-                                    Variables = _root_Renk
+                                    Query = _context.Islem.Where(x => x.IslemAdi == "listVariantTypeName").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                    Variables = _root_Benden_Kontrol_icin
                                 };
 
                                 try
                                 {
-                                    gelen_VariantType_Renk = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Renk);
-                                    MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeId = gelen_VariantType_Renk.Data;
+                                    gelen_VariantType_Benden_Kontrol_icin = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Benden_Kontrol_icin);
+                                    ListVariantTypeName_Benden_Kontrol_icin = gelen_VariantType_Benden_Kontrol_icin.Data;
                                     // string ID = ListVariantTypeId.saveCategory!.id!;
+                                    sayi_beden = ListVariantTypeName_Benden_Kontrol_icin.listVariantType!.Count();
 
-                                    List<string> _RenkDegerleri = new List<string>();
-                                    foreach (var item in ListVariantTypeId.saveVariantType!.values!)
+
+                                    if (sayi_beden > 0)
                                     {
-                                        _RenkDegerleri.Add(item.id!);
+                                        List<string> _variantValueIds = new List<string>();
 
+                                        foreach (var item in ListVariantTypeName_Benden_Kontrol_icin.listVariantType!)
+                                        {
 
+                                            foreach (var item_variantValueId in item.values!)
+                                            {
+                                                _variantValueIds.Add(item_variantValueId.id!);
+                                            }
+
+                                            if(!(productVariantTypes.Where(x=>x.variantTypeId == item.id).Count() > 0))
+                                            {
+                                                productVariantTypes.Add(new ProductVariantType { order = 0, variantTypeId = item.id, variantValueIds = _variantValueIds });
+                                            }
+                                           
+                                        }
                                     }
 
 
-                                  
-
-                                    if(ilk == 1)
-                                    {
-                                        productVariantTypes.Add(new ProductVariantType { order = 0, variantTypeId = ListVariantTypeId.saveVariantType!.id, variantValueIds = _RenkDegerleri });
-
-                                    }
 
 
 
@@ -731,230 +696,309 @@ namespace MyEntegrasyon.Controllers
                                     string message = ex.Message;
 
                                 }
-                            }
+
+                                /////////////////////////////////////////////////////////////////////////////
+                                /////////////////////////////////////////////////////////////////////////////
+                                ////////////////////////////////////////////////////////////////////////////////
+                                /////////////////////////////////////////////////////////////////////////////
+
+                                ilk = ilk + 1;
 
 
-
-                            if (sayi_beden == 0)
-                            {
-                                ///////////////////////////////////////////
-                                ////////////////Beden////////////////////////////////
-                                MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Beden = new Models.Myikas.SaveVariant.Root();
-                                MyEntegrasyon.Models.Myikas.SaveVariant.Input _VariantTypeInput_Beden = new Models.Myikas.SaveVariant.Input();
-                                List<MyEntegrasyon.Models.Myikas.SaveVariant.Value> _Values_Beden = new List<MyEntegrasyon.Models.Myikas.SaveVariant.Value>();
-                                foreach (var item_newAddvariants in item_product.ProductVariants)
+                                if (sayi_renk == 0) // Oluşturulmamışsa
                                 {
-                                    if (!(_Values_Beden.Where(x => x.name == item_newAddvariants.ItemDim1Code).Count() > 0))
+                                    ///////////////////////////////////////////
+                                    //////////////////Renk///////////////////////////
+                                    MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Renk = new Models.Myikas.SaveVariant.Root();
+                                    MyEntegrasyon.Models.Myikas.SaveVariant.Input _VariantTypeInput_Renk = new Models.Myikas.SaveVariant.Input();
+                                    List<MyEntegrasyon.Models.Myikas.SaveVariant.Value> _Values_Renk = new List<MyEntegrasyon.Models.Myikas.SaveVariant.Value>();
+                                    foreach (var item_newAddvariants in item_product.ProductVariants)
                                     {
-                                        if (!(_Values_Beden.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                                        if (!(_Values_Renk.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
                                         {
-                                            if (ListVariantTypeName_Benden_Kontrol_icin.saveVariantType != null)
+                                            if (ListVariantTypeName_Renk_Kontrol_icin.saveVariantType != null)
                                             {
-                                                if (!(ListVariantTypeName_Benden_Kontrol_icin.saveVariantType!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                                                if (!(ListVariantTypeName_Renk_Kontrol_icin.saveVariantType!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
                                                 {
-                                                    _Values_Beden.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ItemDim1Code });
+                                                    _Values_Renk.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ColorDesc });
                                                 }
                                             }
                                             else
                                             {
-                                                _Values_Beden.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ItemDim1Code });
+                                                _Values_Renk.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ColorDesc });
                                             }
+                                        }
+                                    }
+
+
+
+                                    _VariantTypeInput_Renk.name = item_product.ItemCode + "_Renk";
+                                    _VariantTypeInput_Renk.selectionType = "COLOR";
+                                    _VariantTypeInput_Renk.values = _Values_Renk;
+                                    _root_Renk.input = _VariantTypeInput_Renk;
+
+                                    GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Renk = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
+                                    var request_VariantType_Renk = new GraphQLRequest()
+                                    {
+                                        Query = _context.Islem.Where(x => x.IslemAdi == "saveVariantType").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                        Variables = _root_Renk
+                                    };
+
+                                    try
+                                    {
+                                        gelen_VariantType_Renk = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Renk);
+                                        MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeId = gelen_VariantType_Renk.Data;
+                                        // string ID = ListVariantTypeId.saveCategory!.id!;
+
+                                        List<string> _RenkDegerleri = new List<string>();
+                                        foreach (var item in ListVariantTypeId.saveVariantType!.values!)
+                                        {
+                                            _RenkDegerleri.Add(item.id!);
+
+
+                                        }
+
+
+
+
+                                        if (ilk == 1)
+                                        {
+                                            productVariantTypes.Add(new ProductVariantType { order = 0, variantTypeId = ListVariantTypeId.saveVariantType!.id, variantValueIds = _RenkDegerleri });
+
+                                        }
+
+
+
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        string message = ex.Message;
+
+                                    }
+                                }
+                               
+
+
+
+                                if (sayi_beden == 0)
+                                {
+                                    ///////////////////////////////////////////
+                                    ////////////////Beden////////////////////////////////
+                                    MyEntegrasyon.Models.Myikas.SaveVariant.Root _root_Beden = new Models.Myikas.SaveVariant.Root();
+                                    MyEntegrasyon.Models.Myikas.SaveVariant.Input _VariantTypeInput_Beden = new Models.Myikas.SaveVariant.Input();
+                                    List<MyEntegrasyon.Models.Myikas.SaveVariant.Value> _Values_Beden = new List<MyEntegrasyon.Models.Myikas.SaveVariant.Value>();
+                                    foreach (var item_newAddvariants in item_product.ProductVariants)
+                                    {
+                                        if (!(_Values_Beden.Where(x => x.name == item_newAddvariants.ItemDim1Code).Count() > 0))
+                                        {
+                                            if (!(_Values_Beden.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                                            {
+                                                if (ListVariantTypeName_Benden_Kontrol_icin.saveVariantType != null)
+                                                {
+                                                    if (!(ListVariantTypeName_Benden_Kontrol_icin.saveVariantType!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                                                    {
+                                                        _Values_Beden.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ItemDim1Code });
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    _Values_Beden.Add(new Models.Myikas.SaveVariant.Value { name = item_newAddvariants.ItemDim1Code });
+                                                }
+                                            }
+
                                         }
 
                                     }
+                                    _VariantTypeInput_Beden.name = item_product.ItemCode + "_Beden";
+                                    _VariantTypeInput_Beden.selectionType = "CHOICE";
+                                    _VariantTypeInput_Beden.values = _Values_Beden;
+                                    _root_Beden.input = _VariantTypeInput_Beden;
 
-                                }
-                                _VariantTypeInput_Beden.name = item_product.ItemCode + "_Beden";
-                                _VariantTypeInput_Beden.selectionType = "CHOICE";
-                                _VariantTypeInput_Beden.values = _Values_Beden;
-                                _root_Beden.input = _VariantTypeInput_Beden;
-
-                                GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Beden = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
-                                var request_VariantType_Beden = new GraphQLRequest()
-                                {
-                                    Query = _context.Islem.Where(x => x.IslemAdi == "saveVariantType").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
-                                    Variables = _root_Beden
-                                };
-
-                                try
-                                {
-                                    gelen_VariantType_Beden = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Beden);
-                                    MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeId = gelen_VariantType_Beden.Data;
-                                    // string ID = ListVariantTypeId.saveCategory!.id!;
-
-
-                                    List<string> _BedenDegerleri = new List<string>();
-                                    foreach (var item in ListVariantTypeId.saveVariantType!.values!)
+                                    GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType_Beden = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
+                                    var request_VariantType_Beden = new GraphQLRequest()
                                     {
-                                        _BedenDegerleri.Add(item.id!);
-                                    }
+                                        Query = _context.Islem.Where(x => x.IslemAdi == "saveVariantType").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                                        Variables = _root_Beden
+                                    };
 
-                                    if (ilk == 1)
+                                    try
                                     {
-                                        productVariantTypes.Add(new ProductVariantType { order = 0, variantTypeId = ListVariantTypeId.saveVariantType!.id, variantValueIds = _BedenDegerleri });
+                                        gelen_VariantType_Beden = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType_Beden);
+                                        MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeId = gelen_VariantType_Beden.Data;
+                                        // string ID = ListVariantTypeId.saveCategory!.id!;
+
+
+                                        List<string> _BedenDegerleri = new List<string>();
+                                        foreach (var item in ListVariantTypeId.saveVariantType!.values!)
+                                        {
+                                            _BedenDegerleri.Add(item.id!);
+                                        }
+
+                                        if (ilk == 1)
+                                        {
+                                            productVariantTypes.Add(new ProductVariantType { order = 0, variantTypeId = ListVariantTypeId.saveVariantType!.id, variantValueIds = _BedenDegerleri });
+                                        }
 
                                     }
+                                    catch (Exception ex)
+                                    {
+                                        string message = ex.Message;
 
+                                    }
                                 }
-                                catch (Exception ex)
+
+
+                                /////////////////
+                                ///////////////////////////////////////////
+                                /////////////////////////////////////////////
+
+
+
+                                // Beden ve Renk çarpı kadar variant oluşturmamız lazım. onun için iç içe döngü kuracağız.
+
+
+
+
+
+
+                                _ProductStockLocation.Add(new ProductStockLocationInput
                                 {
-                                    string message = ex.Message;
-
-                                }
-                            }
-
-
-                            /////////////////
-                            ///////////////////////////////////////////
-                            /////////////////////////////////////////////
-
-
-
-                            // Beden ve Renk çarpı kadar variant oluşturmamız lazım. onun için iç içe döngü kuracağız.
-
-
-
-
-
-
-                            _ProductStockLocation.Add(new ProductStockLocationInput
-                            {
-                                productId = "",
-                                stockLocationId = StockLocationId,
-                                stockCount = item_Variant.Qty,
-                                variantId = "" // Renk Değeri
-                            });
-
-
-
-
-
-
-
-                            if (ilk == 1)
-                            {
-
-                                _prices.Add(new Price
-                                {
-                                    buyPrice = (float)Convert.ToDouble(item_Variant.AlisFiyati, CultureInfo.InvariantCulture),  // alış fiyatı
-                                    currency = item_Variant.CurrencyCode!,  // para birimi
-                                    discountPrice = (float)Convert.ToDouble(item_Variant.Price5), // İndirimfiyat
-                                    sellPrice = (float)Convert.ToDouble(item_Variant.Price1) // satış fiyatı
+                                    productId = "",
+                                    stockLocationId = StockLocationId,
+                                    stockCount = item_Variant.Qty,
+                                    variantId = "" // Renk Değeri
                                 });
 
 
-                                foreach (var item in productVariantTypes[0].variantValueIds!)
+
+
+
+
+
+                                if (ilk == 1)
                                 {
 
-                                    // fiyatlar
-
-                                    foreach (var item2 in productVariantTypes[1].variantValueIds!)
+                                    _prices.Add(new Price
                                     {
-                                        // Varyant değeri kimliklerinin listesi.
-                                        List<VariantValue> _variantValueIds = new List<VariantValue>(); // Varyant değeri kimliklerinin listesi.
+                                        buyPrice = (float)Convert.ToDouble(item_Variant.AlisFiyati, CultureInfo.InvariantCulture),  // alış fiyatı
+                                        currency = item_Variant.CurrencyCode!,  // para birimi
+                                        discountPrice = (float)Convert.ToDouble(item_Variant.Price5), // İndirimfiyat
+                                        sellPrice = (float)Convert.ToDouble(item_Variant.Price1) // satış fiyatı
+                                    });
 
-                                        _variantValueIds.Add(new VariantValue
+
+                                    foreach (var item in productVariantTypes[0].variantValueIds!)
+                                    {
+
+                                        // fiyatlar
+
+                                        foreach (var item2 in productVariantTypes[1].variantValueIds!)
                                         {
-                                            variantTypeId = productVariantTypes[0].variantTypeId,
-                                            variantValueId = item
-                                        });
+                                            // Varyant değeri kimliklerinin listesi.
+                                            List<VariantValue> _variantValueIds = new List<VariantValue>(); // Varyant değeri kimliklerinin listesi.
 
-                                        _variantValueIds.Add(new VariantValue
-                                        {
-                                            variantTypeId = productVariantTypes[1].variantTypeId,
-                                            variantValueId = item2
-                                        });
+                                            _variantValueIds.Add(new VariantValue
+                                            {
+                                                variantTypeId = productVariantTypes[0].variantTypeId,
+                                                variantValueId = item
+                                            });
 
-
-
-                                        // varyantlar
-                                        _variants.Add(new Variant
-                                        {
-                                            // barcodeList = new string[] { item_Variant.Barcode! },
-                                            isActive = true,
-                                            //  SKU = "",
-                                            //SKU = item_product.ItemCode!,
-                                            prices = _prices,
-                                            variantValueIds = _variantValueIds
-
-                                        });
+                                            _variantValueIds.Add(new VariantValue
+                                            {
+                                                variantTypeId = productVariantTypes[1].variantTypeId,
+                                                variantValueId = item2
+                                            });
 
 
 
+                                            // varyantlar
+                                            _variants.Add(new Variant
+                                            {
+                                                // barcodeList = new string[] { item_Variant.Barcode! },
+                                                isActive = true,
+                                                //  SKU = "",
+                                                //SKU = item_product.ItemCode!,
+                                                prices = _prices,
+                                               // variantValueIds = _variantValueIds
+
+                                            });
+
+
+
+                                        }
                                     }
                                 }
+
+
+
+
+
+
+
+
                             }
 
 
 
-                            
-
-
-
-
-                        }
 
 
 
 
 
-
-
-
-                        ///////////  MARKA LİSTESİ
-                        //GraphQLResponse<dynamic> gelen_list = new GraphQLResponse<dynamic>();
-                        //var request_GetSalesChannel = new GraphQLRequest()
-                        //    {
-                        //        Query = _context.Islem.Where(x => x.IslemAdi == "GetSalesChannel").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )                                                                                                         
-                        //    };
-                        //    gelen_list = await client.SendQueryAsync<dynamic>(request_GetSalesChannel);
-                        //    var BrandList = gelen_list.Data;
+                            ///////////  MARKA LİSTESİ
+                            //GraphQLResponse<dynamic> gelen_list = new GraphQLResponse<dynamic>();
+                            //var request_GetSalesChannel = new GraphQLRequest()
+                            //    {
+                            //        Query = _context.Islem.Where(x => x.IslemAdi == "GetSalesChannel").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )                                                                                                         
+                            //    };
+                            //    gelen_list = await client.SendQueryAsync<dynamic>(request_GetSalesChannel);
+                            //    var BrandList = gelen_list.Data;
 
 
 
 
 
-                        // satış Kanalları
-                        _salesChannels.Add(new SalesChannel { id = "404e7a81-298a-4562-9a1c-697b939f0e20", quantitySettings = 5, status = "VISIBLE" });
+                            // satış Kanalları
+                            _salesChannels.Add(new SalesChannel { id = "404e7a81-298a-4562-9a1c-697b939f0e20", quantitySettings = 5, status = "VISIBLE" });
 
 
 
 
-                        Models.Myikas.Input input = new Models.Myikas.Input();
+                            Models.Myikas.Input input = new Models.Myikas.Input();
 
-                       // input.id = item_product.ItemCode;
-                        input.name = item_product.ItemName;
-                        input!.type = "PHYSICAL"; // Bu kısım sorulacak
-                       // input!.shortDescription = item_product.ItemDesc;
-                        input!.shortDescription = "item product ItemDesc";
-
-
-
-
-                        // input.totalStock = (float)Convert.ToDouble(parameter.Qty);
-                     
-                        input.variants = _variants;
-                        input!.brandId = _brandId; // string
-                                                   // input!.brand = parameter.BrandDesc;
-                        input!.categoryIds = _categoryIds; // List<string>
-                                                           // input!.categoryIds = new categories { id = parameter.Cat01Code, name = parameter.Cat01Desc, parentId="Tekstil" };
-                        input!.salesChannels = _salesChannels;
-                        input!.salesChannelIds = "404e7a81-298a-4562-9a1c-697b939f0e20";
-                        input.productVariantTypes = productVariantTypes;
-
-                        Models.Myikas.Root root = new Models.Myikas.Root();
-                        root.input = input;
+                            // input.id = item_product.ItemCode;
+                            input.name = item_product.ItemName;
+                            input!.type = "PHYSICAL"; // Bu kısım sorulacak
+                                                      // input!.shortDescription = item_product.ItemDesc;
+                            input!.shortDescription = "item product ItemDesc";
 
 
 
 
-                        // nebimden gelen json dosyasını Root modeline eklenecek sonra ikasın istediği json formatına çevrilecek
-                        // yada nebimden gelen json dosyasını Root modeline eklenecek sonra ikasın istediği Variables alanına eklenecek --- Önemli
+                            // input.totalStock = (float)Convert.ToDouble(parameter.Qty);
 
-                        //  var requestJson = "";   // Models.GraphQLQueries.saveProduct89; // Nebimden gelen veriler Root formatında json verisi olarak bu kısıma eklenecek.
-                        //  var inputs = new GraphQLSerializer().Deserialize<Root>(requestJson);
+                            input.variants = _variants;
+                            input!.brandId = _brandId; // string
+                                                       // input!.brand = parameter.BrandDesc;
+                            input!.categoryIds = _categoryIds; // List<string>
+                                                               // input!.categoryIds = new categories { id = parameter.Cat01Code, name = parameter.Cat01Desc, parentId="Tekstil" };
+                            input!.salesChannels = _salesChannels;
+                            input!.salesChannelIds = "404e7a81-298a-4562-9a1c-697b939f0e20";
+                            input.productVariantTypes = productVariantTypes;
 
-                       
+                            Models.Myikas.Root root = new Models.Myikas.Root();
+                            root.input = input;
+
+
+
+
+                            // nebimden gelen json dosyasını Root modeline eklenecek sonra ikasın istediği json formatına çevrilecek
+                            // yada nebimden gelen json dosyasını Root modeline eklenecek sonra ikasın istediği Variables alanına eklenecek --- Önemli
+
+                            //  var requestJson = "";   // Models.GraphQLQueries.saveProduct89; // Nebimden gelen veriler Root formatında json verisi olarak bu kısıma eklenecek.
+                            //  var inputs = new GraphQLSerializer().Deserialize<Root>(requestJson);
+
+
                             GraphQLResponse<dynamic> gelen = new GraphQLResponse<dynamic>();
                             GraphQLRequest request = new GraphQLRequest();
 
@@ -964,28 +1008,28 @@ namespace MyEntegrasyon.Controllers
 
 
                             gelen = await client.SendMutationAsync<dynamic>(request);
-                       
-                
-
-                       
-
-                       // MyEntegrasyon.Models.Myikas.SaveProduct.Root _SaveProduct = gelen.Data;
-
-                        // return await client.SendQueryAsync<dynamic>(request);
 
 
 
 
 
-                        //foreach (var item in _ProductStockLocation)
-                        //{
-                        //    item.productId = _SaveProduct.saveProduct.id;
-                        //}
+                            // MyEntegrasyon.Models.Myikas.SaveProduct.Root _SaveProduct = gelen.Data;
+
+                            // return await client.SendQueryAsync<dynamic>(request);
 
 
 
 
-                    }
+
+                            //foreach (var item in _ProductStockLocation)
+                            //{
+                            //    item.productId = _SaveProduct.saveProduct.id;
+                            //}
+
+
+
+
+                        }
 
 
 
