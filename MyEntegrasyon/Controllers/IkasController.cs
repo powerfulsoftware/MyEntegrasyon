@@ -463,7 +463,7 @@ namespace MyEntegrasyon.Controllers
                     //  101A10350 - olumsuz
                     //  101A10332 - olumlu
 
-                    if (item_product.ItemCode == "101A10350")
+                    if (item_product.ItemCode == "101A10332")
                     {
 
                         List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
@@ -472,6 +472,9 @@ namespace MyEntegrasyon.Controllers
                         {
                             // fiyatlar
                             List<Price> _prices = new List<Price>(); // fiyatlar
+
+                            // _images
+                            List<image> _images = new List<image>(); // _images
 
                             // varyantlar
                             List<Variant> _variants = new List<Variant>(); // varyantlar
@@ -887,6 +890,19 @@ namespace MyEntegrasyon.Controllers
                                     });
 
 
+
+                                    _images.Add(new image
+                                    {
+                                        fileName = "C:\\Users\\MUSTAFA\\Desktop\\house.png",
+                                        imageId="YOK",
+                                        isMain = true,
+                                        order = 1
+                                    }) ;
+
+
+
+
+
                                     foreach (var item in productVariantTypes[0].variantValueIds!)
                                     {
 
@@ -919,8 +935,8 @@ namespace MyEntegrasyon.Controllers
                                                 //  SKU = "",
                                                 //SKU = item_product.ItemCode!,
                                                 prices = _prices,
-                                               // variantValueIds = _variantValueIds
-
+                                                variantValueIds = _variantValueIds,
+                                                images = _images,
                                             });
 
 
