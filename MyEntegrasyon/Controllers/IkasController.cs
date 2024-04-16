@@ -417,9 +417,6 @@ namespace MyEntegrasyon.Controllers
             // GetAccessToken();
 
 
-
-
-
             using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
             {
 
@@ -463,7 +460,7 @@ namespace MyEntegrasyon.Controllers
                     //  101A10350 - olumsuz
                     //  101A10332 - olumlu
 
-                    if (item_product.ItemCode == "101A10332")
+                    if (item_product.ItemCode == "24K11658")
                     {
 
                         List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
@@ -885,7 +882,7 @@ namespace MyEntegrasyon.Controllers
                                     {
                                         buyPrice = (float)Convert.ToDouble(item_Variant.AlisFiyati, CultureInfo.InvariantCulture),  // alış fiyatı
                                         currency = item_Variant.CurrencyCode!,  // para birimi
-                                        discountPrice = (float)Convert.ToDouble(item_Variant.Price5), // İndirimfiyat
+                                        discountPrice = (float)Convert.ToDouble(item_Variant.Price5 - 1), // İndirimfiyat
                                         sellPrice = (float)Convert.ToDouble(item_Variant.Price1) // satış fiyatı
                                     });
 
@@ -893,7 +890,7 @@ namespace MyEntegrasyon.Controllers
 
                                     _images.Add(new image
                                     {
-                                        fileName = "C:\\Users\\MUSTAFA\\Desktop\\house.png",
+                                        fileName = "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                                         imageId="YOK",
                                         isMain = true,
                                         order = 1
@@ -981,8 +978,9 @@ namespace MyEntegrasyon.Controllers
 
 
                             Models.Myikas.Input input = new Models.Myikas.Input();
-
-                            // input.id = item_product.ItemCode;
+                             
+                            var PiD= item_product.ItemCode;
+                        // input.id = item_product.ItemCode;
                             input.name = item_product.ItemName;
                             input!.type = "PHYSICAL"; // Bu kısım sorulacak
                                                       // input!.shortDescription = item_product.ItemDesc;
@@ -1026,26 +1024,46 @@ namespace MyEntegrasyon.Controllers
                             gelen = await client.SendMutationAsync<dynamic>(request);
 
 
+                        var PiD2 = item_product.ItemCode;
+                        if (gelen.Data == null)
+                        {
 
-
-
-                            // MyEntegrasyon.Models.Myikas.SaveProduct.Root _SaveProduct = gelen.Data;
-
-                            // return await client.SendQueryAsync<dynamic>(request);
-
-
-
-
-
-                            //foreach (var item in _ProductStockLocation)
-                            //{
-                            //    item.productId = _SaveProduct.saveProduct.id;
-                            //}
-
-
-
-
+                            if (gelen.Data == null && gelen.Errors != null)
+                            {
+                                var GelenHata = new GraphQLSerializer().Serialize<GraphQLResponse<dynamic>>(gelen);
+                            }
                         }
+
+
+                        if (gelen.Errors != null)
+                        {
+
+                            if (gelen.Data == null && gelen.Errors != null)
+                            {
+                                var GelenHata = new GraphQLSerializer().Serialize<GraphQLResponse<dynamic>>(gelen);
+                            }
+                        }
+
+
+
+
+                        // MyEntegrasyon.Models.Myikas.SaveProduct.Root _SaveProduct = gelen.Data;
+
+                        // return await client.SendQueryAsync<dynamic>(request);
+
+
+
+
+
+                        //foreach (var item in _ProductStockLocation)
+                        //{
+                        //    item.productId = _SaveProduct.saveProduct.id;
+                        //}
+
+
+
+
+                    }
 
 
 
@@ -1054,9 +1072,6 @@ namespace MyEntegrasyon.Controllers
 
 
                 }
-
-
-
 
 
             }
