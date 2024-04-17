@@ -146,12 +146,19 @@ namespace MyEntegrasyon.Controllers
 
                 var request5 = new GraphQLRequest()
                 {
-
                     //listCategory 
                     Query = _context.Islem.Where(x => x.IslemAdi == "listCategory").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )    
                 };
-                gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
-                kategoriListesi = gelen5.Data.listCategory!;
+
+                try
+                {
+                    gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
+                    kategoriListesi = gelen5.Data.listCategory!;
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+                }
             }
 
             // ViewBag.request = gelen.Data;
@@ -461,7 +468,7 @@ namespace MyEntegrasyon.Controllers
                     //  101A10350 - olumsuz
                     //  101A10332 - olumlu
 
-                  //  if (item_product.ItemCode == "24K11658")
+                   // if (item_product.ItemCode == "24K11658")
                    // {
 
                         List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
@@ -982,7 +989,7 @@ namespace MyEntegrasyon.Controllers
 
                             var PiD = item_product.ItemCode;
                             // input.id = item_product.ItemCode;
-                            input.name = item_product.ItemName;
+                            input.name = item_product.ItemCode + " -- " +  item_product.ItemName;
                             input!.type = "PHYSICAL"; // Bu kısım sorulacak
                                                       // input!.shortDescription = item_product.ItemDesc;
                             input!.shortDescription = "item product ItemDesc";
@@ -1050,7 +1057,7 @@ namespace MyEntegrasyon.Controllers
 
                             if (GelenHata != "")
                             {
-                                _logger.LogInformation("Hata Oluştu. OLUŞAN HATA : " + GelenHata);
+                                _logger.LogInformation(" ***************************************************** Hata Oluştu. OLUŞAN HATA : " + GelenHata);
                             }
 
 
