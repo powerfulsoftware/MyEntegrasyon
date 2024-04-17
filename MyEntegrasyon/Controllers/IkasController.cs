@@ -150,15 +150,8 @@ namespace MyEntegrasyon.Controllers
                     Query = _context.Islem.Where(x => x.IslemAdi == "listCategory").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )    
                 };
 
-                try
-                {
-                    gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
-                    kategoriListesi = gelen5.Data.listCategory!;
-                }
-                catch (Exception ex)
-                {
-                    string message = ex.Message;
-                }
+                gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
+                kategoriListesi = gelen5.Data.listCategory!;
             }
 
             // ViewBag.request = gelen.Data;
