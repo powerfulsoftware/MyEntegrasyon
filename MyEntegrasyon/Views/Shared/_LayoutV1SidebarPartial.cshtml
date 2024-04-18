@@ -75,6 +75,7 @@
 
             <li class="nav-item submenu
                                 @Html.ActiveClass("Ikas", "YeniUnrunEkle" )
+                                @Html.ActiveClass("Brand", "Index" )
                                 @Html.ActiveClass("Variant", "Index" )
                                 @Html.ActiveClass("Category", "Index")
                               ">
@@ -85,6 +86,9 @@
                 <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
                     <li class="@Html.ActiveClass("Ikas", "YeniUnrunEkle")">
                         <a href="~/Ikas/YeniUnrunEkle">Yeni ürünleri Ekle</a>
+                    </li>
+                    <li class="@Html.ActiveClass("Brand", "Index")">
+                        <a href="~/Brand/Index">Brands</a>
                     </li>
                     <li class="@Html.ActiveClass("Variant", "Index")">
                         <a href="~/Variant/Index">Varyant Typleri</a>
@@ -101,16 +105,23 @@
 
             <li class="nav-item submenu
                                 @Html.ActiveClass("Nebim", "Products" )
+                                @Html.ActiveClass("Nebim", "SistemProducts" )
+                                @Html.ActiveClass("Nebim", "IkasProducts" )
                               ">
                 <a class="nav-link">
-                    <span class="title">Nebim</span>
+                    <span class="title">Ürün Listesi</span>
                 </a>
                 <i class="fa fa-bars"></i>
                 <ul class="collapse" role="tabpanel" data-parent="#sidebarnav">
                     <li class="@Html.ActiveClass("Nebim", "Products")">
-                        <a href="~/Nebim/Products">Ürün Listesi</a>
+                        <a href="~/Nebim/Products">Ürün Listesi (Nebim)</a>
                     </li>
-                  
+                    <li class="@Html.ActiveClass("Nebim", "SistemProducts")">
+                        <a href="~/Nebim/SistemProducts">Ürün Listesi (Sistem)</a>
+                    </li>
+                    <li class="@Html.ActiveClass("Nebim", "IkasProducts")">
+                        <a href="~/Nebim/IkasProducts">Ürün Listesi (Ikas)</a>
+                    </li>
                 </ul>
             </li>
 

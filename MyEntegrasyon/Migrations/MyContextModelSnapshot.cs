@@ -309,6 +309,249 @@ namespace MyEntegrasyon.Migrations
                     b.ToTable("jsonDesen");
                 });
 
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.Product", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BrandCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BrandDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat01Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat01Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat02Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat02Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat03Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat03Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat04Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat04Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat05Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat05Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat06Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat06Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat07Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat07Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.ProductVariant", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("AMAZON_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("AMAZON_LST")
+                        .HasColumnType("float");
+
+                    b.Property<string>("AlisFiyati")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("BISIFIRAT_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BISIFIRAT_LST")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BREND_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("BREND_LST")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Barcode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("CICEK_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CICEK_LST")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ColorCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ColorDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CurrencyCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("GITTIGIDIYOR_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("GITTIGIDIYOR_LST")
+                        .HasColumnType("float");
+
+                    b.Property<string>("GenderCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("HEPSIBURADA_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("HEPSIBURADA_LST")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Image1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image4")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image5")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image6")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image7")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image8")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDim1Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDim1Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDim2Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDim2Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDim3Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ItemDim3Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ItemDimTypeCode")
+                        .HasColumnType("int");
+
+                    b.Property<double>("MORHIPO_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("MORHIPO_LST")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("N11_LST")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PAZARAMA_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("PAZARAMA_LST")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PAZARYERIISK")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price1")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price2")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Price3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price4")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Price5")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ProductAtt10")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductAtt10Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Qty")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TRENDYOL_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TRENDYOL_LST")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TTTURK_IND")
+                        .HasColumnType("float");
+
+                    b.Property<double>("TTTURK_LST")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Vat")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductID");
+
+                    b.ToTable("ProductVariant");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("MyEntegrasyon.Data.Entities.AppRole", null)
@@ -369,6 +612,20 @@ namespace MyEntegrasyon.Migrations
                         .IsRequired();
 
                     b.Navigation("JsonDesen");
+                });
+
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.ProductVariant", b =>
+                {
+                    b.HasOne("MyEntegrasyon.Data.Entities.Product", "Product")
+                        .WithMany("ProductVariants")
+                        .HasForeignKey("ProductID");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.Product", b =>
+                {
+                    b.Navigation("ProductVariants");
                 });
 #pragma warning restore 612, 618
         }

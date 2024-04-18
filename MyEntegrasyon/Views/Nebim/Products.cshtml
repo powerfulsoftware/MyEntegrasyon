@@ -33,13 +33,23 @@
         <div class="card-header">@ViewData["Title"]</div>
         <div class="card-body">
 
-            @ViewBag.SessionID
+            @* @ViewBag.SessionID *@
+
+            <a asp-action="AddDatabase" asp-controller="Nebim" class="btn btn-primary">Tüm Ürünleri Sisteme Aktar</a>
+
+            <hr/>
+             
+         @*    @{
+                var dd = Model.ToList().Count;
+            }  *@
 
 
-<table class="table table-bordered table-condensed">
+            <label>Toplam Ürün Sayısı : @Model.ToList().Count()</label>
+
+            <table class="table table-bordered table-condensed">
     <thead>
         <tr>
-
+            <th scope="col">#</th>
             <th scope="col">ItemCode</th>
             <th scope="col">ItemName</th>
             <th scope="col">Image2</th>
@@ -57,9 +67,20 @@
     </thead>
     <tbody>
 
+
+        @{
+            int sayi = 0;
+        }
+
+
         @foreach (var item in Model)
         {
+
+
+                        sayi++;
+
             <tr>
+                <td>@sayi</td>
                 <td>@item.ItemCode</td>
                 <td>@item.ItemName</td>
                 <td>@item.Image2</td>

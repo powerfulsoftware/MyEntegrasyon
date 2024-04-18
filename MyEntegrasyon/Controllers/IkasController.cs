@@ -899,9 +899,16 @@ namespace MyEntegrasyon.Controllers
 
 
 
+                                if (productVariantTypes[0].variantValueIds.Count() == 0)
+                                {
 
+                                }
+                                if (productVariantTypes[1].variantValueIds.Count() == 0)
+                                {
 
-                                    foreach (var item in productVariantTypes[0].variantValueIds!)
+                                }
+
+                                foreach (var item in productVariantTypes[0].variantValueIds!)
                                     {
 
                                         // fiyatlar
