@@ -13,6 +13,11 @@ using System.Globalization;
 using System.Net.Http;
 using System.Web;
 using System.Data;
+using Serilog;
+using MyEntegrasyon.BusinessLayer.Results;
+using MyEntegrasyon.Data.Entities;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 
 namespace MyEntegrasyon.Controllers
 {
@@ -85,8 +90,6 @@ namespace MyEntegrasyon.Controllers
 
             return View(parameters);
         }
-
-
         public async Task<IActionResult> SistemProducts()
         {
             List<Data.Entities.Product> products = await _context.Product.ToListAsync();
@@ -148,9 +151,329 @@ namespace MyEntegrasyon.Controllers
 
             return View(Gonder);
         }
-        
+
+
+        public async Task<IActionResult> AddDatabase()
+        {
+            _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+            var result = await _httpClient.GetStringAsync(_configuration.GetSection("UrlServiceSettings:ConnectAdress").Value!);  // Connect_Url
+            ConnectJson connectJson = JsonConvert.DeserializeObject<ConnectJson>(result)!;
+
+
+            _httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
+            var result2 = await _httpClient.GetStringAsync((_configuration.GetSection("UrlServiceSettings:IntegratorService").Value!).Replace("connectJson.SessionID", connectJson.SessionID));
+
+            List<Parameter> parameters = JsonConvert.DeserializeObject<List<Parameter>>(result2, new JsonSerializerSettings() { Culture = CultureInfo.InvariantCulture, FloatParseHandling = FloatParseHandling.Double })!;
 
 
 
+            List<Models.Nebim.Product> _products = new List<Models.Nebim.Product>();
+            //List<ProductVariant> _productVariants = new List<ProductVariant>();
+            foreach (var item in parameters)
+            {
+                string? Id = _products.Where(x => x.Id == item.ItemCode).FirstOrDefault()?.ItemCode;
+
+                if (item.ItemCode != Id) // ItemCode lu ürün hiç yoksa 
+                {
+
+
+                    Models.Nebim.ProductVariant _productVariant = new Models.Nebim.ProductVariant()
+                    {
+
+                        ProductID = item.ItemCode,
+                        CurrencyCode = item.CurrencyCode,
+                        Barcode = item.Barcode,
+                        GenderCode = item.GenderCode,
+                        ColorCode = item.ColorCode,
+                        ColorDesc = item.ColorDesc,
+                        ItemDimTypeCode = item.ItemDimTypeCode,
+                        ItemDim1Code = item.ItemDim1Code,
+                        ItemDim1Desc = item.ItemDim1Desc,
+                        ItemDim2Code = item.ItemDim2Code,
+                        ItemDim2Desc = item.ItemDim2Desc,
+                        ItemDim3Code = item.ItemDim3Code,
+                        ItemDim3Desc = item.ItemDim3Desc,
+                        Qty = item.Qty,
+                        Vat = item.Vat,
+                        Price1 = item.Price1,
+                        Price2 = item.Price2,
+                        Price3 = item.Price3,
+                        Price4 = item.Price4,
+                        Price5 = item.Price5,
+                        AlisFiyati = item.AlisFiyati,
+                        ProductAtt10 = item.ProductAtt10,
+                        ProductAtt10Desc = item.ProductAtt10Desc,
+                        PAZARYERIISK = item.PAZARYERIISK,
+                        N11_LST = item.N11_LST,
+                        N11_IND = item.N11_IND,
+                        AMAZON_LST = item.AMAZON_LST,
+                        AMAZON_IND = item.AMAZON_IND,
+                        CICEK_LST = item.CICEK_IND,
+                        CICEK_IND = item.CICEK_IND,
+                        GITTIGIDIYOR_LST = item.GITTIGIDIYOR_LST,
+                        GITTIGIDIYOR_IND = item.GITTIGIDIYOR_IND,
+                        HEPSIBURADA_LST = item.HEPSIBURADA_LST,
+                        HEPSIBURADA_IND = item.HEPSIBURADA_IND,
+                        MORHIPO_LST = item.MORHIPO_LST,
+                        MORHIPO_IND = item.MORHIPO_IND,
+                        PAZARAMA_LST = item.PAZARAMA_LST,
+                        PAZARAMA_IND = item.PAZARAMA_IND,
+                        TRENDYOL_LST = item.TRENDYOL_LST,
+                        TRENDYOL_IND = item.TRENDYOL_IND,
+                        BISIFIRAT_LST = item.BISIFIRAT_LST,
+                        BISIFIRAT_IND = item.BISIFIRAT_IND,
+                        TTTURK_LST = item.TTTURK_LST,
+                        TTTURK_IND = item.TTTURK_IND,
+                        BREND_LST = item.BREND_LST,
+                        BREND_IND = item.BREND_IND,
+                        Image1 = item.Image1,
+                        Image2 = item.Image2,
+                        Image3 = item.Image3,
+                        Image4 = item.Image4,
+                        Image5 = item.Image5,
+                        Image6 = item.Image6,
+                        Image7 = item.Image7,
+                        Image8 = item.Image8
+
+                    };
+
+
+                    _products.Add(new Models.Nebim.Product
+                    {
+                        Id = item.ItemCode,
+                        ItemCode = item.ItemCode,
+                        ItemName = item.ItemName,
+                        ItemDesc = item.ItemDesc,
+
+                        Cat01Code = item.Cat01Code,
+                        Cat01Desc = item.Cat01Desc,
+                        Cat02Code = item.Cat02Code,
+                        Cat02Desc = item.Cat02Desc,
+                        Cat03Code = item.Cat03Code,
+                        Cat03Desc = item.Cat03Desc,
+                        Cat04Code = item.Cat04Code,
+                        Cat04Desc = item.Cat04Desc,
+                        Cat05Code = item.Cat05Code,
+                        Cat05Desc = item.Cat05Desc,
+                        Cat06Code = item.Cat06Code,
+                        Cat06Desc = item.Cat06Desc,
+                        Cat07Code = item.Cat07Code,
+                        Cat07Desc = item.Cat07Desc,
+                        BrandCode = item.BrandCode,
+                        BrandDesc = item.BrandDesc,
+
+                        ProductVariants = new List<Models.Nebim.ProductVariant>() { _productVariant }
+
+                    });
+
+                }
+                else // ItemCode lu ürün varsa. barkodu sorgula
+                {
+                    string? Barcode = _products.Where(x => x.ItemCode == item.ItemCode).FirstOrDefault()?.ProductVariants?.Where(x => x.Barcode == item.Barcode).FirstOrDefault()?.Barcode;
+
+                    // string? Barcode = _productVariants.Where(x => x.Barcode == item.Barcode).FirstOrDefault()?.Barcode;
+
+
+                    if (item.Barcode != Barcode)
+                    {
+
+
+                        Models.Nebim.ProductVariant _productVariant = new Models.Nebim.ProductVariant()
+                        {
+
+                            ProductID = item.ItemCode,
+                            CurrencyCode = item.CurrencyCode,
+                            Barcode = item.Barcode,
+                            GenderCode = item.GenderCode,
+                            ColorCode = item.ColorCode,
+                            ColorDesc = item.ColorDesc,
+                            ItemDimTypeCode = item.ItemDimTypeCode,
+                            ItemDim1Code = item.ItemDim1Code,
+                            ItemDim1Desc = item.ItemDim1Desc,
+                            ItemDim2Code = item.ItemDim2Code,
+                            ItemDim2Desc = item.ItemDim2Desc,
+                            ItemDim3Code = item.ItemDim3Code,
+                            ItemDim3Desc = item.ItemDim3Desc,
+                            Qty = item.Qty,
+                            Vat = item.Vat,
+                            Price1 = item.Price1,
+                            Price2 = item.Price2,
+                            Price3 = item.Price3,
+                            Price4 = item.Price4,
+                            Price5 = item.Price5,
+                            AlisFiyati = item.AlisFiyati,
+                            ProductAtt10 = item.ProductAtt10,
+                            ProductAtt10Desc = item.ProductAtt10Desc,
+                            PAZARYERIISK = item.PAZARYERIISK,
+                            N11_LST = item.N11_LST,
+                            N11_IND = item.N11_IND,
+                            AMAZON_LST = item.AMAZON_LST,
+                            AMAZON_IND = item.AMAZON_IND,
+                            CICEK_LST = item.CICEK_IND,
+                            CICEK_IND = item.CICEK_IND,
+                            GITTIGIDIYOR_LST = item.GITTIGIDIYOR_LST,
+                            GITTIGIDIYOR_IND = item.GITTIGIDIYOR_IND,
+                            HEPSIBURADA_LST = item.HEPSIBURADA_LST,
+                            HEPSIBURADA_IND = item.HEPSIBURADA_IND,
+                            MORHIPO_LST = item.MORHIPO_LST,
+                            MORHIPO_IND = item.MORHIPO_IND,
+                            PAZARAMA_LST = item.PAZARAMA_LST,
+                            PAZARAMA_IND = item.PAZARAMA_IND,
+                            TRENDYOL_LST = item.TRENDYOL_LST,
+                            TRENDYOL_IND = item.TRENDYOL_IND,
+                            BISIFIRAT_LST = item.BISIFIRAT_LST,
+                            BISIFIRAT_IND = item.BISIFIRAT_IND,
+                            TTTURK_LST = item.TTTURK_LST,
+                            TTTURK_IND = item.TTTURK_IND,
+                            BREND_LST = item.BREND_LST,
+                            BREND_IND = item.BREND_IND,
+                            Image1 = item.Image1,
+                            Image2 = item.Image2,
+                            Image3 = item.Image3,
+                            Image4 = item.Image4,
+                            Image5 = item.Image5,
+                            Image6 = item.Image6,
+                            Image7 = item.Image7,
+                            Image8 = item.Image8
+
+                        };
+
+                        Models.Nebim.Product product = _products.Where(x => x.Id == item.ItemCode).FirstOrDefault()!;
+                        product.ProductVariants!.Add(_productVariant);
+
+
+                    }
+
+
+
+                }
+            }
+
+
+
+
+
+
+
+
+
+
+            //////// Database Kaydet/////////////////////
+            List<Data.Entities.Product> _productsNew = new List<Data.Entities.Product>();
+
+
+            int ProductVariantID = 0;
+
+            foreach (var item in _products)
+            {
+
+                List<Data.Entities.ProductVariant>? _ProductVariants = new List<Data.Entities.ProductVariant>();
+
+                
+
+                foreach (var item_Variant in item.ProductVariants!)
+                {
+                    ProductVariantID++;
+                    _ProductVariants.Add(new Data.Entities.ProductVariant
+                    {
+                        Id = ProductVariantID.ToString(),
+                        ProductID = item.Id,
+                        CurrencyCode =item_Variant.CurrencyCode,
+                        Barcode =item_Variant.Barcode,
+                        GenderCode = item_Variant.GenderCode,
+                        ColorCode = item_Variant.ColorCode,
+                        ColorDesc = item_Variant.ColorDesc,
+                        ItemDimTypeCode = item_Variant.ItemDimTypeCode,
+                        ItemDim1Code = item_Variant.ItemDim1Code,
+                        ItemDim1Desc = item_Variant.ItemDim1Desc,
+                        ItemDim2Code = item_Variant.ItemDim2Code,
+                        ItemDim2Desc = item_Variant.ItemDim2Desc,
+                        ItemDim3Code = item_Variant.ItemDim3Code,
+                        ItemDim3Desc = item_Variant.ItemDim3Desc,
+                        Qty = item_Variant.Qty,
+                        Vat = item_Variant.Vat,
+                        Price1 = item_Variant.Price1,
+                        Price2 = item_Variant.Price2,
+                        Price3 = item_Variant.Price3,
+                        Price4 = item_Variant.Price4,
+                        Price5 = item_Variant.Price5,
+                        AlisFiyati = item_Variant.AlisFiyati,
+                        ProductAtt10 = item_Variant.ProductAtt10,
+                        ProductAtt10Desc =  item_Variant.ProductAtt10Desc,
+                        PAZARYERIISK = item_Variant.PAZARYERIISK,
+                        N11_LST = item_Variant.N11_LST,
+                        N11_IND = item_Variant.N11_IND,
+                        AMAZON_LST = item_Variant.AMAZON_LST,
+                        AMAZON_IND = item_Variant.AMAZON_IND,
+                        CICEK_LST = item_Variant.CICEK_LST,
+                        CICEK_IND = item_Variant.CICEK_IND,
+                        GITTIGIDIYOR_LST = item_Variant.GITTIGIDIYOR_LST,
+                        GITTIGIDIYOR_IND = item_Variant.GITTIGIDIYOR_IND,
+                        HEPSIBURADA_LST = item_Variant.HEPSIBURADA_LST,
+                        HEPSIBURADA_IND = item_Variant.HEPSIBURADA_IND,
+                        MORHIPO_LST = item_Variant.MORHIPO_LST,
+                        MORHIPO_IND = item_Variant.MORHIPO_IND,
+                        PAZARAMA_LST = item_Variant.PAZARAMA_LST,
+                        PAZARAMA_IND = item_Variant.PAZARAMA_IND,
+                        TRENDYOL_LST = item_Variant.TRENDYOL_LST,
+                        TRENDYOL_IND = item_Variant.TRENDYOL_IND,
+                        BISIFIRAT_LST = item_Variant.BISIFIRAT_LST,
+                        BISIFIRAT_IND = item_Variant.BISIFIRAT_IND,
+                        TTTURK_LST = item_Variant.TTTURK_LST,
+                        TTTURK_IND = item_Variant.TTTURK_IND,
+                        BREND_LST = item_Variant.BREND_LST,
+                        BREND_IND = item_Variant.BREND_IND,
+                        Image1 = item_Variant.Image1,
+                        Image2 = item_Variant.Image2,
+                        Image3 = item_Variant.Image3,
+                        Image4 = item_Variant.Image4,
+                        Image5 = item_Variant.Image5,
+                        Image6 = item_Variant.Image6,
+                        Image7 = item_Variant.Image7,
+                        Image8 = item_Variant.Image8,
+                    });
+                }
+                
+               
+
+                _productsNew.Add(new Data.Entities.Product
+                {
+                    Id = item.Id,
+                    ItemCode = item.ItemCode,
+                    ItemName = item.ItemName,
+                    ItemDesc = item.ItemDesc,
+                    Cat01Code = item.Cat01Code,
+                    Cat01Desc = item.Cat01Desc,
+                    Cat02Code = item.Cat02Code,
+                    Cat02Desc = item.Cat02Desc,
+                    Cat03Code = item.Cat03Code,
+                    Cat03Desc = item.Cat03Desc,
+                    Cat04Code = item.Cat04Code,
+                    Cat04Desc = item.Cat04Desc,
+                    Cat05Code = item.Cat05Code,
+                    Cat05Desc = item.Cat05Desc,
+                    Cat06Code = item.Cat06Code,
+                    Cat06Desc = item.Cat06Desc,
+                    Cat07Code = item.Cat07Code,
+                    Cat07Desc = item.Cat07Desc,
+                    BrandCode = item.BrandCode,
+                    BrandDesc = item.BrandDesc,
+                    ProductVariants = _ProductVariants
+
+
+                });
+            }
+
+
+            BusinessLayerResult<List<Data.Entities.Product>> res = new BusinessLayerResult<List<Data.Entities.Product>>();
+            res.Result = _productsNew;
+
+
+
+
+
+            return RedirectToAction("SistemProducts");
+        }
+       
     }
 }
