@@ -1,9 +1,10 @@
-﻿@using MyEntegrasyon.Models.Nebim
-@model List<Parameter>;
+﻿ @using MyEntegrasyon.Models.Myikas.ListProduct
+ @model Root
 
 @{
-    ViewData["Title"] = "Nebim Products";
+    ViewData["Title"] = "Product Listesi";
 }
+
 
 <style>
     .table-condensed {
@@ -33,73 +34,155 @@
         <div class="card-header">@ViewData["Title"]</div>
         <div class="card-body">
 
-            @* @ViewBag.SessionID *@
-
-            <a asp-action="AddDatabase" asp-controller="Nebim" class="btn btn-primary">Tüm Ürünleri Sisteme Aktar</a>
-
-            <hr/>
-             
-         @*    @{
-                var dd = Model.ToList().Count;
-            }  *@
-
-
-            <label>Toplam Ürün Sayısı : @Model.ToList().Count()</label>
+            @ViewBag.SessionID
+          
+            <hr />
 
             <table class="table table-bordered table-condensed">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">ItemCode</th>
-            <th scope="col">Barcode</th>
-            <th scope="col">ItemName</th>
-           @*  <th scope="col">Image2</th> *@
-            <th scope="col">ItemDim1Code</th>
-            <th scope="col">ColorDesc</th>
-            <th scope="col">Qty (Adet)</th>
-            <th scope="col">Vat (KDV)</th>
-            <th scope="col">Cat01Desc</th>
-            <th scope="col">BrandDesc</th>
-            <th scope="col">AlisFiyati</th>
-            <th scope="col">Price1</th>
-
-        </tr>
-    </thead>
-    <tbody>
+                <thead>
+                    <tr>
 
 
-        @{
-            int sayi = 0;
-        }
+                        <th scope="col">id</th>
+                        <th scope="col">name</th>
+                        <th scope="col">shortDescription</th>
+                        <th scope="col">type</th>
+                        <th scope="col">variants</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.listProduct!.data!)
+                    {
+                        <tr>
+                            <td>@item.id</td>
+                            <td>@item.name</td>
+                            <td>@item.shortDescription</td>
+                            <td>@item.type</td>
+                            <td>
+                                <table>
+                                    <thead>
+                                        <tr>
 
 
-        @foreach (var item in Model)
-        {
+                                            <th scope="col">id</th>
+                                            <th scope="col">isActive</th>
+                                            <th scope="col">prices</th>
+                                            <th scope="col">variantValueIds</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item2 in item.variants!)
+                                        {
+                                            <tr>
+                                                <td>@item2.id</td>
+                                                <td>@item2.isActive</td>
+                                                <td>
+
+                                                    @foreach (var item3 in item2.prices!)
+                                                    {
+                                                
+                                                    @item3.sellPrice
+                                                   
+
+                                               
+                                                    }
+
+                                                </td>
+                                                <td>
 
 
-                        sayi++;
-
-            <tr>
-                <td>@sayi</td>
-                <td>@item.ItemCode</td>
-                <td>@item.Barcode</td>
-                <td>@item.ItemName</td>
-                @* <td>@item.Image2</td> *@
-                <td>@item.ItemDim1Code</td>
-                <td>@item.ColorDesc</td>
-                <td>@item.Qty</td>
-                <td>@item.Vat</td>
-                <td>@item.Cat01Desc</td>
-                <td>@item.BrandDesc</td>
-                <td> @string.Format("{0:#.00}", Convert.ToDecimal(@item.AlisFiyati) / 10000) </td>
-                <td>@item.Price1</td>
-            </tr>
-        }
 
 
 
-    </tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                    <table>
+                                                        <thead>
+                                                            <tr>
+
+
+                                                                <th scope="col">variantTypeId</th>
+                                                                <th scope="col">variantValueId</th>
+                                                               
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                            @foreach (var item4 in item2.variantValueIds!)
+                                                            {
+                                                                <tr>
+                                                                    <td>@item4.variantTypeId</td>
+                                                                    <td>@item4.variantValueId</td>
+                                                              
+
+                                                                </tr>
+                                                            }
+
+
+
+                                                        </tbody>
+                                                    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                </td>
+
+                                            </tr>
+                                        }
+
+
+
+                                    </tbody>
+                                </table>
+
+
+                                
+                            </td>
+                           
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
 
 
 
@@ -191,3 +274,6 @@
 
     });
 </script>
+
+
+
