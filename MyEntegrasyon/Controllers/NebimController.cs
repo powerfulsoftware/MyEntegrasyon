@@ -533,7 +533,7 @@ namespace MyEntegrasyon.Controllers
         
         public async Task<IActionResult> CategoryBrandAdd()
         {
-            var _products = _context.Product.ToList();
+            var _products = _context.Product.Where(x=>x.BrandCode!=null || x.Cat01Code != null).ToList();
 
             /////// Eksik kategoriler eklenecek
 
@@ -586,24 +586,39 @@ namespace MyEntegrasyon.Controllers
             BrandList = await MarkaListesiGetir();
 
 
-            foreach (var item in BrandList.listProductBrand!)
+
+            var sistemMarkaListesi = _context.Brands.Where(x=>x.BrandDesc!="").ToList();
+
+            foreach (var item in sistemMarkaListesi) // database deki markalar dönüyor.
             {
-                bool varmi = _context.Brands.Where(x => x.BrandDesc == item.name).Any();
-                if (varmi)
+                bool varmi = BrandList.listProductBrand!.Where(x => x.name == item.BrandDesc).Any(); // Bu marka ikasta var mı?
+                string Id;
+                if (varmi) // varsa ID getir.
                 {
-
-                    Brand brand = _context.Brands.Where(x => x.BrandDesc == item.name).FirstOrDefault()!;
-                    brand.ikasId = item.id;
-
-                    BusinessLayerResult<Data.Entities.Brand> res_Brand = new BusinessLayerResult<Data.Entities.Brand>();
-                    res_Brand.Result = brand;
-
-                    _context.Brands.Update(res_Brand.Result);
-                    _context.SaveChanges();
+                    Id = BrandList.listProductBrand!.Where(x => x.name == item.BrandDesc).FirstOrDefault()!.id!;
+                    // Id güncelle
+                    
                 }
+                else // bu marka ikasta yoksa, bu markayı ikas a ekle. Id yi al ve güncelle.
+                {
+                    Id = await YeniMarkaEkle(item.BrandDesc!);
+                }
+
+                Brand brand = _context.Brands.Where(x => x.BrandDesc == item.BrandDesc).FirstOrDefault()!;
+                brand.ikasId = Id;
+
+                BusinessLayerResult<Data.Entities.Brand> res_Brand = new BusinessLayerResult<Data.Entities.Brand>();
+                res_Brand.Result = brand;
+
+                _context.Brands.Update(res_Brand.Result);
+                _context.SaveChanges();
+
             }
 
 
+
+
+    
             ////////////////////////////////////////////////////
 
 
@@ -613,39 +628,33 @@ namespace MyEntegrasyon.Controllers
 
 
 
-            foreach (var item in CategoryList!)
+            var sistemKategoriListesi = _context.Categories.Where(x=>x.Cat01Desc!="").ToList();
+
+            foreach (var item in sistemKategoriListesi)
             {
-                bool varmi = _context.Categories.Where(x => x.Cat01Desc == item.name).Any();
-                if (varmi)
+                bool varmi = CategoryList!.Where(x => x.name == item.Cat01Desc).Any(); // Bu kategori ikasta var mı?
+                string Id;
+                if (varmi) // varsa ID getir.
                 {
-
-                    Category category = _context.Categories.Where(x => x.Cat01Desc == item.name).FirstOrDefault()!;
-                    category.ikasId = item.id;
-
-                    BusinessLayerResult<Data.Entities.Category> res_Category = new BusinessLayerResult<Data.Entities.Category>();
-                    res_Category.Result = category;
-
-                    _context.Categories.Update(res_Category.Result);
-                    _context.SaveChanges();
-                }
-                else
-                {
-                    string ID = await YeniKategoriEkle(item.name!); // yeni kategori ekle 
-
-                    /////////////////////
-
-                    Category category = _context.Categories.Where(x => x.Cat01Desc == item.name).FirstOrDefault()!;
-                    category.ikasId = ID;
-
-                    BusinessLayerResult<Data.Entities.Category> res_Category = new BusinessLayerResult<Data.Entities.Category>();
-                    res_Category.Result = category;
-
-                    _context.Categories.Update(res_Category.Result);
-                    _context.SaveChanges();
+                    Id = CategoryList!.Where(x => x.name == item.Cat01Desc).FirstOrDefault()!.id!;
+                    // Id güncelle
 
                 }
+                else // bu kategori ikasta yoksa, bu kategoriyi ikas a ekle. Id yi al ve güncelle.
+                {
+                    Id = await YeniKategoriEkle(item.Cat01Desc!);
+                }
+
+                Category category = _context.Categories.Where(x => x.Cat01Desc == item.Cat01Desc).FirstOrDefault()!;
+                category.ikasId = Id;
+
+                BusinessLayerResult<Data.Entities.Category> res_Category = new BusinessLayerResult<Data.Entities.Category>();
+                res_Category.Result = category;
+
+                _context.Categories.Update(res_Category.Result);
+                _context.SaveChanges();
+
             }
-
 
 
 
@@ -746,6 +755,49 @@ namespace MyEntegrasyon.Controllers
                     MyEntegrasyon.Models.Myikas.Category.Root saveCategory = gelen_Categori.Data;
                     ID = saveCategory.saveCategory!.id!;
 
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+
+                }
+
+
+            }
+
+            return ID;
+        }
+        public async Task<string> YeniMarkaEkle(string name)
+        {
+
+            string ID = string.Empty;
+
+            using (var client2 = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                client2.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                MyEntegrasyon.Models.Myikas.BrandAdd.Root _root = new Models.Myikas.BrandAdd.Root();
+                MyEntegrasyon.Models.Myikas.BrandAdd.Input _input = new Models.Myikas.BrandAdd.Input();
+                _input.name = name;
+                _root.input = _input;
+
+                // var requestJson = "{input:{name: " + item_product.BrandDesc!.Replace("İ","I") + "}}";
+                //  var inputs = new GraphQLSerializer().Deserialize<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(requestJson);
+
+
+                GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root> gelen_Brand = new GraphQLResponse<MyEntegrasyon.Models.Myikas.BrandAdd.Root>();
+                var request_Brand = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "saveProductBrand").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                    Variables = _root
+                };
+
+                try
+                {
+                    gelen_Brand = await client2.SendQueryAsync<MyEntegrasyon.Models.Myikas.BrandAdd.Root>(request_Brand);
+                    MyEntegrasyon.Models.Myikas.BrandAdd.Root saveProductBrand = gelen_Brand.Data;
+                    ID = saveProductBrand.saveProductBrand!.id!;
                 }
                 catch (Exception ex)
                 {
