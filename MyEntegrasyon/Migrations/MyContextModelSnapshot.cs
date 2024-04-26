@@ -253,6 +253,50 @@ namespace MyEntegrasyon.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.Brand", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BrandCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BrandDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ikasId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands");
+                });
+
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Cat01Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cat01Desc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ikasId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("MyEntegrasyon.Data.Entities.Islem", b =>
                 {
                     b.Property<int>("Id")

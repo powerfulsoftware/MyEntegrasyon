@@ -469,11 +469,295 @@ namespace MyEntegrasyon.Controllers
             res.Result = _productsNew;
 
 
+           
+
+            await _context.Product.AddRangeAsync(res.Result);
+            _context.SaveChanges();
+
+
+            /////// Eksik kategoriler eklenecek
+
+            
+            foreach (var item in _productsNew)
+            {
+                bool varMi= _context.Categories.Where(x=>x.Cat01Desc == item.Cat01Desc).Any();
+
+                if (!varMi)
+                {
+
+                    Data.Entities.Category _newcategory = new Data.Entities.Category();
+                    _newcategory.Cat01Code = item.Cat01Code;
+                    _newcategory.Cat01Desc = item.Cat01Desc;
+
+
+                    BusinessLayerResult<Data.Entities.Category> res_category = new BusinessLayerResult<Data.Entities.Category>();
+                    res_category.Result = _newcategory;
+
+
+                    await _context.Categories.AddAsync(res_category.Result);
+                    _context.SaveChanges();
+                }
+            }
+            /////// Eksik markalar eklenecek
+
+            foreach (var item in _productsNew)
+            {
+                bool varMi = _context.Brands.Where(x => x.BrandDesc == item.BrandDesc).Any();
+
+                if (!varMi)
+                {
+
+                    Data.Entities.Brand _newBrand = new Data.Entities.Brand();
+                    _newBrand.BrandCode = item.BrandCode;
+                    _newBrand.BrandDesc = item.BrandDesc;
+
+
+                    BusinessLayerResult<Data.Entities.Brand> res_Brand = new BusinessLayerResult<Data.Entities.Brand>();
+                    res_Brand.Result = _newBrand;
+
+
+                    await _context.Brands.AddAsync(res_Brand.Result);
+                    _context.SaveChanges();
+                }
+            }
+
+
 
 
 
             return RedirectToAction("SistemProducts");
         }
-       
+
+
+
+        
+        public async Task<IActionResult> CategoryBrandAdd()
+        {
+            var _products = _context.Product.ToList();
+
+            /////// Eksik kategoriler eklenecek
+
+
+            foreach (var item in _products)
+            {
+                bool varMi = _context.Categories.Where(x => x.Cat01Desc == item.Cat01Desc).Any();
+
+                if (!varMi)
+                {
+
+                    Data.Entities.Category _newcategory = new Data.Entities.Category();
+                    _newcategory.Cat01Code = item.Cat01Code;
+                    _newcategory.Cat01Desc = item.Cat01Desc;
+
+
+                    BusinessLayerResult<Data.Entities.Category> res_category = new BusinessLayerResult<Data.Entities.Category>();
+                    res_category.Result = _newcategory;
+
+
+                    await _context.Categories.AddAsync(res_category.Result);
+                    _context.SaveChanges();
+                }
+            }
+            /////// Eksik markalar eklenecek
+
+            foreach (var item in _products)
+            {
+                bool varMi = _context.Brands.Where(x => x.BrandDesc == item.BrandDesc).Any();
+
+                if (!varMi)
+                {
+
+                    Data.Entities.Brand _newBrand = new Data.Entities.Brand();
+                    _newBrand.BrandCode = item.BrandCode;
+                    _newBrand.BrandDesc = item.BrandDesc;
+
+
+                    BusinessLayerResult<Data.Entities.Brand> res_Brand = new BusinessLayerResult<Data.Entities.Brand>();
+                    res_Brand.Result = _newBrand;
+
+
+                    await _context.Brands.AddAsync(res_Brand.Result);
+                    _context.SaveChanges();
+                }
+            }
+
+
+            RootProductBrand BrandList = new RootProductBrand();
+            BrandList = await MarkaListesiGetir();
+
+
+            foreach (var item in BrandList.listProductBrand!)
+            {
+                bool varmi = _context.Brands.Where(x => x.BrandDesc == item.name).Any();
+                if (varmi)
+                {
+
+                    Brand brand = _context.Brands.Where(x => x.BrandDesc == item.name).FirstOrDefault()!;
+                    brand.ikasId = item.id;
+
+                    BusinessLayerResult<Data.Entities.Brand> res_Brand = new BusinessLayerResult<Data.Entities.Brand>();
+                    res_Brand.Result = brand;
+
+                    _context.Brands.Update(res_Brand.Result);
+                    _context.SaveChanges();
+                }
+            }
+
+
+            ////////////////////////////////////////////////////
+
+
+
+            List<MyEntegrasyon.Models.Myikas.Category.ListCategory> CategoryList = new List<MyEntegrasyon.Models.Myikas.Category.ListCategory>();
+            CategoryList = await KategoriListesiGetir();
+
+
+
+            foreach (var item in CategoryList!)
+            {
+                bool varmi = _context.Categories.Where(x => x.Cat01Desc == item.name).Any();
+                if (varmi)
+                {
+
+                    Category category = _context.Categories.Where(x => x.Cat01Desc == item.name).FirstOrDefault()!;
+                    category.ikasId = item.id;
+
+                    BusinessLayerResult<Data.Entities.Category> res_Category = new BusinessLayerResult<Data.Entities.Category>();
+                    res_Category.Result = category;
+
+                    _context.Categories.Update(res_Category.Result);
+                    _context.SaveChanges();
+                }
+                else
+                {
+                    string ID = await YeniKategoriEkle(item.name!); // yeni kategori ekle 
+
+                    /////////////////////
+
+                    Category category = _context.Categories.Where(x => x.Cat01Desc == item.name).FirstOrDefault()!;
+                    category.ikasId = ID;
+
+                    BusinessLayerResult<Data.Entities.Category> res_Category = new BusinessLayerResult<Data.Entities.Category>();
+                    res_Category.Result = category;
+
+                    _context.Categories.Update(res_Category.Result);
+                    _context.SaveChanges();
+
+                }
+            }
+
+
+
+
+            return RedirectToAction("SistemProducts");
+        }
+
+
+        public async Task<IActionResult> SistemProductVariant(string Id)
+        {
+            Data.Entities.Product product =  _context.Product.Where(x=>x.Id == Id).FirstOrDefault()!;
+            return View(product);
+        }
+
+
+        public async Task<RootProductBrand> MarkaListesiGetir()
+        {
+            RootProductBrand BrandList = new RootProductBrand();
+            using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                var content3 = new StringContent("grant_type=client_credentials&scope=https://api.businesscentral.dynamics.com/.default&client_id="
+              + HttpUtility.UrlEncode(_clientId) + "&client_secret=" + HttpUtility.UrlEncode(_secret));
+                content3.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                var response3 = await _httpClient.PostAsync(_url, content3);
+                if (response3.IsSuccessStatusCode)
+                {
+                    JObject result3 = JObject.Parse(await response3.Content.ReadAsStringAsync());
+                    _access_token = result3["access_token"]!.ToString();
+                }
+
+                client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                /////////  MARKA LİSTESİ
+                GraphQLResponse<RootProductBrand> gelen_Brand = new GraphQLResponse<RootProductBrand>();
+                var request_Brand = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "GetBrands").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )                                                                                                         
+                };
+                gelen_Brand = await client.SendQueryAsync<RootProductBrand>(request_Brand);
+                BrandList = gelen_Brand.Data;
+            }
+
+            return BrandList;
+        }
+        public async Task<List<MyEntegrasyon.Models.Myikas.Category.ListCategory>> KategoriListesiGetir()
+        {
+
+            List<MyEntegrasyon.Models.Myikas.Category.ListCategory> kategoriListesi = new List<MyEntegrasyon.Models.Myikas.Category.ListCategory>();
+
+            GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen5 = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+
+            using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+                client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+                //client.HttpClient.DefaultRequestHeaders.Add("User-Agent", "SharpenAboutBox");
+                //client.HttpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
+
+                var request5 = new GraphQLRequest()
+                {
+                    //listCategory 
+                    Query = _context.Islem.Where(x => x.IslemAdi == "listCategory").FirstOrDefault()!.JsonDesen!.Pattern!   // Desen ( Pattern )    
+                };
+
+                gelen5 = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request5);
+                kategoriListesi = gelen5.Data.listCategory!;
+            }
+
+            // ViewBag.request = gelen.Data;
+
+            return kategoriListesi;
+        }
+
+        public async Task<string> YeniKategoriEkle(string name)
+        {
+
+            string ID = string.Empty;
+
+            using (var client2 = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                client2.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                MyEntegrasyon.Models.Myikas.Category.Root _root = new Models.Myikas.Category.Root();
+                MyEntegrasyon.Models.Myikas.Category.Input _input = new Models.Myikas.Category.Input();
+                _input.name = name;
+                _root.input = _input;
+
+                GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root> gelen_Categori = new GraphQLResponse<MyEntegrasyon.Models.Myikas.Category.Root>();
+                var request_Categori = new GraphQLRequest()
+                {
+                    Query = _context.Islem.Where(x => x.IslemAdi == "saveCategory").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                    Variables = _root
+                };
+
+                try
+                {
+                    gelen_Categori = await client2.SendQueryAsync<MyEntegrasyon.Models.Myikas.Category.Root>(request_Categori);
+                    MyEntegrasyon.Models.Myikas.Category.Root saveCategory = gelen_Categori.Data;
+                    ID = saveCategory.saveCategory!.id!;
+
+                }
+                catch (Exception ex)
+                {
+                    string message = ex.Message;
+
+                }
+
+
+            }
+
+            return ID;
+        }
+
     }
 }

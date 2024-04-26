@@ -21,6 +21,9 @@ namespace MyEntegrasyon.Data
 
         public DbSet<ProductVariant> ProductVariant { get; set; }
 
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+
         //Detaylı arama için bunu ekledim.
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
