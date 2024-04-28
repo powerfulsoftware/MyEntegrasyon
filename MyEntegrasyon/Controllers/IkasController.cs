@@ -731,7 +731,7 @@ namespace MyEntegrasyon.Controllers
                                         }
                                     }
 
-
+                                   
 
                                     _VariantTypeInput_Renk.name = item_product.ItemCode + "_Renk";
                                     _VariantTypeInput_Renk.selectionType = "COLOR";

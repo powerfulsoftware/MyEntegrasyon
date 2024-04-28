@@ -596,6 +596,55 @@ namespace MyEntegrasyon.Migrations
                     b.ToTable("ProductVariant");
                 });
 
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.Variant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IkasId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("selectionType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Variant");
+                });
+
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.VariantValue", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IkasId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VariantID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("colorCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VariantID");
+
+                    b.ToTable("VariantValue");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("MyEntegrasyon.Data.Entities.AppRole", null)
@@ -667,9 +716,25 @@ namespace MyEntegrasyon.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.VariantValue", b =>
+                {
+                    b.HasOne("MyEntegrasyon.Data.Entities.Variant", "Variant")
+                        .WithMany("values")
+                        .HasForeignKey("VariantID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Variant");
+                });
+
             modelBuilder.Entity("MyEntegrasyon.Data.Entities.Product", b =>
                 {
                     b.Navigation("ProductVariants");
+                });
+
+            modelBuilder.Entity("MyEntegrasyon.Data.Entities.Variant", b =>
+                {
+                    b.Navigation("values");
                 });
 #pragma warning restore 612, 618
         }

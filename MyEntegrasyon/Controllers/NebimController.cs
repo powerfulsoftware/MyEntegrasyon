@@ -18,6 +18,7 @@ using MyEntegrasyon.BusinessLayer.Results;
 using MyEntegrasyon.Data.Entities;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using VariantValue = MyEntegrasyon.Data.Entities.VariantValue;
 
 namespace MyEntegrasyon.Controllers
 {
@@ -366,11 +367,7 @@ namespace MyEntegrasyon.Controllers
 
             foreach (var item in _products)
             {
-
                 List<Data.Entities.ProductVariant>? _ProductVariants = new List<Data.Entities.ProductVariant>();
-
-                
-
                 foreach (var item_Variant in item.ProductVariants!)
                 {
                     ProductVariantID++;
@@ -433,9 +430,6 @@ namespace MyEntegrasyon.Controllers
                         Image8 = item_Variant.Image8,
                     });
                 }
-                
-               
-
                 _productsNew.Add(new Data.Entities.Product
                 {
                     Id = item.Id,
@@ -810,6 +804,48 @@ namespace MyEntegrasyon.Controllers
 
             return ID;
         }
+
+
+
+
+        public IActionResult ProductVariantOlustur()
+        {
+            var product = _context.Product.ToList();
+
+            foreach (var item_product in product)
+            {
+                List<VariantValue> _Values_Renk = new List<VariantValue>();
+
+                foreach (var item_newAddvariants in item_product.ProductVariants!)
+                {
+                    var ListVariantTypeName_Renk_Kontrol_icin = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").FirstOrDefault();
+
+
+
+                    if (!(_Values_Renk.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                    {
+                        if (ListVariantTypeName_Renk_Kontrol_icin != null)
+                        {
+                            if (!(ListVariantTypeName_Renk_Kontrol_icin!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                            {
+                                _Values_Renk.Add(new VariantValue { name = item_newAddvariants.ColorDesc });
+                            }
+                        }
+                        else
+                        {
+                            _Values_Renk.Add(new VariantValue { name = item_newAddvariants.ColorDesc });
+                        }
+                    }
+                }
+            }
+
+
+
+            return View(product);
+        }
+
+
+
 
     }
 }
