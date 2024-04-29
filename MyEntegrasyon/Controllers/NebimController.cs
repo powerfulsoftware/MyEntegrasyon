@@ -808,19 +808,42 @@ namespace MyEntegrasyon.Controllers
 
 
 
-        public IActionResult ProductVariantOlustur()
+        public async Task<IActionResult> ProductVariantOlustur()
         {
             var product = _context.Product.ToList();
 
             foreach (var item_product in product)
             {
+
+
+                Data.Entities.Variant newVariant = new Data.Entities.Variant();
+                newVariant.ItemCode = item_product.ItemCode;
+                newVariant.name = item_product.ItemCode + "_Renk";
+                newVariant.selectionType = "COLOR";
+                //newVariant.values = _Values_Renk;
+                ////////
+
+                BusinessLayerResult<Data.Entities.Variant> res_VariantRenk = new BusinessLayerResult<Data.Entities.Variant>();
+                res_VariantRenk.Result = newVariant;
+
+
+                bool varmi = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").Any();
+                if (!varmi)
+                {
+                    var ddd = _context.Variant.Add(res_VariantRenk.Result);
+                    _context.SaveChanges();
+                }
+
+
+                Data.Entities.Variant _gelenVariant = _context.Variant.Where(x => x.name == item_product.ItemCode + "_Renk").FirstOrDefault()!;
+
+
+
                 List<VariantValue> _Values_Renk = new List<VariantValue>();
 
                 foreach (var item_newAddvariants in item_product.ProductVariants!)
                 {
                     var ListVariantTypeName_Renk_Kontrol_icin = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").FirstOrDefault();
-
-
 
                     if (!(_Values_Renk.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
                     {
@@ -828,15 +851,38 @@ namespace MyEntegrasyon.Controllers
                         {
                             if (!(ListVariantTypeName_Renk_Kontrol_icin!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
                             {
-                                _Values_Renk.Add(new VariantValue { name = item_newAddvariants.ColorDesc });
+                                _Values_Renk.Add(new VariantValue { VariantID=_gelenVariant.Id, name = item_newAddvariants.ColorDesc });
                             }
                         }
                         else
                         {
-                            _Values_Renk.Add(new VariantValue { name = item_newAddvariants.ColorDesc });
+                            _Values_Renk.Add(new VariantValue { VariantID = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
                         }
                     }
                 }
+
+
+
+               
+                BusinessLayerResult<List<Data.Entities.VariantValue>> res_VariantValueRenk = new BusinessLayerResult<List<Data.Entities.VariantValue>>();
+                res_VariantValueRenk.Result = _Values_Renk;
+
+
+                bool varmi_Values_Renk = _context.VariantValue.Where(x => x.VariantID == _gelenVariant.Id).Any();
+                if (!varmi_Values_Renk)
+                {
+                    _context.VariantValue.AddRange(res_VariantValueRenk.Result);
+                    _context.SaveChanges();
+                }
+
+
+
+
+
+
+
+
+
             }
 
 

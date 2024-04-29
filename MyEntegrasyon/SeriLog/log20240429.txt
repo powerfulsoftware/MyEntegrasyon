@@ -1,1 +1,1098 @@
 2024-04-29 01:08:56.060 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 14:23:57.965 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 14:24:00.877 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 14:24:02.403 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 14:24:02.420 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 14:24:02.424 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 14:24:02.427 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 14:24:02.438 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 14:24:02.508 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 14:24:02.666 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 14:24:03.076 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 14:24:03.080 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 14:24:03.108 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 14:24:03.110 +03:00 [INF] Hosting environment: Development
+2024-04-29 14:24:03.111 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 14:24:04.349 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 14:24:04.387 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 14:24:04.395 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 14:24:04.410 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 14:24:04.508 +03:00 [INF] Executed ViewResult - view Index executed in 98.767ms.
+2024-04-29 14:24:04.513 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.css - null null
+2024-04-29 14:24:04.513 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.min.css - null null
+2024-04-29 14:24:04.516 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.css - null null
+2024-04-29 14:24:04.513 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.min.css - null null
+2024-04-29 14:24:04.522 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 124.8752ms
+2024-04-29 14:24:04.524 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 14:24:04.536 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 191.1568ms
+2024-04-29 14:24:04.548 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 14:24:04.568 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 19.6679ms
+2024-04-29 14:24:04.571 +03:00 [INF] Sending file. Request path: '/templates/v1/assets/plugins/fontawesome651/css/all.css'. Physical path: 'F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\wwwroot\Templates\V1\assets\plugins\fontawesome651\css\all.css'
+2024-04-29 14:24:04.571 +03:00 [INF] Sending file. Request path: '/templates/v1/assets/plugins/fontawesome651/css/all.min.css'. Physical path: 'F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\wwwroot\Templates\V1\assets\plugins\fontawesome651\css\all.min.css'
+2024-04-29 14:24:04.571 +03:00 [INF] Sending file. Request path: '/templates/v1/assets/plugins/fontawesome651/css/brands.css'. Physical path: 'F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\wwwroot\Templates\V1\assets\plugins\fontawesome651\css\brands.css'
+2024-04-29 14:24:04.573 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.css - 200 148801 text/css 60.552ms
+2024-04-29 14:24:04.574 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.min.css - 200 102649 text/css 61.5968ms
+2024-04-29 14:24:04.575 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.css - 200 26139 text/css 62.6643ms
+2024-04-29 14:24:04.571 +03:00 [INF] Sending file. Request path: '/templates/v1/assets/plugins/fontawesome651/css/brands.min.css'. Physical path: 'F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\wwwroot\Templates\V1\assets\plugins\fontawesome651\css\brands.min.css'
+2024-04-29 14:24:04.579 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.min.css - 200 19312 text/css 66.5326ms
+2024-04-29 14:24:04.850 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/webfonts/fa-solid-900.woff2 - null null
+2024-04-29 14:24:04.864 +03:00 [INF] Sending file. Request path: '/templates/v1/assets/plugins/fontawesome651/webfonts/fa-solid-900.woff2'. Physical path: 'F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\wwwroot\Templates\V1\assets\plugins\fontawesome651\webfonts\fa-solid-900.woff2'
+2024-04-29 14:24:04.865 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/webfonts/fa-solid-900.woff2 - 200 156496 font/woff2 16.2126ms
+2024-04-29 14:24:04.870 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 14:24:04.875 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.351ms
+2024-04-29 14:24:04.877 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 14:24:04.879 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 14:24:04.883 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 4.0835ms
+2024-04-29 14:24:04.885 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 14:24:04.923 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 14:24:04.926 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 3.4311ms
+2024-04-29 14:24:04.928 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 14:24:04.928 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 14:24:04.931 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 2.3183ms
+2024-04-29 14:24:04.933 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 14:27:00.664 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 14:27:01.329 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 14:27:02.169 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 14:27:02.186 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 14:27:02.190 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 14:27:02.191 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 14:27:02.201 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 14:27:02.226 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 14:27:02.368 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 14:27:02.558 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 14:27:02.559 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 14:27:02.588 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 14:27:02.590 +03:00 [INF] Hosting environment: Development
+2024-04-29 14:27:02.591 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 14:27:03.170 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 14:27:03.206 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 14:27:03.215 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 14:27:03.235 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 14:27:03.309 +03:00 [INF] Executed ViewResult - view Index executed in 76.1012ms.
+2024-04-29 14:27:03.315 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 96.1362ms
+2024-04-29 14:27:03.317 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 14:27:03.324 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 158.5789ms
+2024-04-29 14:27:03.351 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 14:27:03.356 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.9542ms
+2024-04-29 14:27:03.675 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 14:27:03.681 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.8718ms
+2024-04-29 14:27:03.683 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 14:27:03.685 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 14:27:03.688 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 3.3086ms
+2024-04-29 14:27:03.690 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 14:27:03.707 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 14:27:03.710 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 3.0368ms
+2024-04-29 14:27:03.711 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 14:27:03.712 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 14:27:03.714 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 2.2ms
+2024-04-29 14:27:03.715 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 14:27:07.752 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 14:27:07.758 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 14:27:07.761 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 14:27:12.776 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 14:27:16.335 +03:00 [INF] Executed DbCommand (66ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 14:27:19.655 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 14:28:09.282 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:06:07.550 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:06:08.189 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:06:08.960 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:06:08.977 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:06:08.980 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:06:08.982 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:06:08.992 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:06:09.018 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:06:09.168 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:06:09.359 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:06:09.360 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:06:09.388 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:06:09.389 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:06:09.391 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:07:27.716 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:07:28.345 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:07:29.135 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:07:29.152 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:07:29.155 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:07:29.157 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:07:29.167 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:07:29.192 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:07:29.338 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:07:29.529 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:07:29.530 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:07:29.558 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:07:29.560 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:07:29.562 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:07:30.180 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:07:30.221 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:07:30.232 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:07:30.248 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:07:30.320 +03:00 [INF] Executed ViewResult - view Index executed in 73.5974ms.
+2024-04-29 16:07:30.325 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 90.9187ms
+2024-04-29 16:07:30.327 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:07:30.334 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 158.4984ms
+2024-04-29 16:07:30.361 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:07:30.365 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.7088ms
+2024-04-29 16:07:30.732 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:07:30.737 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.5166ms
+2024-04-29 16:07:30.739 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:07:30.741 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:07:30.744 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 2.8058ms
+2024-04-29 16:07:30.745 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:07:30.761 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:07:30.764 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.8252ms
+2024-04-29 16:07:30.765 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:07:30.766 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:07:30.767 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.2852ms
+2024-04-29 16:07:30.769 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:07:33.277 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:07:33.280 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:07:33.283 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:07:36.366 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:07:42.883 +03:00 [ERR] Failed executing DbCommand (17ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:07:42.935 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'MyEntegrasyon.Data.MyContext'.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ItemCode'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:0a81fe48-ffbf-4880-a0ca-cdc3aaf2cba3
+Error Number:207,State:1,Class:16
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ItemCode'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+ClientConnectionId:0a81fe48-ffbf-4880-a0ca-cdc3aaf2cba3
+Error Number:207,State:1,Class:16
+2024-04-29 16:07:43.467 +03:00 [INF] Executed action MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon) in 10182.8542ms
+2024-04-29 16:07:43.470 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:07:43.474 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.SqlClient.SqlException (0x80131904): Invalid column name 'ItemCode'.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at Microsoft.Data.SqlClient.SqlDataReader.get_MetaData()
+   at Microsoft.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean isAsync, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.InitializeReader(Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.<>c.<MoveNext>b__21_0(DbContext _, Enumerator enumerator)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.TryGetSingle[TSource](IEnumerable`1 source, Boolean& found)
+   at lambda_method165(Closure, QueryContext)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur() in F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\Controllers\NebimController.cs:line 830
+   at lambda_method51(Closure, Object, Object[])
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+ClientConnectionId:0a81fe48-ffbf-4880-a0ca-cdc3aaf2cba3
+Error Number:207,State:1,Class:16
+2024-04-29 16:07:43.561 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:07:43.592 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - 500 null text/html; charset=utf-8 10315.0425ms
+2024-04-29 16:07:43.594 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 33.8325ms
+2024-04-29 16:07:43.599 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon.ico - null null
+2024-04-29 16:07:43.616 +03:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\wwwroot\favicon.ico'
+2024-04-29 16:07:43.618 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon.ico - 200 5430 image/x-icon 18.9257ms
+2024-04-29 16:08:06.978 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:08:07.081 +03:00 [FTL] Uygulama beklenmedik şekilde sonlandırıldı.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\Program.cs:line 76
+2024-04-29 16:08:17.254 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:08:17.352 +03:00 [FTL] Uygulama beklenmedik şekilde sonlandırıldı.
+Microsoft.Extensions.Hosting.HostAbortedException: The host was aborted.
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.ThrowHostAborted()
+   at Microsoft.Extensions.Hosting.HostFactoryResolver.HostingListener.OnNext(KeyValuePair`2 value)
+   at System.Diagnostics.DiagnosticListener.Write(String name, Object value)
+   at Microsoft.Extensions.Hosting.HostBuilder.ResolveHost(IServiceProvider serviceProvider, DiagnosticListener diagnosticListener)
+   at Microsoft.Extensions.Hosting.HostApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.WebApplicationBuilder.Build()
+   at Program.<Main>$(String[] args) in F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\Program.cs:line 76
+2024-04-29 16:08:40.074 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:08:40.680 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:08:41.445 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:08:41.463 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:08:41.466 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:08:41.468 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:08:41.478 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:08:41.504 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:08:41.650 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:08:41.826 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:08:41.827 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:08:41.852 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:08:41.854 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:08:41.855 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:08:42.768 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:08:42.804 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:08:42.816 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:08:42.831 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:08:42.908 +03:00 [INF] Executed ViewResult - view Index executed in 78.4809ms.
+2024-04-29 16:08:42.914 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 94.9564ms
+2024-04-29 16:08:42.915 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:08:42.922 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 158.4757ms
+2024-04-29 16:08:42.952 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:08:42.956 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.714ms
+2024-04-29 16:08:43.291 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:08:43.296 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.4703ms
+2024-04-29 16:08:43.298 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:08:43.300 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:08:43.302 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 2.7992ms
+2024-04-29 16:08:43.304 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:08:43.321 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:08:43.324 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.4287ms
+2024-04-29 16:08:43.325 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:08:43.326 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:08:43.328 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.3874ms
+2024-04-29 16:08:43.329 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:08:45.766 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:08:45.769 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:08:45.771 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:08:48.096 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:08:52.788 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:09:42.074 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Variant] ([IkasId], [ItemCode], [name], [selectionType])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-04-29 16:18:26.866 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:18:27.494 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:18:28.260 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:18:28.276 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:18:28.278 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:18:28.280 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:18:28.290 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:18:28.314 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:18:28.457 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:18:28.687 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:18:28.688 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:18:28.716 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:18:28.718 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:18:28.719 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:18:29.330 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:18:29.368 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:18:29.378 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:18:29.394 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:18:29.463 +03:00 [INF] Executed ViewResult - view Index executed in 69.3914ms.
+2024-04-29 16:18:29.469 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 88.1068ms
+2024-04-29 16:18:29.471 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:18:29.478 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 152.8158ms
+2024-04-29 16:18:29.508 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:18:29.512 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 5.0021ms
+2024-04-29 16:18:29.883 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:18:29.889 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 6.2555ms
+2024-04-29 16:18:29.891 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:18:29.896 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:18:29.900 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 4.0426ms
+2024-04-29 16:18:29.901 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:18:29.920 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:18:29.922 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.8043ms
+2024-04-29 16:18:29.923 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:18:29.924 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:18:29.951 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 26.5089ms
+2024-04-29 16:18:29.952 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:18:32.261 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:18:32.264 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:18:32.270 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:18:34.816 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:18:38.772 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:18:40.341 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:18:42.893 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:18:46.271 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:18:49.068 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:18:52.451 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:19:01.484 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:19:04.234 +03:00 [INF] Executed DbCommand (47ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [VariantValue] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1)) AS i ([IkasId], [VariantID], [colorCode], [name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([IkasId], [VariantID], [colorCode], [name])
+VALUES (i.[IkasId], i.[VariantID], i.[colorCode], i.[name])
+OUTPUT INSERTED.[Id], i._Position;
+2024-04-29 16:19:44.889 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:19:45.540 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:19:46.303 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:19:46.318 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:19:46.322 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:19:46.324 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:19:46.333 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:19:46.362 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:19:46.514 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:19:46.682 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:19:46.684 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:19:46.707 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:19:46.710 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:19:46.711 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:19:47.537 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:19:47.575 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:19:47.586 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:19:47.603 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:19:47.678 +03:00 [INF] Executed ViewResult - view Index executed in 77.2087ms.
+2024-04-29 16:19:47.683 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 95.1419ms
+2024-04-29 16:19:47.685 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:19:47.691 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 158.734ms
+2024-04-29 16:19:47.717 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:19:47.722 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.9767ms
+2024-04-29 16:19:48.084 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:19:48.090 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.6332ms
+2024-04-29 16:19:48.092 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:19:48.094 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:19:48.097 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 3.0104ms
+2024-04-29 16:19:48.098 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:19:48.116 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:19:48.119 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.6516ms
+2024-04-29 16:19:48.120 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:19:48.121 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:19:48.123 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.5991ms
+2024-04-29 16:19:48.124 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:19:50.184 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:19:50.187 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:19:50.194 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:19:50.307 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:19:50.405 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:19:50.421 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:19:50.478 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:19:50.567 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:19:50.588 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:19:50.599 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:19:50.603 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:19:50.605 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:19:50.686 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Variant] ([IkasId], [ItemCode], [name], [selectionType])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-04-29 16:19:50.701 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:19:50.704 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:19:50.706 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:19:50.737 +03:00 [INF] Executed action MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon) in 541.1247ms
+2024-04-29 16:19:50.739 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:19:50.741 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur() in F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\Controllers\NebimController.cs:line 852
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-04-29 16:19:50.801 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:19:50.803 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 2.3126ms
+2024-04-29 16:19:50.805 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - 500 null text/html; charset=utf-8 620.9929ms
+2024-04-29 16:20:34.601 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:20:35.174 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:20:35.960 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:20:35.977 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:20:35.981 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:20:35.983 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:20:35.993 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:20:36.017 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:20:36.157 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:20:36.344 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:20:36.346 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:20:36.371 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:20:36.374 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:20:36.375 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:20:37.283 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:20:37.319 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:20:37.327 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:20:37.342 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:20:37.417 +03:00 [INF] Executed ViewResult - view Index executed in 74.7386ms.
+2024-04-29 16:20:37.422 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 92.7394ms
+2024-04-29 16:20:37.424 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:20:37.431 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 151.7853ms
+2024-04-29 16:20:37.460 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:20:37.465 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.9586ms
+2024-04-29 16:20:37.820 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:20:37.826 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 6.1067ms
+2024-04-29 16:20:37.828 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:20:37.830 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:20:37.833 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 2.9056ms
+2024-04-29 16:20:37.834 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:20:37.852 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:20:37.854 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.6801ms
+2024-04-29 16:20:37.855 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:20:37.857 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:20:37.858 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.1501ms
+2024-04-29 16:20:37.859 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:20:40.145 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:20:40.148 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:20:40.158 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:20:40.265 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:20:56.197 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:20:56.213 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:20:56.266 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:20:56.323 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:20:56.343 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:20:56.354 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:20:56.359 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:20:56.361 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:20:56.363 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:20:56.367 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:20:56.369 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:20:56.371 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:20:56.373 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:20:56.450 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [VariantValue] ([IkasId], [VariantID], [colorCode], [name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-04-29 16:20:56.463 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:20:56.471 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Variant] ([IkasId], [ItemCode], [name], [selectionType])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-04-29 16:20:56.475 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:20:56.477 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:20:56.479 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:20:56.498 +03:00 [INF] Executed action MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon) in 16337.947ms
+2024-04-29 16:20:56.501 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:20:56.505 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur() in F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\Controllers\NebimController.cs:line 852
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-04-29 16:20:56.596 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - 500 null text/html; charset=utf-8 16450.6676ms
+2024-04-29 16:20:56.600 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:20:56.602 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 2.1384ms
+2024-04-29 16:21:19.370 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:21:20.014 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:21:20.773 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:21:20.792 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:21:20.795 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:21:20.797 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:21:20.806 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:21:20.830 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:21:20.966 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:21:21.158 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:21:21.159 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:21:21.184 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:21:21.186 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:21:21.187 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:21:22.038 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:21:22.077 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:21:22.088 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:21:22.103 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:21:22.177 +03:00 [INF] Executed ViewResult - view Index executed in 75.0253ms.
+2024-04-29 16:21:22.183 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 93.0335ms
+2024-04-29 16:21:22.185 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:21:22.192 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 157.4803ms
+2024-04-29 16:21:22.220 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:21:22.224 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.3576ms
+2024-04-29 16:21:22.479 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:21:22.485 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.4772ms
+2024-04-29 16:21:22.486 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:21:22.488 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:21:22.491 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 2.8268ms
+2024-04-29 16:21:22.492 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:21:22.509 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:21:22.512 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.435ms
+2024-04-29 16:21:22.513 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:21:22.515 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:21:22.516 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.5033ms
+2024-04-29 16:21:22.517 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:21:24.456 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:21:24.458 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:21:24.464 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:21:24.564 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:21:26.159 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[ItemCode] = @__item_product_ItemCode_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:21:26.174 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-04-29 16:21:26.226 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:21:29.782 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:22:14.970 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:08.661 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-04-29 16:33:09.255 +03:00 [INF] User profile is available. Using 'C:\Users\MUSTAFA\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-04-29 16:33:10.052 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:33:10.068 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:33:10.072 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-04-29 16:33:10.073 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-04-29 16:33:10.083 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-04-29 16:33:10.109 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-04-29 16:33:10.258 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-04-29 16:33:10.430 +03:00 [INF] Now listening on: https://localhost:7020
+2024-04-29 16:33:10.432 +03:00 [INF] Now listening on: http://localhost:5185
+2024-04-29 16:33:10.463 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-29 16:33:10.464 +03:00 [INF] Hosting environment: Development
+2024-04-29 16:33:10.466 +03:00 [INF] Content root path: F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon
+2024-04-29 16:33:11.086 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-04-29 16:33:11.125 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:33:11.135 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-04-29 16:33:11.150 +03:00 [INF] Executing ViewResult, running view Index.
+2024-04-29 16:33:11.219 +03:00 [INF] Executed ViewResult - view Index executed in 71.3267ms.
+2024-04-29 16:33:11.225 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 87.6228ms
+2024-04-29 16:33:11.226 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-04-29 16:33:11.234 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 151.6302ms
+2024-04-29 16:33:11.262 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:33:11.266 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.2893ms
+2024-04-29 16:33:11.656 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:33:11.662 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 6.267ms
+2024-04-29 16:33:11.664 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:33:11.669 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - null null
+2024-04-29 16:33:11.672 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map - 404 0 null 5.6024ms
+2024-04-29 16:33:11.674 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/Templates/V1/assets/plugins/bootstrapv4/js/bootstrap.min.js.map, Response status code: 404
+2024-04-29 16:33:11.692 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-04-29 16:33:11.694 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 2.9551ms
+2024-04-29 16:33:11.695 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-04-29 16:33:11.697 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-04-29 16:33:11.698 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 1.4175ms
+2024-04-29 16:33:11.699 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-04-29 16:33:13.723 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - null null
+2024-04-29 16:33:13.726 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:33:13.733 +03:00 [INF] Route matched with {action = "ProductVariantOlustur", controller = "Nebim"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ProductVariantOlustur() on controller MyEntegrasyon.Controllers.NebimController (MyEntegrasyon).
+2024-04-29 16:33:13.841 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-04-29 16:33:16.658 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[name] = @__p_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.674 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.740 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:33:16.797 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.821 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:33:16.831 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.836 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.838 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[name] = @__p_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.839 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.843 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:33:16.844 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.846 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:33:16.847 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.849 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[name] = @__p_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.851 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.852 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:33:16.854 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.856 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantID], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantID] = @__p_0
+2024-04-29 16:33:16.857 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.859 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@___gelenVariant_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [VariantValue] AS [v]
+        WHERE [v].[VariantID] = @___gelenVariant_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.938 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Int32), @p6='?' (Size = 4000), @p7='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [VariantValue] USING (
+VALUES (@p0, @p1, @p2, @p3, 0),
+(@p4, @p5, @p6, @p7, 1)) AS i ([IkasId], [VariantID], [colorCode], [name], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([IkasId], [VariantID], [colorCode], [name])
+VALUES (i.[IkasId], i.[VariantID], i.[colorCode], i.[name])
+OUTPUT INSERTED.[Id], i._Position;
+2024-04-29 16:33:16.953 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Variant] AS [v]
+        WHERE [v].[name] = @__p_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2024-04-29 16:33:16.962 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Variant] ([IkasId], [ItemCode], [name], [selectionType])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3);
+2024-04-29 16:33:16.966 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.968 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-04-29 16:33:16.970 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[name] = @__p_0
+2024-04-29 16:33:16.987 +03:00 [INF] Executed action MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon) in 3251.8213ms
+2024-04-29 16:33:16.988 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur (MyEntegrasyon)'
+2024-04-29 16:33:16.990 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'source')
+   at System.Linq.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Linq.Enumerable.Where[TSource](IEnumerable`1 source, Func`2 predicate)
+   at MyEntegrasyon.Controllers.NebimController.ProductVariantOlustur() in F:\ÖZEL\Bünyamin\MyEntegrasyon\MyEntegrasyon\Controllers\NebimController.cs:line 852
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-04-29 16:33:17.090 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-04-29 16:33:17.092 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 2.2149ms
+2024-04-29 16:33:17.096 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Nebim/ProductVariantOlustur - 500 null text/html; charset=utf-8 3372.56ms
