@@ -810,7 +810,7 @@ namespace MyEntegrasyon.Controllers
 
         public async Task<IActionResult> ProductVariantOlustur()
         {
-            var product = _context.Product.ToList();
+            var product = _context.Product.Where(x => x.ItemCode != "krgPzrm").ToList();
 
             foreach (var item_product in product)
             {
@@ -828,36 +828,38 @@ namespace MyEntegrasyon.Controllers
 
 
                 bool varmi = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").Any();
-                if (!varmi)
+                if (!varmi) // yoksa 
                 {
-                    var ddd = _context.Variant.Add(res_VariantRenk.Result);
+                    //ekle
+                    _context.Variant.Add(res_VariantRenk.Result);
                     _context.SaveChanges();
                 }
 
-
+                //  Variant bilgilerini al.
                 Data.Entities.Variant _gelenVariant = _context.Variant.Where(x => x.name == item_product.ItemCode + "_Renk").FirstOrDefault()!;
 
 
-
+                // YENİ VariantValue değerlerini oluşturmak için gerekli
                 List<VariantValue> _Values_Renk = new List<VariantValue>();
 
                 foreach (var item_newAddvariants in item_product.ProductVariants!)
                 {
-                    var ListVariantTypeName_Renk_Kontrol_icin = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").FirstOrDefault();
+                    // var ListVariantTypeName_Renk_Kontrol_icin = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").FirstOrDefault();
 
-                    if (!(_Values_Renk.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                    if (!(_Values_Renk.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0)) // yeni oluşturulacak listede bu renk var mi
                     {
-                        if (ListVariantTypeName_Renk_Kontrol_icin != null)
+                        if (_gelenVariant != null) //  Variant bilgisi null değilse
                         {
-                            if (!(ListVariantTypeName_Renk_Kontrol_icin!.values!.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0))
+                            if (!(_gelenVariant!.values?.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0)) // önceden bu renk var mı ? Yoksa
                             {
+                                // yeni oluşturulacak listeye ekle
                                 _Values_Renk.Add(new VariantValue { VariantID=_gelenVariant.Id, name = item_newAddvariants.ColorDesc });
                             }
                         }
-                        else
-                        {
-                            _Values_Renk.Add(new VariantValue { VariantID = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
-                        }
+                        //else
+                        //{
+                        //    _Values_Renk.Add(new VariantValue { VariantID = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
+                        //}
                     }
                 }
 
@@ -866,10 +868,7 @@ namespace MyEntegrasyon.Controllers
                
                 BusinessLayerResult<List<Data.Entities.VariantValue>> res_VariantValueRenk = new BusinessLayerResult<List<Data.Entities.VariantValue>>();
                 res_VariantValueRenk.Result = _Values_Renk;
-
-
-                bool varmi_Values_Renk = _context.VariantValue.Where(x => x.VariantID == _gelenVariant.Id).Any();
-                if (!varmi_Values_Renk)
+                if (_Values_Renk.Count() > 0)
                 {
                     _context.VariantValue.AddRange(res_VariantValueRenk.Result);
                     _context.SaveChanges();
@@ -877,7 +876,65 @@ namespace MyEntegrasyon.Controllers
 
 
 
+                ///////////////////////////////////////////////////////////////////////////////////////////////
 
+                Data.Entities.Variant newVariantBeden = new Data.Entities.Variant();
+                newVariantBeden.ItemCode = item_product.ItemCode;
+                newVariantBeden.name = item_product.ItemCode + "_Beden";
+                newVariantBeden.selectionType = "CHOICE";
+                //newVariant.values = _Values_Renk;
+                ////////
+
+                BusinessLayerResult<Data.Entities.Variant> res_VariantBeden = new BusinessLayerResult<Data.Entities.Variant>();
+                res_VariantBeden.Result = newVariantBeden;
+
+
+                bool varmiBeden = _context.Variant.Where(x => x.name == item_product.ItemCode + "_Beden").Any();
+                if (!varmiBeden) // yoksa 
+                {
+                    //ekle
+                    _context.Variant.Add(res_VariantBeden.Result);
+                    _context.SaveChanges();
+                }
+
+                //  Variant bilgilerini al.
+                Data.Entities.Variant _gelenVariantBeden = _context.Variant.Where(x => x.name == item_product.ItemCode + "_Beden").FirstOrDefault()!;
+
+
+                // YENİ VariantValue değerlerini oluşturmak için gerekli
+                List<VariantValue> _Values_Beden = new List<VariantValue>();
+
+                foreach (var item_newAddvariants in item_product.ProductVariants!)
+                {
+                    // var ListVariantTypeName_Renk_Kontrol_icin = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").FirstOrDefault();
+
+                    if (!(_Values_Beden.Where(x => x.name == item_newAddvariants.ItemDim1Desc).Count() > 0)) // yeni oluşturulacak listede bu renk var mi
+                    {
+                        if (_gelenVariantBeden != null) //  Variant bilgisi null değilse
+                        {
+                            if (!(_gelenVariantBeden!.values?.Where(x => x.name == item_newAddvariants.ItemDim1Desc).Count() > 0)) // önceden bu renk var mı ? Yoksa
+                            {
+                                // yeni oluşturulacak listeye ekle
+                                _Values_Beden.Add(new VariantValue { VariantID = _gelenVariantBeden.Id, name = item_newAddvariants.ItemDim1Desc });
+                            }
+                        }
+                        //else
+                        //{
+                        //    _Values_Renk.Add(new VariantValue { VariantID = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
+                        //}
+                    }
+                }
+
+
+
+
+                BusinessLayerResult<List<Data.Entities.VariantValue>> res_VariantValueBeden = new BusinessLayerResult<List<Data.Entities.VariantValue>>();
+                res_VariantValueBeden.Result = _Values_Beden;
+                if (_Values_Beden.Count() > 0)
+                {
+                    _context.VariantValue.AddRange(res_VariantValueBeden.Result);
+                    _context.SaveChanges();
+                }
 
 
 
