@@ -855,7 +855,7 @@ namespace MyEntegrasyon.Controllers
                             if (!(_gelenVariant!.values?.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0)) // önceden bu renk var mı ? Yoksa
                             {
                                 // yeni oluşturulacak listeye ekle
-                                _Values_Renk.Add(new VariantValue { VariantID = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
+                                _Values_Renk.Add(new VariantValue { VariantId = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
                             }
                         }
                         //else
@@ -917,7 +917,7 @@ namespace MyEntegrasyon.Controllers
                             if (!(_gelenVariantBeden!.values?.Where(x => x.name == item_newAddvariants.ItemDim1Desc).Count() > 0)) // önceden bu renk var mı ? Yoksa
                             {
                                 // yeni oluşturulacak listeye ekle
-                                _Values_Beden.Add(new VariantValue { VariantID = _gelenVariantBeden.Id, name = item_newAddvariants.ItemDim1Desc });
+                                _Values_Beden.Add(new VariantValue { VariantId = _gelenVariantBeden.Id, name = item_newAddvariants.ItemDim1Desc });
                             }
                         }
                         //else
@@ -1069,7 +1069,7 @@ namespace MyEntegrasyon.Controllers
 
             foreach (var item in saveVariantType.values)
             {
-                VariantValue variantValue = _context.VariantValue.Where(x => x.name == item.name && x.VariantID == variant.Id).First();
+                VariantValue variantValue = _context.VariantValue.Where(x => x.name == item.name && x.VariantId == variant.Id).First();
                 variantValue.IkasId = item.id;
 
                 BusinessLayerResult<Data.Entities.VariantValue> res_variantValue = new BusinessLayerResult<Data.Entities.VariantValue>();

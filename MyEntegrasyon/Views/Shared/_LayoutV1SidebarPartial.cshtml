@@ -75,6 +75,7 @@
 
             <li class="nav-item submenu
                                 @Html.ActiveClass("Ikas", "YeniUnrunEkle" )
+                                @Html.ActiveClass("Ikas", "NewProductAdd")
                                 @Html.ActiveClass("Brand", "Index" )
                                 @Html.ActiveClass("Variant", "Index" )
                                 @Html.ActiveClass("Category", "Index")
@@ -87,6 +88,12 @@
                     <li class="@Html.ActiveClass("Ikas", "YeniUnrunEkle")">
                         <a href="~/Ikas/YeniUnrunEkle">Yeni ürünleri Ekle</a>
                     </li>
+                    <li class="@Html.ActiveClass("Ikas", "NewProductAdd")">
+                        <a href="~/Ikas/NewProductAdd">NewProductAdd</a>
+                    </li>
+
+                    
+
                     <li class="@Html.ActiveClass("Brand", "Index")">
                         <a href="~/Brand/Index">Brands</a>
                     </li>

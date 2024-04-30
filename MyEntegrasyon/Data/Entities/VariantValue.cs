@@ -3,7 +3,7 @@
     public class VariantValue: MyEntityBase
     {
         
-        public int VariantID { get; set; }
+        public int VariantId { get; set; }
         virtual public Variant? Variant { get; set; }
         public string? IkasId { get; set; }
         public string? name { get; set; }

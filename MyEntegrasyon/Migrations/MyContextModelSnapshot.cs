@@ -632,7 +632,7 @@ namespace MyEntegrasyon.Migrations
                     b.Property<string>("IkasId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VariantID")
+                    b.Property<int>("VariantId")
                         .HasColumnType("int");
 
                     b.Property<string>("colorCode")
@@ -643,7 +643,7 @@ namespace MyEntegrasyon.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("VariantID");
+                    b.HasIndex("VariantId");
 
                     b.ToTable("VariantValue");
                 });
@@ -723,7 +723,7 @@ namespace MyEntegrasyon.Migrations
                 {
                     b.HasOne("MyEntegrasyon.Data.Entities.Variant", "Variant")
                         .WithMany("values")
-                        .HasForeignKey("VariantID")
+                        .HasForeignKey("VariantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
