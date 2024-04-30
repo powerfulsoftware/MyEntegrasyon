@@ -19,6 +19,8 @@ using MyEntegrasyon.Data.Entities;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using VariantValue = MyEntegrasyon.Data.Entities.VariantValue;
+using MyEntegrasyon.Models.Myikas.SaveProduct;
+using Variant = MyEntegrasyon.Data.Entities.Variant;
 
 namespace MyEntegrasyon.Controllers
 {
@@ -100,7 +102,7 @@ namespace MyEntegrasyon.Controllers
         {
             GetAccessToken();
             Models.Myikas.ListProduct.Root Gonder = new Models.Myikas.ListProduct.Root();
-            
+
             // RootProductBrand BrandList = new RootProductBrand();
             using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
             {
@@ -142,7 +144,7 @@ namespace MyEntegrasyon.Controllers
                 gelen_VariantTypes = await client.SendQueryAsync<Models.Myikas.VariantC.Root>(request_VariantTypes);
 
 
-               var Gonder_VariantTypes = gelen_VariantTypes.Data;
+                var Gonder_VariantTypes = gelen_VariantTypes.Data;
 
 
 
@@ -375,8 +377,8 @@ namespace MyEntegrasyon.Controllers
                     {
                         Id = ProductVariantID.ToString(),
                         ProductID = item.Id,
-                        CurrencyCode =item_Variant.CurrencyCode,
-                        Barcode =item_Variant.Barcode,
+                        CurrencyCode = item_Variant.CurrencyCode,
+                        Barcode = item_Variant.Barcode,
                         GenderCode = item_Variant.GenderCode,
                         ColorCode = item_Variant.ColorCode,
                         ColorDesc = item_Variant.ColorDesc,
@@ -396,7 +398,7 @@ namespace MyEntegrasyon.Controllers
                         Price5 = item_Variant.Price5,
                         AlisFiyati = item_Variant.AlisFiyati,
                         ProductAtt10 = item_Variant.ProductAtt10,
-                        ProductAtt10Desc =  item_Variant.ProductAtt10Desc,
+                        ProductAtt10Desc = item_Variant.ProductAtt10Desc,
                         PAZARYERIISK = item_Variant.PAZARYERIISK,
                         N11_LST = item_Variant.N11_LST,
                         N11_IND = item_Variant.N11_IND,
@@ -463,7 +465,7 @@ namespace MyEntegrasyon.Controllers
             res.Result = _productsNew;
 
 
-           
+
 
             await _context.Product.AddRangeAsync(res.Result);
             _context.SaveChanges();
@@ -471,10 +473,10 @@ namespace MyEntegrasyon.Controllers
 
             /////// Eksik kategoriler eklenecek
 
-            
+
             foreach (var item in _productsNew)
             {
-                bool varMi= _context.Categories.Where(x=>x.Cat01Desc == item.Cat01Desc).Any();
+                bool varMi = _context.Categories.Where(x => x.Cat01Desc == item.Cat01Desc).Any();
 
                 if (!varMi)
                 {
@@ -524,10 +526,10 @@ namespace MyEntegrasyon.Controllers
 
 
 
-        
+
         public async Task<IActionResult> CategoryBrandAdd()
         {
-            var _products = _context.Product.Where(x=>x.BrandCode!=null || x.Cat01Code != null).ToList();
+            var _products = _context.Product.Where(x => x.BrandCode != null || x.Cat01Code != null).ToList();
 
             /////// Eksik kategoriler eklenecek
 
@@ -581,7 +583,7 @@ namespace MyEntegrasyon.Controllers
 
 
 
-            var sistemMarkaListesi = _context.Brands.Where(x=>x.BrandDesc!="").ToList();
+            var sistemMarkaListesi = _context.Brands.Where(x => x.BrandDesc != "").ToList();
 
             foreach (var item in sistemMarkaListesi) // database deki markalar dönüyor.
             {
@@ -591,7 +593,7 @@ namespace MyEntegrasyon.Controllers
                 {
                     Id = BrandList.listProductBrand!.Where(x => x.name == item.BrandDesc).FirstOrDefault()!.id!;
                     // Id güncelle
-                    
+
                 }
                 else // bu marka ikasta yoksa, bu markayı ikas a ekle. Id yi al ve güncelle.
                 {
@@ -612,7 +614,7 @@ namespace MyEntegrasyon.Controllers
 
 
 
-    
+
             ////////////////////////////////////////////////////
 
 
@@ -622,7 +624,7 @@ namespace MyEntegrasyon.Controllers
 
 
 
-            var sistemKategoriListesi = _context.Categories.Where(x=>x.Cat01Desc!="").ToList();
+            var sistemKategoriListesi = _context.Categories.Where(x => x.Cat01Desc != "").ToList();
 
             foreach (var item in sistemKategoriListesi)
             {
@@ -658,7 +660,7 @@ namespace MyEntegrasyon.Controllers
 
         public async Task<IActionResult> SistemProductVariant(string Id)
         {
-            Data.Entities.Product product =  _context.Product.Where(x=>x.Id == Id).FirstOrDefault()!;
+            Data.Entities.Product product = _context.Product.Where(x => x.Id == Id).FirstOrDefault()!;
             return View(product);
         }
 
@@ -827,7 +829,7 @@ namespace MyEntegrasyon.Controllers
                 res_VariantRenk.Result = newVariant;
 
 
-                bool varmi = _context.Variant.Where(x=>x.name == item_product.ItemCode + "_Renk").Any();
+                bool varmi = _context.Variant.Where(x => x.name == item_product.ItemCode + "_Renk").Any();
                 if (!varmi) // yoksa 
                 {
                     //ekle
@@ -853,7 +855,7 @@ namespace MyEntegrasyon.Controllers
                             if (!(_gelenVariant!.values?.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0)) // önceden bu renk var mı ? Yoksa
                             {
                                 // yeni oluşturulacak listeye ekle
-                                _Values_Renk.Add(new VariantValue { VariantID=_gelenVariant.Id, name = item_newAddvariants.ColorDesc });
+                                _Values_Renk.Add(new VariantValue { VariantID = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
                             }
                         }
                         //else
@@ -865,7 +867,7 @@ namespace MyEntegrasyon.Controllers
 
 
 
-               
+
                 BusinessLayerResult<List<Data.Entities.VariantValue>> res_VariantValueRenk = new BusinessLayerResult<List<Data.Entities.VariantValue>>();
                 res_VariantValueRenk.Result = _Values_Renk;
                 if (_Values_Renk.Count() > 0)
@@ -936,16 +938,151 @@ namespace MyEntegrasyon.Controllers
                     _context.SaveChanges();
                 }
 
-
-
-
-
             }
 
 
 
-            return View(product);
+            return View(await _context.Variant.ToListAsync());
         }
+
+        public async Task<IActionResult> ProductVariantIkasaGonder()
+        {
+
+            var _variant = await _context.Variant.ToListAsync();
+
+
+
+            using (var client = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
+            {
+
+                var content3 = new StringContent("grant_type=client_credentials&scope=https://api.businesscentral.dynamics.com/.default&client_id="
+              + HttpUtility.UrlEncode(_clientId) + "&client_secret=" + HttpUtility.UrlEncode(_secret));
+                content3.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                var response3 = await _httpClient.PostAsync(_url, content3);
+                if (response3.IsSuccessStatusCode)
+                {
+                    JObject result3 = JObject.Parse(await response3.Content.ReadAsStringAsync());
+                    _access_token = result3["access_token"]!.ToString();
+                }
+
+                client.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+                int sayi = 0;
+
+                foreach (var item in _variant)
+                {
+                    sayi++;
+                    if(sayi == 50 || sayi == 100 || sayi == 150 || sayi==200 || sayi==250 || sayi == 300 || sayi == 350)
+                    {
+                        System.Threading.Thread.Sleep(10000);
+                    }
+
+
+                    // burada varmı sorgusu yapılacak. daha yapılmadı.
+                    //////////////////
+                    /////////////////
+                    //////////////////
+                    /////////////////////// varsa güncelleme
+                    /////////////////////////
+                    ////////////////////////
+                    
+
+                    MyEntegrasyon.Models.Myikas.SaveVariant.Root _root = new Models.Myikas.SaveVariant.Root();
+                    MyEntegrasyon.Models.Myikas.SaveVariant.Input _VariantTypeInput = new Models.Myikas.SaveVariant.Input();
+                    List<MyEntegrasyon.Models.Myikas.SaveVariant.Value> _Values = new List<MyEntegrasyon.Models.Myikas.SaveVariant.Value>();
+
+
+                    foreach (var item2 in item.values)
+                    {
+                        // burada var mı sorgusu yapılacak.  daha yapılmadı.
+                        //////////////////
+                        /////////////////
+                        //////////////////
+                        /////////////////////// varsa güncelleme
+                        /////////////////////////
+                        ////////////////////////
+
+                        _Values.Add(new Models.Myikas.SaveVariant.Value { name = item2.name });
+                    }
+
+                    _VariantTypeInput.name = item.name;
+                    _VariantTypeInput.selectionType = item.selectionType;
+                    _VariantTypeInput.values = _Values;
+                    _root.input = _VariantTypeInput;
+
+                    GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root> gelen_VariantType = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveVariant.Root>();
+                    var request_VariantType = new GraphQLRequest()
+                    {
+                        Query = _context.Islem.Where(x => x.IslemAdi == "saveVariantType").FirstOrDefault()!.JsonDesen!.Pattern!,   // Desen ( Pattern )
+                        Variables = _root
+                    };
+
+                    try
+                    {
+                        gelen_VariantType = await client.SendQueryAsync<MyEntegrasyon.Models.Myikas.SaveVariant.Root>(request_VariantType);
+                        MyEntegrasyon.Models.Myikas.SaveVariant.Root ListVariantTypeId = gelen_VariantType.Data;
+                        // string ID = ListVariantTypeId.saveCategory!.id!;
+
+
+                        // Gelen Id ler ile Msql Güncellenecek.
+                        MyEntegrasyon.Models.Myikas.SaveVariant.SaveVariantType _saveVariantType = ListVariantTypeId.saveVariantType;
+
+                        VariantTypeIdGuncelle(_saveVariantType);
+
+
+
+
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+
+                    }
+
+
+                }
+
+
+            }
+
+          
+
+            return RedirectToAction("ProductVariantOlustur");
+        }
+
+
+        public void VariantTypeIdGuncelle(MyEntegrasyon.Models.Myikas.SaveVariant.SaveVariantType saveVariantType)
+        {
+
+            Variant variant = _context.Variant.Where(x=>x.name == saveVariantType.name).First();
+            variant.IkasId = saveVariantType.id;
+
+            BusinessLayerResult<Data.Entities.Variant> res_Variant = new BusinessLayerResult<Data.Entities.Variant>();
+            res_Variant.Result = variant;
+
+            _context.Variant.Update(res_Variant.Result);
+            _context.SaveChanges();
+
+
+            /////////////////////////////////////
+
+
+            foreach (var item in saveVariantType.values)
+            {
+                VariantValue variantValue = _context.VariantValue.Where(x => x.name == item.name && x.VariantID == variant.Id).First();
+                variantValue.IkasId = item.id;
+
+                BusinessLayerResult<Data.Entities.VariantValue> res_variantValue = new BusinessLayerResult<Data.Entities.VariantValue>();
+                res_variantValue.Result = variantValue;
+
+                _context.VariantValue.Update(res_variantValue.Result);
+                _context.SaveChanges();
+
+            }
+
+        }
+
+
 
 
 
