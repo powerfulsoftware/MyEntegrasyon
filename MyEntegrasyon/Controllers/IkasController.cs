@@ -1537,32 +1537,54 @@ namespace MyEntegrasyon.Controllers
             // foravegaftp
             // Kida_159753
 
-
-
-            WebRequest request = WebRequest.Create("ftp://95.70.226.23/");
-            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
-            request.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
-            using (var resp = (FtpWebResponse)request.GetResponse())
+            using (var client2 = new GraphQLHttpClient(_endPoind, new NewtonsoftJsonSerializer()))
             {
-                Console.WriteLine(resp.StatusCode);
+
+                var content3 = new StringContent("grant_type=client_credentials&scope=https://api.businesscentral.dynamics.com/.default&client_id="
+              + HttpUtility.UrlEncode(_clientId) + "&client_secret=" + HttpUtility.UrlEncode(_secret));
+                content3.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                var response3 = await _httpClient.PostAsync(_url, content3);
+                if (response3.IsSuccessStatusCode)
+                {
+                    JObject result3 = JObject.Parse(await response3.Content.ReadAsStringAsync());
+                    _access_token = result3["access_token"]!.ToString();
+                }
+
+                client2.HttpClient.DefaultRequestHeaders.Add("Authorization", $"bearer {_access_token}");
+
+
             }
 
 
 
+            var client = new HttpClient();
+            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.myikas.com/api/v1/admin/product/upload/image");
+            request.Headers.Add("Authorization", $"bearer {_access_token}");
+            var content = new StringContent("{\"productImage\":{\"variantIds\":[\"068b44fd-fd34-4625-abe6-62716758152e\"],\"url\":\"@\"C:\\Users\\CELENK\\Desktop\\AAAAA\\101A01267_030.jpg\"\",\"order\":\"0\",\"isMain\":true}}",null,"text/plain");
+            request.Content = content;
+            var response = await client.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+            // Console.WriteLine(await response.Content.ReadAsStringAsync());
 
-            WebClient client2 = new WebClient();
-            client2.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
-            client2.OpenRead("ftp://95.70.226.23/");
-            client2.Dispose();
 
-            //WebClient client3 = new WebClient();
-            //using (var s = await client3.GetStreamAsync("ftp://95.70.226.23/101A01267/ColorPhotos/101A01267_030.jpg"))
-            //{
-            //    using (var fs = new FileStream(FileName, FileMode.CreateNew))
-            //    {
-            //        await s.CopyToAsync(fs);
-            //    }
-            //}
+
+
+        //    var s = "{
+        //        "productImage": {
+        //            "variantIds": ["61dd001b-c544-460b-87b0-2676eea39400"],
+        //"url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_dDxDMwY8KU6QA1tQ_oetjOd6Dq-Xxy2IBclyaPlN0A&s",
+        //"order": "0",
+        //"isMain": true
+        //        }
+        //    }"
+
+            
+
+
+
+
+
+
 
 
 
@@ -1574,18 +1596,9 @@ namespace MyEntegrasyon.Controllers
 
             foreach ( var item in urunler)
             {
-
-
                 //string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ProductPhotos", item.ItemCode+".jpg");
 
                 //// @"C:\Users\MUSTAFA\Desktop\AAAAA\101A01267_030.jpg"
-
-                //WebClient client = new WebClient();
-                //client.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
-                //client.DownloadFile("ftp://95.70.226.23/101A01267/ColorPhotos/101A01267_030.jpg", SavePath);
-                //client.Dispose();
-
-
 
                 foreach ( var item_productVariant in item.ProductVariants)
                 {
