@@ -3,6 +3,8 @@ using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using GraphQL.SystemTextJson;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.Identity.Client;
 using Microsoft.VisualBasic;
 using MyEntegrasyon.Data;
@@ -14,7 +16,9 @@ using MyEntegrasyon.Models.Myikas.VariantC;
 using MyEntegrasyon.Models.Nebim;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.Globalization;
+using System.Net;
 using System.Net.Http;
 using System.Reactive.Joins;
 using System.Reflection.Metadata;
@@ -1422,11 +1426,8 @@ namespace MyEntegrasyon.Controllers
                         // input.id = item_product.ItemCode;
                         input.name = item_product.ItemCode + " -- " + item_product.ItemName;
                         input!.type = "PHYSICAL"; // Bu kısım sorulacak
-                                                  // input!.shortDescription = item_product.ItemDesc;
+                        // input!.shortDescription = item_product.ItemDesc;
                         input!.shortDescription = "item product ItemDesc";
-
-
-
 
                         // input.totalStock = (float)Convert.ToDouble(parameter.Qty);
 
@@ -1527,9 +1528,117 @@ namespace MyEntegrasyon.Controllers
 
         }
 
+        public async Task<bool> DownloadFile()
+        {
+            bool sonuc = false;
+
+
+            // ftp://95.70.226.23/101A01267/ColorPhotos/101A01267_030.jpg
+            // foravegaftp
+            // Kida_159753
 
 
 
+            WebRequest request = WebRequest.Create("ftp://95.70.226.23/");
+            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+            request.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
+            using (var resp = (FtpWebResponse)request.GetResponse())
+            {
+                Console.WriteLine(resp.StatusCode);
+            }
+
+
+
+
+            WebClient client2 = new WebClient();
+            client2.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
+            client2.OpenRead("ftp://95.70.226.23/");
+            client2.Dispose();
+
+            //WebClient client3 = new WebClient();
+            //using (var s = await client3.GetStreamAsync("ftp://95.70.226.23/101A01267/ColorPhotos/101A01267_030.jpg"))
+            //{
+            //    using (var fs = new FileStream(FileName, FileMode.CreateNew))
+            //    {
+            //        await s.CopyToAsync(fs);
+            //    }
+            //}
+
+
+
+
+
+
+
+            var urunler = await _context.Product.ToListAsync();
+
+            foreach ( var item in urunler)
+            {
+
+
+                //string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ProductPhotos", item.ItemCode+".jpg");
+
+                //// @"C:\Users\MUSTAFA\Desktop\AAAAA\101A01267_030.jpg"
+
+                //WebClient client = new WebClient();
+                //client.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
+                //client.DownloadFile("ftp://95.70.226.23/101A01267/ColorPhotos/101A01267_030.jpg", SavePath);
+                //client.Dispose();
+
+
+
+                foreach ( var item_productVariant in item.ProductVariants)
+                {
+                   // string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ProductPhotos", item.ItemCode + ".jpg");
+
+                    // @"C:\Users\MUSTAFA\Desktop\AAAAA\101A01267_030.jpg"
+
+                    //WebClient client = new WebClient();
+                    //client.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
+                    //client.OpenRead("ftp://95.70.226.23/101A01267/ColorPhotos/", "*.*", SearchOption.AllDirectories);
+                    //client.DownloadFile("ftp://95.70.226.23/101A01267/ColorPhotos/", "*.*", SearchOption.AllDirectories, SavePath);
+                    //client.Dispose();
+                } 
+
+            }
+
+
+            return sonuc;
+        }
+
+
+//      this.ActiveControl = txtbarkod;
+// try
+// {
+//     timer2.Stop();
+//     timer2.Start();
+
+//     string values = string.Empty;
+//        PivotGridHitInfo hi = pivotGridControl1.CalcHitInfo(pivotGridControl1.PointToClient(MousePosition));
+//     if (hi.HitTest == PivotGridHitTest.Value)
+//     {
+//         PivotDrillDownDataSource ds = hi.ValueInfo.CreateDrillDownDataSource();
+//         for (int i = 0; i< 1; i++)
+//             values += ds[i]["ColorCode"];
+
+
+//         NebimV3Image.Images.Clear();
+ 
+
+//         foreach (string images in Directory.GetFiles(Ayarlar.Default.NebimV3ResimYolu.ToString() + txtUrunkodu.Text + "\\ColorPhotos\\" + values + "\\", "*.*", SearchOption.AllDirectories))
+//         {
+//             NebimV3Image.Images.Add(Image.FromFile(images));
+//         }
+
+
+//}
+
+
+// }
+// catch
+// {
+
+//}
 
 
 

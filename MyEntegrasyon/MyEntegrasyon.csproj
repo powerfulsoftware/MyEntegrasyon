@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Myikas\Brand\" />
+    <Folder Include="wwwroot\ProductPhotos\" />
   </ItemGroup>
 
 </Project>
