@@ -8,6 +8,7 @@
         public string? IkasId { get; set; }
         public string? name { get; set; }
         public string? colorCode { get; set; }
+        public string? ItemCode { get; set; }
 
 
     }

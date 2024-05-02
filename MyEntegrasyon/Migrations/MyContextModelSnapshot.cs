@@ -632,6 +632,9 @@ namespace MyEntegrasyon.Migrations
                     b.Property<string>("IkasId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ItemCode")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("VariantId")
                         .HasColumnType("int");
 

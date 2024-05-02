@@ -32063,3 +32063,524 @@ FROM [AspNetUsers] AS [a]
 2024-05-02 02:07:16.655 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2024-05-02 02:07:16.656 +03:00 [INF] Hosting environment: Development
 2024-05-02 02:07:16.656 +03:00 [INF] Content root path: D:\Bünyamin\MyEntegrasyon\ddddd\MyEntegrasyon
+2024-05-02 22:24:28.682 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-05-02 22:24:38.461 +03:00 [INF] User profile is available. Using 'C:\Users\CELENK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-02 22:24:43.034 +03:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-05-02 22:24:43.084 +03:00 [INF] Executed DbCommand (28ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-05-02 22:24:43.090 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-05-02 22:24:43.093 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-05-02 22:24:43.122 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-05-02 22:24:43.307 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-05-02 22:24:43.851 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-05-02 22:24:45.208 +03:00 [INF] Now listening on: https://localhost:7020
+2024-05-02 22:24:45.211 +03:00 [INF] Now listening on: http://localhost:5185
+2024-05-02 22:24:45.304 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-02 22:24:45.308 +03:00 [INF] Hosting environment: Development
+2024-05-02 22:24:45.311 +03:00 [INF] Content root path: D:\Bünyamin\MyEntegrasyon\ddddd\MyEntegrasyon
+2024-05-02 22:24:46.786 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-05-02 22:24:47.403 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-05-02 22:24:47.446 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-05-02 22:24:47.515 +03:00 [INF] Executing ViewResult, running view Index.
+2024-05-02 22:24:47.925 +03:00 [INF] Executed ViewResult - view Index executed in 415.628ms.
+2024-05-02 22:24:47.959 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 22:24:47.959 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.css - null null
+2024-05-02 22:24:47.971 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.min.css - null null
+2024-05-02 22:24:47.981 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 517.2525ms
+2024-05-02 22:24:47.993 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-05-02 22:24:47.997 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.min.css - null null
+2024-05-02 22:24:48.001 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.css - null null
+2024-05-02 22:24:48.045 +03:00 [INF] The file /templates/v1/assets/plugins/fontawesome651/css/brands.css was not modified
+2024-05-02 22:24:48.070 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 22:24:48.045 +03:00 [INF] The file /templates/v1/assets/plugins/fontawesome651/css/all.css was not modified
+2024-05-02 22:24:48.070 +03:00 [INF] The file /templates/v1/assets/plugins/fontawesome651/css/brands.min.css was not modified
+2024-05-02 22:24:48.070 +03:00 [INF] The file /templates/v1/assets/plugins/fontawesome651/css/all.min.css was not modified
+2024-05-02 22:24:48.118 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.min.css - 304 null text/css 124.65ms
+2024-05-02 22:24:48.185 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.css - 304 null text/css 152.9626ms
+2024-05-02 22:24:48.186 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/all.min.css - 304 null text/css 216.5931ms
+2024-05-02 22:24:48.112 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/css/brands.css - 304 null text/css 113.8051ms
+2024-05-02 22:24:48.112 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 116.7949ms
+2024-05-02 22:24:48.249 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 1476.5815ms
+2024-05-02 22:24:48.383 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/webfonts/fa-solid-900.woff2 - null null
+2024-05-02 22:24:48.405 +03:00 [INF] The file /templates/v1/assets/plugins/fontawesome651/webfonts/fa-solid-900.woff2 was not modified
+2024-05-02 22:24:48.415 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/templates/v1/assets/plugins/fontawesome651/webfonts/fa-solid-900.woff2 - 304 null font/woff2 31.2561ms
+2024-05-02 22:24:48.483 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 435.38ms
+2024-05-02 22:24:48.651 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-32x32.png - null null
+2024-05-02 22:24:48.670 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-32x32.png - 404 0 null 18.8333ms
+2024-05-02 22:24:48.677 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-32x32.png, Response status code: 404
+2024-05-02 22:24:48.681 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/favicon-16x16.png - null null
+2024-05-02 22:24:48.764 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/favicon-16x16.png - 404 0 null 83.4357ms
+2024-05-02 22:24:48.809 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/favicon-16x16.png, Response status code: 404
+2024-05-02 22:24:51.956 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Ikas/NewProductAdd - null null
+2024-05-02 22:24:51.980 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.IkasController.NewProductAdd (MyEntegrasyon)'
+2024-05-02 22:24:52.018 +03:00 [INF] Route matched with {action = "NewProductAdd", controller = "Ikas"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Boolean] NewProductAdd() on controller MyEntegrasyon.Controllers.IkasController (MyEntegrasyon).
+2024-05-02 22:24:53.676 +03:00 [INF] Start processing HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-05-02 22:24:53.683 +03:00 [INF] Sending HTTP request POST https://agevadigital1.myikas.com/api/admin/oauth/token
+2024-05-02 22:24:54.201 +03:00 [INF] Received HTTP response headers after 504.704ms - 200
+2024-05-02 22:24:54.228 +03:00 [INF] End processing HTTP request after 556.6318ms - 200
+2024-05-02 22:24:54.914 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'ListStockLocation'
+2024-05-02 22:24:55.411 +03:00 [INF] Executed DbCommand (188ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-05-02 22:24:56.864 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[BrandCode], [p].[BrandDesc], [p].[Cat01Code], [p].[Cat01Desc], [p].[Cat02Code], [p].[Cat02Desc], [p].[Cat03Code], [p].[Cat03Desc], [p].[Cat04Code], [p].[Cat04Desc], [p].[Cat05Code], [p].[Cat05Desc], [p].[Cat06Code], [p].[Cat06Desc], [p].[Cat07Code], [p].[Cat07Desc], [p].[ItemCode], [p].[ItemDesc], [p].[ItemName]
+FROM [Product] AS [p]
+2024-05-02 22:24:57.063 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__item_product_BrandDesc_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[BrandCode], [b].[BrandDesc], [b].[ikasId]
+FROM [Brands] AS [b]
+WHERE [b].[BrandDesc] = @__item_product_BrandDesc_0
+2024-05-02 22:24:57.129 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__item_product_Cat01Desc_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Cat01Code], [c].[Cat01Desc], [c].[ikasId]
+FROM [Categories] AS [c]
+WHERE [c].[Cat01Desc] = @__item_product_Cat01Desc_0
+2024-05-02 22:24:57.227 +03:00 [INF] Executed DbCommand (23ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-05-02 22:24:57.277 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__item_product_ItemCode_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[ItemCode], [v].[name], [v].[selectionType]
+FROM [Variant] AS [v]
+WHERE [v].[ItemCode] = @__item_product_ItemCode_0
+2024-05-02 22:24:57.354 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantId], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantId] = @__p_0
+2024-05-02 22:24:57.399 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [v].[Id], [v].[IkasId], [v].[VariantId], [v].[colorCode], [v].[name]
+FROM [VariantValue] AS [v]
+WHERE [v].[VariantId] = @__p_0
+2024-05-02 22:24:57.515 +03:00 [INF] Executed DbCommand (26ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMAZON_IND], [p].[AMAZON_LST], [p].[AlisFiyati], [p].[BISIFIRAT_IND], [p].[BISIFIRAT_LST], [p].[BREND_IND], [p].[BREND_LST], [p].[Barcode], [p].[CICEK_IND], [p].[CICEK_LST], [p].[ColorCode], [p].[ColorDesc], [p].[CurrencyCode], [p].[GITTIGIDIYOR_IND], [p].[GITTIGIDIYOR_LST], [p].[GenderCode], [p].[HEPSIBURADA_IND], [p].[HEPSIBURADA_LST], [p].[Image1], [p].[Image2], [p].[Image3], [p].[Image4], [p].[Image5], [p].[Image6], [p].[Image7], [p].[Image8], [p].[ItemDim1Code], [p].[ItemDim1Desc], [p].[ItemDim2Code], [p].[ItemDim2Desc], [p].[ItemDim3Code], [p].[ItemDim3Desc], [p].[ItemDimTypeCode], [p].[MORHIPO_IND], [p].[MORHIPO_LST], [p].[N11_IND], [p].[N11_LST], [p].[PAZARAMA_IND], [p].[PAZARAMA_LST], [p].[PAZARYERIISK], [p].[Price1], [p].[Price2], [p].[Price3], [p].[Price4], [p].[Price5], [p].[ProductAtt10], [p].[ProductAtt10Desc], [p].[ProductID], [p].[Qty], [p].[TRENDYOL_IND], [p].[TRENDYOL_LST], [p].[TTTURK_IND], [p].[TTTURK_LST], [p].[Vat]
+FROM [ProductVariant] AS [p]
+WHERE [p].[ProductID] = @__p_0
+2024-05-02 22:24:57.762 +03:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [i].[Id], [i].[Aciklama], [i].[IslemAdi], [i].[JsonDesenId]
+FROM [Islem] AS [i]
+WHERE [i].[IslemAdi] = N'ikasSaveProduct'
+2024-05-02 22:24:57.797 +03:00 [INF] Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__p_0
+2024-05-02 23:29:34.627 +03:00 [INF] MyEntegrasyon Uygulaması Başlatıldı.
+2024-05-02 23:29:38.587 +03:00 [INF] User profile is available. Using 'C:\Users\CELENK\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-05-02 23:29:41.173 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-05-02 23:29:41.199 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-05-02 23:29:41.202 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-05-02 23:29:41.202 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-05-02 23:29:41.221 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-05-02 23:29:41.328 +03:00 [INF] No migrations were applied. The database is already up to date.
+2024-05-02 23:29:41.592 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM [AspNetUsers] AS [a]
+2024-05-02 23:29:42.155 +03:00 [INF] Now listening on: https://localhost:7020
+2024-05-02 23:29:42.155 +03:00 [INF] Now listening on: http://localhost:5185
+2024-05-02 23:29:42.194 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-05-02 23:29:42.195 +03:00 [INF] Hosting environment: Development
+2024-05-02 23:29:42.195 +03:00 [INF] Content root path: D:\Bünyamin\MyEntegrasyon\ddddd\MyEntegrasyon
+2024-05-02 23:29:42.653 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-05-02 23:29:42.836 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-05-02 23:29:42.850 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-05-02 23:29:42.869 +03:00 [INF] Executing ViewResult, running view Index.
+2024-05-02 23:29:43.020 +03:00 [INF] Executed ViewResult - view Index executed in 153.2416ms.
+2024-05-02 23:29:43.026 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 174.7637ms
+2024-05-02 23:29:43.027 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-05-02 23:29:43.037 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 385.7163ms
+2024-05-02 23:29:43.038 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:29:43.040 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:29:43.043 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.277ms
+2024-05-02 23:29:43.075 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.1828ms
+2024-05-02 23:29:48.797 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/JsonDesenler - null null
+2024-05-02 23:29:48.811 +03:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-05-02 23:29:48.817 +03:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2024-05-02 23:29:48.817 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/JsonDesenler - 302 0 null 19.8986ms
+2024-05-02 23:29:48.822 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FJsonDesenler - null null
+2024-05-02 23:29:48.828 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-05-02 23:29:48.831 +03:00 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-05-02 23:29:48.852 +03:00 [INF] Executing ViewResult, running view Login.
+2024-05-02 23:29:49.030 +03:00 [INF] Executed ViewResult - view Login executed in 179.7944ms.
+2024-05-02 23:29:49.031 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon) in 199.6114ms
+2024-05-02 23:29:49.031 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-05-02 23:29:49.032 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FJsonDesenler - 200 null text/html; charset=utf-8 209.7472ms
+2024-05-02 23:29:49.047 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:29:49.048 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 0.8764ms
+2024-05-02 23:29:49.064 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:29:49.080 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.2621ms
+2024-05-02 23:29:50.537 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FJsonDesenler - application/x-www-form-urlencoded 251
+2024-05-02 23:29:50.542 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-05-02 23:29:50.558 +03:00 [INF] Route matched with {action = "Login", controller = "Home"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(MyEntegrasyon.Models.ViewModel.ViewModelLogin) on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-05-02 23:29:50.934 +03:00 [INF] Executed DbCommand (82ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-05-02 23:29:51.041 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-05-02 23:29:51.059 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:29:51.297 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[@__user_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2024-05-02 23:29:51.333 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:29:51.350 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Description], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+2024-05-02 23:29:51.372 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__role_Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+2024-05-02 23:29:51.378 +03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-05-02 23:29:51.385 +03:00 [INF] Executing RedirectResult, redirecting to /.
+2024-05-02 23:29:51.385 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon) in 826.7887ms
+2024-05-02 23:29:51.385 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Login (MyEntegrasyon)'
+2024-05-02 23:29:51.389 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/ - null null
+2024-05-02 23:29:51.395 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-05-02 23:29:51.395 +03:00 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller MyEntegrasyon.Controllers.HomeController (MyEntegrasyon).
+2024-05-02 23:29:51.396 +03:00 [INF] Executing ViewResult, running view Index.
+2024-05-02 23:29:51.397 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7020/Home/Login?ReturnUrl=%2FJsonDesen%2FJsonDesenler - 302 0 null 859.6901ms
+2024-05-02 23:29:51.468 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:29:51.471 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:29:51.478 +03:00 [INF] Executed ViewResult - view Index executed in 82.6521ms.
+2024-05-02 23:29:51.479 +03:00 [INF] Executed action MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon) in 83.0387ms
+2024-05-02 23:29:51.479 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.HomeController.Index (MyEntegrasyon)'
+2024-05-02 23:29:51.480 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/ - 200 null text/html; charset=utf-8 90.499ms
+2024-05-02 23:29:51.493 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:29:51.493 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:29:51.493 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 0.6064ms
+2024-05-02 23:29:51.499 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 6.0873ms
+2024-05-02 23:29:56.365 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/JsonDesenler - null null
+2024-05-02 23:29:56.374 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.JsonDesenler (MyEntegrasyon)'
+2024-05-02 23:29:56.377 +03:00 [INF] Route matched with {action = "JsonDesenler", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult JsonDesenler() on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:29:56.397 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+2024-05-02 23:29:56.415 +03:00 [INF] Executing ViewResult, running view JsonDesenler.
+2024-05-02 23:29:56.425 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:29:56.443 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:29:56.447 +03:00 [INF] Executed ViewResult - view JsonDesenler executed in 33.1919ms.
+2024-05-02 23:29:56.448 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.JsonDesenler (MyEntegrasyon) in 70.4388ms
+2024-05-02 23:29:56.448 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.JsonDesenler (MyEntegrasyon)'
+2024-05-02 23:29:56.450 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/JsonDesenler - 200 null text/html; charset=utf-8 85.026ms
+2024-05-02 23:29:56.460 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/fontawesome512/css/fontawesome-all.min.css - null null
+2024-05-02 23:29:56.460 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/bootstrapv4/css/bootstrap.min.css - null null
+2024-05-02 23:29:56.465 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/fontawesome512/css/fontawesome-all.min.css - 404 0 null 4.2517ms
+2024-05-02 23:29:56.465 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/bootstrapv4/css/bootstrap.min.css - 404 0 null 4.2516ms
+2024-05-02 23:29:56.465 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/fontawesome512/css/fontawesome-all.min.css, Response status code: 404
+2024-05-02 23:29:56.466 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/bootstrapv4/css/bootstrap.min.css, Response status code: 404
+2024-05-02 23:29:56.473 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/fontawesome512/css/font-awesome-animation.min.css - null null
+2024-05-02 23:29:56.473 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/select2v353/css/select2-bootstrap.min.css - null null
+2024-05-02 23:29:56.473 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/select2v353/css/select2.min.css - null null
+2024-05-02 23:29:56.473 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/perfectscrollbar/css/perfect-scrollbar.css - null null
+2024-05-02 23:29:56.474 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/perfectscrollbar/css/perfect-scrollbar.css - 404 0 null 1.5112ms
+2024-05-02 23:29:56.474 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/fontawesome512/css/font-awesome-animation.min.css - 404 0 null 1.5125ms
+2024-05-02 23:29:56.474 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/select2v353/css/select2.min.css - 404 0 null 1.436ms
+2024-05-02 23:29:56.474 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/select2v353/css/select2-bootstrap.min.css - 404 0 null 1.3815ms
+2024-05-02 23:29:56.474 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/perfectscrollbar/css/perfect-scrollbar.css, Response status code: 404
+2024-05-02 23:29:56.475 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/fontawesome512/css/font-awesome-animation.min.css, Response status code: 404
+2024-05-02 23:29:56.475 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/select2v353/css/select2.min.css, Response status code: 404
+2024-05-02 23:29:56.475 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/select2v353/css/select2-bootstrap.min.css, Response status code: 404
+2024-05-02 23:29:56.475 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:29:56.475 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/spanel/css/spanel.css - null null
+2024-05-02 23:29:56.475 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/css/buttons.bootstrap4.min.css - null null
+2024-05-02 23:29:56.475 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/jqueryuiv112/jquery-ui.css - null null
+2024-05-02 23:29:56.475 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/css/datatables.min.css - null null
+2024-05-02 23:29:56.476 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 0.527ms
+2024-05-02 23:29:56.477 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/css/datatables.min.css - 404 0 null 1.2695ms
+2024-05-02 23:29:56.477 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/spanel/css/spanel.css - 404 0 null 1.2361ms
+2024-05-02 23:29:56.477 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/css/buttons.bootstrap4.min.css - 404 0 null 1.1789ms
+2024-05-02 23:29:56.477 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/jqueryuiv112/jquery-ui.css - 404 0 null 1.3043ms
+2024-05-02 23:29:56.477 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/spanel/css/spanel.css, Response status code: 404
+2024-05-02 23:29:56.477 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/css/datatables.min.css, Response status code: 404
+2024-05-02 23:29:56.477 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/jqueryuiv112/jquery-ui.css, Response status code: 404
+2024-05-02 23:29:56.477 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/css/buttons.bootstrap4.min.css, Response status code: 404
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/bootstrapv4/js/bootstrap.min.js - null null
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/jqueryv321/jquery-3.2.1.min.js - null null
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/perfectscrollbar/js/perfect-scrollbar.min.js - null null
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/jqueryuiv112/jquery-ui.js - null null
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/pace/js/pace.min.js - null null
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/spanel/js/portlet.js - null null
+2024-05-02 23:29:56.478 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/jqueryfullscreen/jquery.fullscreen.min.js - null null
+2024-05-02 23:29:56.479 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/spanel/js/portlet.js - 404 0 null 0.9282ms
+2024-05-02 23:29:56.479 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/pace/js/pace.min.js - 404 0 null 1.1195ms
+2024-05-02 23:29:56.479 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/bootstrapv4/js/bootstrap.min.js - 404 0 null 1.1511ms
+2024-05-02 23:29:56.480 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/spanel/js/portlet.js, Response status code: 404
+2024-05-02 23:29:56.480 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/pace/js/pace.min.js, Response status code: 404
+2024-05-02 23:29:56.480 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/bootstrapv4/js/bootstrap.min.js, Response status code: 404
+2024-05-02 23:29:56.479 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/perfectscrollbar/js/perfect-scrollbar.min.js - 404 0 null 1.1545ms
+2024-05-02 23:29:56.479 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/jqueryv321/jquery-3.2.1.min.js - 404 0 null 1.1545ms
+2024-05-02 23:29:56.480 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/jqueryuiv112/jquery-ui.js - 404 0 null 1.191ms
+2024-05-02 23:29:56.480 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/perfectscrollbar/js/perfect-scrollbar.min.js, Response status code: 404
+2024-05-02 23:29:56.480 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/jqueryv321/jquery-3.2.1.min.js, Response status code: 404
+2024-05-02 23:29:56.480 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/jqueryuiv112/jquery-ui.js, Response status code: 404
+2024-05-02 23:29:56.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/js/datatables.min.js - null null
+2024-05-02 23:29:56.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/dataTables.buttons.min.js - null null
+2024-05-02 23:29:56.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/buttons.html5.min.js - null null
+2024-05-02 23:29:56.480 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/jszip.min.js - null null
+2024-05-02 23:29:56.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/jqueryfullscreen/jquery.fullscreen.min.js - 404 0 null 1.9856ms
+2024-05-02 23:29:56.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/js/datatables.min.js - 404 0 null 0.8939ms
+2024-05-02 23:29:56.481 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/pdfmake.min.js - null null
+2024-05-02 23:29:56.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/buttons.html5.min.js - 404 0 null 0.7807ms
+2024-05-02 23:29:56.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/dataTables.buttons.min.js - 404 0 null 0.831ms
+2024-05-02 23:29:56.481 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/jqueryfullscreen/jquery.fullscreen.min.js, Response status code: 404
+2024-05-02 23:29:56.481 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/js/datatables.min.js, Response status code: 404
+2024-05-02 23:29:56.481 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/vfs_fonts.js - null null
+2024-05-02 23:29:56.481 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/js/dataTables.buttons.min.js, Response status code: 404
+2024-05-02 23:29:56.481 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/jszip.min.js - 404 0 null 0.7805ms
+2024-05-02 23:29:56.482 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/buttons.print.min.js - null null
+2024-05-02 23:29:56.482 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:29:56.482 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/js/buttons.html5.min.js, Response status code: 404
+2024-05-02 23:29:56.482 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/spanel/js/spanel.js - null null
+2024-05-02 23:29:56.482 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/assets/plugins/select2v353/js/select2.full.min.js - null null
+2024-05-02 23:29:56.482 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/js/jszip.min.js, Response status code: 404
+2024-05-02 23:29:56.483 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/spanel/js/spanel.js - 404 0 null 1.0219ms
+2024-05-02 23:29:56.483 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/vfs_fonts.js - 404 0 null 1.0488ms
+2024-05-02 23:29:56.483 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/select2v353/js/select2.full.min.js - 404 0 null 1.1112ms
+2024-05-02 23:29:56.483 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/spanel/js/spanel.js, Response status code: 404
+2024-05-02 23:29:56.483 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/js/vfs_fonts.js, Response status code: 404
+2024-05-02 23:29:56.483 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/buttons.print.min.js - 404 0 null 1.4587ms
+2024-05-02 23:29:56.483 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/select2v353/js/select2.full.min.js, Response status code: 404
+2024-05-02 23:29:56.483 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/assets/plugins/datatable/buttons/js/pdfmake.min.js - 404 0 null 1.5306ms
+2024-05-02 23:29:56.483 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/js/buttons.print.min.js, Response status code: 404
+2024-05-02 23:29:56.483 +03:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7020/assets/plugins/datatable/buttons/js/pdfmake.min.js, Response status code: 404
+2024-05-02 23:29:56.487 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.2369ms
+2024-05-02 23:29:58.720 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - null null
+2024-05-02 23:29:58.726 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:29:58.728 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DesenEdit(Int32) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:29:58.742 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:29:58.751 +03:00 [INF] Executing ViewResult, running view DesenEdit.
+2024-05-02 23:29:58.791 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:29:58.793 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:29:58.801 +03:00 [INF] Executed ViewResult - view DesenEdit executed in 50.9839ms.
+2024-05-02 23:29:58.802 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 73.057ms
+2024-05-02 23:29:58.802 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:29:58.802 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - 200 null text/html; charset=utf-8 81.7451ms
+2024-05-02 23:29:58.819 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:29:58.819 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 0.3766ms
+2024-05-02 23:29:58.821 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:29:58.825 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 4.0367ms
+2024-05-02 23:29:58.826 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2024-05-02 23:29:58.826 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2024-05-02 23:29:58.892 +03:00 [INF] Sending file. Request path: '/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js'. Physical path: 'D:\Bünyamin\MyEntegrasyon\ddddd\MyEntegrasyon\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js'
+2024-05-02 23:29:58.892 +03:00 [INF] Sending file. Request path: '/lib/jquery-validation/dist/jquery.validate.min.js'. Physical path: 'D:\Bünyamin\MyEntegrasyon\ddddd\MyEntegrasyon\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js'
+2024-05-02 23:29:58.892 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 200 5831 text/javascript 66.71ms
+2024-05-02 23:29:58.892 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/lib/jquery-validation/dist/jquery.validate.min.js - 200 24604 text/javascript 66.7329ms
+2024-05-02 23:30:13.158 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - application/x-www-form-urlencoded; charset=UTF-8 747
+2024-05-02 23:30:13.158 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:30:13.165 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] DesenEdit(Int32, System.String, System.String, System.String, System.String, System.String) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:30:13.170 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:30:13.271 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 200), @p3='?' (Size = 4000), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [jsonDesen] SET [Description] = @p0, [FirmaId] = @p1, [Name] = @p2, [Pattern] = @p3, [TypeId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2024-05-02 23:30:13.276 +03:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-05-02 23:30:13.285 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 120.5391ms
+2024-05-02 23:30:13.286 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:30:13.286 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - 200 null application/json; charset=utf-8 128.2871ms
+2024-05-02 23:30:16.955 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - null null
+2024-05-02 23:30:16.957 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:30:16.958 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DesenEdit(Int32) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:30:16.960 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:30:16.960 +03:00 [INF] Executing ViewResult, running view DesenEdit.
+2024-05-02 23:30:16.966 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:30:16.968 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:30:16.969 +03:00 [INF] Executed ViewResult - view DesenEdit executed in 9.2021ms.
+2024-05-02 23:30:16.969 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 11.7512ms
+2024-05-02 23:30:16.970 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:30:16.970 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - 200 null text/html; charset=utf-8 15.2907ms
+2024-05-02 23:30:16.987 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:30:16.988 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 0.4375ms
+2024-05-02 23:30:16.988 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:30:16.993 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 5.4732ms
+2024-05-02 23:42:42.267 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - application/x-www-form-urlencoded; charset=UTF-8 766
+2024-05-02 23:42:42.269 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:42:42.269 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] DesenEdit(Int32, System.String, System.String, System.String, System.String, System.String) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:42:42.285 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:42:42.479 +03:00 [INF] Executed DbCommand (192ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 200), @p3='?' (Size = 4000), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [jsonDesen] SET [Description] = @p0, [FirmaId] = @p1, [Name] = @p2, [Pattern] = @p3, [TypeId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2024-05-02 23:42:42.481 +03:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-05-02 23:42:42.481 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 211.6702ms
+2024-05-02 23:42:42.481 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:42:42.482 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - 200 null application/json; charset=utf-8 214.5969ms
+2024-05-02 23:42:45.937 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - null null
+2024-05-02 23:42:45.947 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:42:45.947 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DesenEdit(Int32) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:42:45.952 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:42:45.953 +03:00 [INF] Executing ViewResult, running view DesenEdit.
+2024-05-02 23:42:45.962 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:42:45.971 +03:00 [INF] Executed DbCommand (8ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:42:45.975 +03:00 [INF] Executed ViewResult - view DesenEdit executed in 21.8223ms.
+2024-05-02 23:42:45.975 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 27.2705ms
+2024-05-02 23:42:45.975 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:42:45.976 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - 200 null text/html; charset=utf-8 38.2815ms
+2024-05-02 23:42:46.004 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:42:46.005 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 1.2336ms
+2024-05-02 23:42:46.019 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:42:46.027 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 8.1316ms
+2024-05-02 23:49:36.605 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - application/x-www-form-urlencoded; charset=UTF-8 755
+2024-05-02 23:49:36.606 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:36.607 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] DesenEdit(Int32, System.String, System.String, System.String, System.String, System.String) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:49:36.615 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:49:36.870 +03:00 [INF] Executed DbCommand (252ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 200), @p3='?' (Size = 4000), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [jsonDesen] SET [Description] = @p0, [FirmaId] = @p1, [Name] = @p2, [Pattern] = @p3, [TypeId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2024-05-02 23:49:36.871 +03:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-05-02 23:49:36.872 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 264.4394ms
+2024-05-02 23:49:36.872 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:36.872 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - 200 null application/json; charset=utf-8 267.6258ms
+2024-05-02 23:49:40.196 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - null null
+2024-05-02 23:49:40.202 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:40.202 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DesenEdit(Int32) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:49:40.206 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:49:40.207 +03:00 [INF] Executing ViewResult, running view DesenEdit.
+2024-05-02 23:49:40.233 +03:00 [INF] Executed DbCommand (22ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:49:40.245 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:49:40.247 +03:00 [INF] Executed ViewResult - view DesenEdit executed in 40.3922ms.
+2024-05-02 23:49:40.248 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 45.1152ms
+2024-05-02 23:49:40.248 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:40.248 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - 200 null text/html; charset=utf-8 52.4589ms
+2024-05-02 23:49:40.272 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:49:40.273 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 0.6001ms
+2024-05-02 23:49:40.298 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:49:40.324 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.164ms
+2024-05-02 23:49:47.899 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - application/x-www-form-urlencoded; charset=UTF-8 747
+2024-05-02 23:49:47.900 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:47.900 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.JsonResult] DesenEdit(Int32, System.String, System.String, System.String, System.String, System.String) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:49:47.905 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:49:47.912 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (Size = 50), @p2='?' (Size = 200), @p3='?' (Size = 4000), @p4='?' (Size = 50)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [jsonDesen] SET [Description] = @p0, [FirmaId] = @p1, [Name] = @p2, [Pattern] = @p3, [TypeId] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2024-05-02 23:49:47.913 +03:00 [INF] Executing JsonResult, writing value of type '<>f__AnonymousType0`3[[System.Boolean, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-05-02 23:49:47.914 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 13.7148ms
+2024-05-02 23:49:47.914 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:47.915 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7020/JsonDesen/DesenEdit - 200 null application/json; charset=utf-8 15.8625ms
+2024-05-02 23:49:50.822 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - null null
+2024-05-02 23:49:50.826 +03:00 [INF] Executing endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:50.827 +03:00 [INF] Route matched with {action = "DesenEdit", controller = "JsonDesen"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult DesenEdit(Int32) on controller MyEntegrasyon.Controllers.JsonDesenController (MyEntegrasyon).
+2024-05-02 23:49:50.832 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__Id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [j].[Id], [j].[Description], [j].[FirmaId], [j].[Name], [j].[Pattern], [j].[TypeId]
+FROM [jsonDesen] AS [j]
+WHERE [j].[Id] = @__Id_0
+2024-05-02 23:49:50.832 +03:00 [INF] Executing ViewResult, running view DesenEdit.
+2024-05-02 23:49:50.840 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[Adi], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[Fotograf], [a].[IsActive], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[Mail], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[Soyadi], [a].[TC], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-05-02 23:49:50.846 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-05-02 23:49:50.848 +03:00 [INF] Executed ViewResult - view DesenEdit executed in 15.9121ms.
+2024-05-02 23:49:50.848 +03:00 [INF] Executed action MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon) in 21.5856ms
+2024-05-02 23:49:50.848 +03:00 [INF] Executed endpoint 'MyEntegrasyon.Controllers.JsonDesenController.DesenEdit (MyEntegrasyon)'
+2024-05-02 23:49:50.849 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/JsonDesen/DesenEdit/1 - 200 null text/html; charset=utf-8 26.488ms
+2024-05-02 23:49:50.878 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - null null
+2024-05-02 23:49:50.879 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7020/_vs/browserLink - null null
+2024-05-02 23:49:50.882 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.9639ms
+2024-05-02 23:49:50.905 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7020/_vs/browserLink - 200 null text/javascript; charset=UTF-8 25.361ms

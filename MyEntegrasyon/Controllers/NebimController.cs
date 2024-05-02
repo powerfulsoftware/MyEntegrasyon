@@ -855,7 +855,7 @@ namespace MyEntegrasyon.Controllers
                             if (!(_gelenVariant!.values?.Where(x => x.name == item_newAddvariants.ColorDesc).Count() > 0)) // önceden bu renk var mı ? Yoksa
                             {
                                 // yeni oluşturulacak listeye ekle
-                                _Values_Renk.Add(new VariantValue { VariantId = _gelenVariant.Id, name = item_newAddvariants.ColorDesc });
+                                _Values_Renk.Add(new VariantValue { VariantId = _gelenVariant.Id, name = item_newAddvariants.ColorDesc, ItemCode= item_product.ItemCode });
                             }
                         }
                         //else
@@ -917,7 +917,7 @@ namespace MyEntegrasyon.Controllers
                             if (!(_gelenVariantBeden!.values?.Where(x => x.name == item_newAddvariants.ItemDim1Desc).Count() > 0)) // önceden bu renk var mı ? Yoksa
                             {
                                 // yeni oluşturulacak listeye ekle
-                                _Values_Beden.Add(new VariantValue { VariantId = _gelenVariantBeden.Id, name = item_newAddvariants.ItemDim1Desc });
+                                _Values_Beden.Add(new VariantValue { VariantId = _gelenVariantBeden.Id, name = item_newAddvariants.ItemDim1Desc, ItemCode = item_product.ItemCode });
                             }
                         }
                         //else
