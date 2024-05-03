@@ -1301,7 +1301,7 @@ namespace MyEntegrasyon.Controllers
                                 {
                                     buyPrice = (float)Convert.ToDouble(item_Variant.AlisFiyati, CultureInfo.InvariantCulture),  // alış fiyatı
                                     currency = item_Variant.CurrencyCode!,  // para birimi
-                                    discountPrice = (float)Convert.ToDouble(item_Variant.Price5 - 1), // İndirimfiyat
+                                    discountPrice = null, // İndirimfiyat
                                     sellPrice = (float)Convert.ToDouble(item_Variant.Price1) // satış fiyatı
                                 });
                             }
@@ -1347,7 +1347,7 @@ namespace MyEntegrasyon.Controllers
                                 barcodeList = new string[] { item_Variant.Barcode },
                                 isActive = true,
                                 //  SKU = "",
-                                //SKU = item_product.ItemCode!,
+                                SKU = item_product.ItemCode,
                                 prices = _prices,
                                 variantValueIds = _variantValueIds,
                                 // images = _images,
