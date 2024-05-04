@@ -7,6 +7,7 @@ namespace MyEntegrasyon.Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string? Id { get; set; }
+        public string? IkasId { get; set; }
         public string? ItemCode { get; set; }
         public string? ItemName { get; set; }
         public string? ItemDesc { get; set; }

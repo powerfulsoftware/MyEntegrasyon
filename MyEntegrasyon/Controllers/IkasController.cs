@@ -7,7 +7,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.Identity.Client;
 using Microsoft.VisualBasic;
+using MyEntegrasyon.BusinessLayer.Results;
 using MyEntegrasyon.Data;
+using MyEntegrasyon.Data.Entities;
 using MyEntegrasyon.Models.Myikas;
 using MyEntegrasyon.Models.Myikas.BrandAdd;
 using MyEntegrasyon.Models.Myikas.Category;
@@ -27,6 +29,10 @@ using System.Text.Json.Nodes;
 using System.Web;
 using static System.Net.Mime.MediaTypeNames;
 using Parameter = MyEntegrasyon.Models.Nebim.Parameter;
+using Product = MyEntegrasyon.Models.Nebim.Product;
+using ProductVariant = MyEntegrasyon.Models.Nebim.ProductVariant;
+using Variant = MyEntegrasyon.Models.Myikas.Variant;
+using VariantValue = MyEntegrasyon.Models.Myikas.VariantValue;
 
 namespace MyEntegrasyon.Controllers
 {
@@ -1221,7 +1227,7 @@ namespace MyEntegrasyon.Controllers
 
                     List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
 
-                    if (item_product.Cat01Code != "0" && item_product.ItemCode== "FGCC1365") // kargo vs değilse
+                    if (item_product.Cat01Code != "0") // kargo vs değilse
                     {
                         // fiyatlar
                         List<Price> _prices = new List<Price>(); // fiyatlar
@@ -1536,7 +1542,7 @@ namespace MyEntegrasyon.Controllers
 
                         if (GelenHata != "")
                         {
-                            _logger.LogInformation(" ***************************************************** Hata Oluştu. OLUŞAN HATA : " + GelenHata);
+                            _logger.LogInformation("***************************************************** Hata Oluştu. OLUŞAN HATA : " + GelenHata);
                         }
 
 
@@ -1545,8 +1551,47 @@ namespace MyEntegrasyon.Controllers
                         // Product Id nebime gönder // product altındaki tüm datalara ekle.
                         // SKU ile Varyant Id yi Nebime gönder
 
+                        // Veri tabanda Ikas Product Id tutulacak
+                        Data.Entities.Product _product = _context.Product.Where(x => x.ItemCode == item_product.ItemCode).FirstOrDefault();
+                        _product.IkasId = saveProduct.saveProduct.id;
+
+                        BusinessLayerResult<Data.Entities.Product> res_Product = new BusinessLayerResult<Data.Entities.Product>();
+                        res_Product.Result = _product;
+
+                        _context.Product.Update(res_Product.Result);
+                        
 
 
+
+                        //
+
+                        foreach (var item in saveProduct.saveProduct.variants)
+                        {
+                           // List<Data.Entities.ProductVariant> _productVariant_list = _context.ProductVariant.Where(x => x.ProductID == _product.Id).ToList();
+                           // foreach (var item1 in _productVariant_list)
+                           // {
+                                var IkasVariantId = saveProduct.saveProduct.variants.Where(x => x.sku == item.sku).FirstOrDefault().id;
+
+                                Data.Entities.ProductVariant _ContextProductVariant = _context.ProductVariant.Where(x => x.Barcode == item.sku).FirstOrDefault();
+                                _ContextProductVariant.IkasVariantId = IkasVariantId;
+
+                                BusinessLayerResult<Data.Entities.ProductVariant> res_ProductVariant = new BusinessLayerResult<Data.Entities.ProductVariant>();
+                                res_ProductVariant.Result = _ContextProductVariant;
+
+
+                                _context.ProductVariant.Update(res_ProductVariant.Result);
+
+
+                                _context.SaveChanges();
+
+                           // }
+
+
+                        }
+                       
+
+
+                       
 
 
 

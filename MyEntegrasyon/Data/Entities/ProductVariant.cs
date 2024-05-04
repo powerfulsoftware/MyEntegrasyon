@@ -8,9 +8,9 @@ namespace MyEntegrasyon.Data.Entities
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public string? Id { get; set; }
+        public string? IkasVariantId { get; set; }
         public string? ProductID { get; set; }
         virtual public Product? Product { get; set; }
-
         public string? CurrencyCode { get; set; }
         public string? Barcode { get; set; }
         public string? GenderCode { get; set; }

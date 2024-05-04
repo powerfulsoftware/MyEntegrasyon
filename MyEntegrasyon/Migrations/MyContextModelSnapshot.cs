@@ -407,6 +407,9 @@ namespace MyEntegrasyon.Migrations
                     b.Property<string>("Cat07Desc")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("IkasId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ItemCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -480,6 +483,9 @@ namespace MyEntegrasyon.Migrations
 
                     b.Property<double>("HEPSIBURADA_LST")
                         .HasColumnType("float");
+
+                    b.Property<string>("IkasVariantId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image1")
                         .HasColumnType("nvarchar(max)");
