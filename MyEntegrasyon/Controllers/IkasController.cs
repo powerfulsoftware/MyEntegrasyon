@@ -1216,9 +1216,12 @@ namespace MyEntegrasyon.Controllers
                 {
 
 
+
+
+
                     List<MyEntegrasyon.Models.Myikas.SaveVariant.ProductStockLocationInput> _ProductStockLocation = new List<ProductStockLocationInput>();
 
-                    if (item_product.Cat01Code != "0") // kargo vs değilse
+                    if (item_product.Cat01Code != "0" && item_product.ItemCode== "FGCC1365") // kargo vs değilse
                     {
                         // fiyatlar
                         List<Price> _prices = new List<Price>(); // fiyatlar
@@ -1295,6 +1298,10 @@ namespace MyEntegrasyon.Controllers
                         foreach (var item_Variant in item_product.ProductVariants)
                         {
 
+
+                           
+
+
                             if (item_Variant.Price5 == item_Variant.Price1)
                             {
                                 _prices.Add(new Price
@@ -1344,10 +1351,13 @@ namespace MyEntegrasyon.Controllers
                             // varyantlar
                             _variants.Add(new Variant
                             {
+
+
+
                                 barcodeList = new string[] { item_Variant.Barcode },
                                 isActive = true,
                                 //  SKU = "",
-                                SKU = item_product.ItemCode,
+                                SKU = item_Variant.Barcode,
                                 prices = _prices,
                                 variantValueIds = _variantValueIds,
                                 // images = _images,
@@ -1447,14 +1457,8 @@ namespace MyEntegrasyon.Controllers
                         //    gelen_list = await client.SendQueryAsync<dynamic>(request_GetSalesChannel);
                         //    var BrandList = gelen_list.Data;
 
-
-
-
-
                         // satış Kanalları
                         _salesChannels.Add(new SalesChannel { id = "404e7a81-298a-4562-9a1c-697b939f0e20", quantitySettings = 5, status = "VISIBLE" });
-
-
 
 
                         Models.Myikas.Input input = new Models.Myikas.Input();
@@ -1490,7 +1494,7 @@ namespace MyEntegrasyon.Controllers
                         //  var inputs = new GraphQLSerializer().Deserialize<Root>(requestJson);
 
 
-                        GraphQLResponse<dynamic> gelen = new GraphQLResponse<dynamic>();
+                        GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveProduct.Root> gelen = new GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveProduct.Root>();
                         GraphQLRequest request = new GraphQLRequest();
 
                         request.Query = _context.Islem.Where(x => x.IslemAdi == "ikasSaveProduct").FirstOrDefault()!.JsonDesen!.Pattern!;   // Desen ( Pattern )
@@ -1498,7 +1502,13 @@ namespace MyEntegrasyon.Controllers
                         request.OperationName = "Mutation";
 
 
-                        gelen = await client.SendMutationAsync<dynamic>(request);
+                        gelen = await client.SendMutationAsync<MyEntegrasyon.Models.Myikas.SaveProduct.Root>(request);
+                        MyEntegrasyon.Models.Myikas.SaveProduct.Root saveProduct = gelen.Data;
+
+
+
+                        
+
 
 
                         var PiD2 = item_product.ItemCode;
@@ -1508,7 +1518,7 @@ namespace MyEntegrasyon.Controllers
 
                             if (gelen.Data == null && gelen.Errors != null)
                             {
-                                GelenHata = new GraphQLSerializer().Serialize<GraphQLResponse<dynamic>>(gelen);
+                                GelenHata = new GraphQLSerializer().Serialize<GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveProduct.Root>>(gelen);
 
                             }
                         }
@@ -1518,7 +1528,7 @@ namespace MyEntegrasyon.Controllers
                         {
                             if (gelen.Data == null && gelen.Errors != null)
                             {
-                                GelenHata = new GraphQLSerializer().Serialize<GraphQLResponse<dynamic>>(gelen);
+                                GelenHata = new GraphQLSerializer().Serialize<GraphQLResponse<MyEntegrasyon.Models.Myikas.SaveProduct.Root>>(gelen);
 
 
                             }
@@ -1528,6 +1538,16 @@ namespace MyEntegrasyon.Controllers
                         {
                             _logger.LogInformation(" ***************************************************** Hata Oluştu. OLUŞAN HATA : " + GelenHata);
                         }
+
+
+
+
+                        // Product Id nebime gönder // product altındaki tüm datalara ekle.
+                        // SKU ile Varyant Id yi Nebime gönder
+
+
+
+
 
 
 
