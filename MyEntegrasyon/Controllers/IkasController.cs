@@ -1659,61 +1659,88 @@ namespace MyEntegrasyon.Controllers
 
 
 
-            var client = new HttpClient();
-            var request = new HttpRequestMessage(HttpMethod.Post, "https://api.myikas.com/api/v1/admin/product/upload/image");
-            request.Headers.Add("Authorization", $"bearer {_access_token}");
-            var content = new StringContent("{\"productImage\":{\"variantIds\":[\"068b44fd-fd34-4625-abe6-62716758152e\"],\"url\":\"@\"C:\\Users\\CELENK\\Desktop\\AAAAA\\101A01267_030.jpg\"\",\"order\":\"0\",\"isMain\":true}}", null, "text/plain");
-            request.Content = content;
-            var response = await client.SendAsync(request);
-            response.EnsureSuccessStatusCode();
+            //var client = new HttpClient();
+            //var request = new HttpRequestMessage(HttpMethod.Post, "https://api.myikas.com/api/v1/admin/product/upload/image");
+            //request.Headers.Add("Authorization", $"bearer {_access_token}");
+            //var content = new StringContent("{\"productImage\":{\"variantIds\":[\"068b44fd-fd34-4625-abe6-62716758152e\"],\"url\":\"@\"C:\\Users\\CELENK\\Desktop\\AAAAA\\101A01267_030.jpg\"\",\"order\":\"0\",\"isMain\":true}}", null, "text/plain");
+            //request.Content = content;
+            //var response = await client.SendAsync(request);
+            //response.EnsureSuccessStatusCode();
             // Console.WriteLine(await response.Content.ReadAsStringAsync());
 
 
 
 
-            //    var s = "{
-            //        "productImage": {
-            //            "variantIds": ["61dd001b-c544-460b-87b0-2676eea39400"],
-            //"url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_dDxDMwY8KU6QA1tQ_oetjOd6Dq-Xxy2IBclyaPlN0A&s",
-            //"order": "0",
-            //"isMain": true
-            //        }
-            //    }"
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-            var urunler = await _context.Product.ToListAsync();
+            var urunler = await _context.ProductVariant.Where(x=>x.ProductID == "FSMY1525").ToListAsync();
 
             foreach (var item in urunler)
             {
+
+                string? ItemCode = item.ProductID;
+                string? IkasVariantId = item.IkasVariantId;
+                string? ColorCode = item.ColorCode;
+
+
+
+                var client = new HttpClient();
+                var request = new HttpRequestMessage(HttpMethod.Post, "https://api.myikas.com/api/v1/admin/product/upload/image");
+                request.Headers.Add("Authorization", $"bearer {_access_token}");
+                var content = new StringContent("{\"productImage\":{\"variantIds\":[\"550574a7-b862-4c12-a951-fa507d8ef616\"],\"url\":\"@\"C:\\Users\\CELENK\\Desktop\\AAAAA\\101A01267_030.jpg\"\",\"order\":\"0\",\"isMain\":true}}", null, "text/plain");
+                request.Content = content;
+                var response = await client.SendAsync(request);
+                response.EnsureSuccessStatusCode();
+                Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+
+
+
+                //string[] deneme;
+                //List<string> list = new List<string>();
+
+                bool YolVarmi1 = Directory.Exists(@"D:\Bünyamin\NebimV3Resimler_2\" + ItemCode);
+                bool YolVarmi2 = Directory.Exists(@"D:\Bünyamin\NebimV3Resimler_2\" + ItemCode + "\\ColorPhotos\\" + ColorCode);
+
+                if(YolVarmi1 == true)
+                {
+                    if (YolVarmi2 == true)
+                    {
+                        foreach (string images in Directory.GetFiles(@"D:\Bünyamin\NebimV3Resimler_2\" + ItemCode + "\\ColorPhotos\\" + ColorCode + "\\", "*.*", SearchOption.AllDirectories))
+                        {
+                            //var client = new HttpClient();
+                            //var request = new HttpRequestMessage(HttpMethod.Post, "https://api.myikas.com/api/v1/admin/product/upload/image");
+                            //request.Headers.Add("Authorization", $"bearer {_access_token}");
+                            ////var content = new StringContent("{\"productImage\":{\"variantIds\":["+ IkasVariantId + "],\"url\":\"    "+images+"       \",\"order\":\"0\",\"isMain\":true}}", null, "text/plain");
+                            //var content = new StringContent("{\"productImage\":{\"variantIds\":[\"56a8e202-795e-4267-a537-55672e3d271d\"],\"url\":\"@\"D:\\Bünyamin\\NebimV3Resimler_2\\101A01267\\ColorPhotos\\030\\1.jpg\"\",\"order\":\"0\",\"isMain\":true}}", null, "text/plain");
+                            //request.Content = content;
+                            //var response = await client.SendAsync(request);
+                            //response.EnsureSuccessStatusCode();
+                            //await response.Content.ReadAsStringAsync();
+                        }
+                    }
+                }
+
+
+               
+                //deneme = list.ToArray();
+
+
                 //string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ProductPhotos", item.ItemCode+".jpg");
 
                 //// @"C:\Users\MUSTAFA\Desktop\AAAAA\101A01267_030.jpg"
 
-                foreach (var item_productVariant in item.ProductVariants)
-                {
-                    // string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ProductPhotos", item.ItemCode + ".jpg");
 
-                    // @"C:\Users\MUSTAFA\Desktop\AAAAA\101A01267_030.jpg"
+                // string SavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\ProductPhotos", item.ItemCode + ".jpg");
 
-                    //WebClient client = new WebClient();
-                    //client.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
-                    //client.OpenRead("ftp://95.70.226.23/101A01267/ColorPhotos/", "*.*", SearchOption.AllDirectories);
-                    //client.DownloadFile("ftp://95.70.226.23/101A01267/ColorPhotos/", "*.*", SearchOption.AllDirectories, SavePath);
-                    //client.Dispose();
-                }
+                // @"C:\Users\MUSTAFA\Desktop\AAAAA\101A01267_030.jpg"
+
+                //WebClient client = new WebClient();
+                //client.Credentials = new NetworkCredential("foravegaftp", "Kida_159753");
+                //client.OpenRead("ftp://95.70.226.23/101A01267/ColorPhotos/", "*.*", SearchOption.AllDirectories);
+                //client.DownloadFile("ftp://95.70.226.23/101A01267/ColorPhotos/", "*.*", SearchOption.AllDirectories, SavePath);
+                //client.Dispose();
+
 
             }
 
